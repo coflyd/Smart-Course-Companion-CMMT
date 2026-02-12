@@ -50,7 +50,7 @@ extensions.)
 
 Technical/Implementation Notes
    1. Authentication is required for all users
-  2. Backend must be implemented using Node.js
+   2.  Backend must be implemented using Node.js
    3. Data must be persisted
    4. Students may only access their own data
    5. All calculations must be performed on the server side
@@ -61,7 +61,7 @@ Technical/Implementation Notes
   
        
 Bonus (with deliverable 2)
- GPA estimation across all courses.
- Export grades to PDF or CSV.
- Deadline reminders via email.
- Dark/light mode support.
+1. GPA estimation across all courses.
+2. Export grades to PDF or CSV.
+3. Deadline reminders via email.
+4. Dark/light mode support.

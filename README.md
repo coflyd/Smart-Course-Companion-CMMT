@@ -48,7 +48,7 @@ extensions.)
 6. Enable or disable courses.
 
 
-3. Technical/Implementation Notes
+Technical/Implementation Notes
    1. Authentication is required for all users
   2. Backend must be implemented using Node.js
    3. Data must be persisted
@@ -60,7 +60,7 @@ extensions.)
    9. You can use any library/framework you want.
   
        
-4. Bonus (with deliverable 2)
+Bonus (with deliverable 2)
  GPA estimation across all courses.
  Export grades to PDF or CSV.
  Deadline reminders via email.

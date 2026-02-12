@@ -23,3 +23,45 @@ This project involves designing and developing a web-based Smart Course Companio
 The system should also provide instructors/administrators with basic tools to manage course structures and assessments.
 
 **Core Challenge**: Bridge the gap between generic LMS functionality and personalized student academic planning needs.
+
+
+**REQUIRED FEATURES**
+
+//StudentHomePage
+1. Create and manage a personal account
+2. Add courses they are enrolled in (course code, name, instructor, term)
+3. View assessments for each course (assignments, labs, quizzes, exams…)
+4. Enter earned marks and total marks for assessments 
+5. Automatically calculate and display current course averages
+6. View upcoming assessments across all courses in a single dashboard
+7. Mark assessments as completed or pending
+8. Edit or delete their own courses and assessments
+9. View visual summaries such as progress bars or charts (e.g., per-course progress bars, current average per course, or a chart showing performance trends or assessment completion)
+
+//InstructorAdminHomePage
+1. Create and manage courses
+2. Define assessment categories and their weightings for each course
+3. Provide reusable course structures for students
+4. View anonymized usage statistics. (e.g., percentage of students who have completed
+5. assessments, which could be useful for monitoring progress and considering deadline
+extensions.)
+6. Enable or disable courses.
+
+
+3. Technical/Implementation Notes
+   1. Authentication is required for all users
+  2. Backend must be implemented using Node.js
+   3. Data must be persisted
+   4. Students may only access their own data
+   5. All calculations must be performed on the server side
+   6. Input validation is required
+   7. The system must be web-based and responsive
+   8. Clear project structure and modular design are expected
+   9. You can use any library/framework you want.
+  
+       
+4. Bonus (with deliverable 2)
+ GPA estimation across all courses.
+ Export grades to PDF or CSV.
+ Deadline reminders via email.
+ Dark/light mode support.

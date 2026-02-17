@@ -1,0 +1,261 @@
+^X
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> THE SMART COURSE COMPANION </title>
+</head>
+<body>
+<header>
+  <h1>
+    THE SMART COURSE COMPANION
+  </h1>
+<<<<<<< HEAD
+
+    <button> Sign Out
+
+        </button>
+  <strong> Masila Baduza
+      </strong>
+    <small> Student </small>
+
+
+  <nav>
+<ul>
+  <li><a href="student-ui.html"> MY COURSES </a></li>
+  <li><a href="upcoming-assignment.html"> UPCOMING ASSIGNMENTS </a></li>
+    <li><a href=""> ANALYTICS </a></li>
+=======
+  <nav>
+<ul>
+  <li><a href="student-ui.html">HOME</a></li>
+  <li><a href="courses-list.html"> COURSES </a></li>
+>>>>>>> fbf5c9b98578fbaf5b139d8de2491f1d68d69dad
+</ul>
+</nav>
+  </header>
+
+   <div>
+  <h3> COURSES </h3>
+<<<<<<< HEAD
+
+<button> + Add Course </button>
+       <section>
+<h4> COMP 249 </h4>
+ <p>Object-Oriented Programming </p>
+
+<table>
+    <tr>
+<td>
+Instructor :
+</td>
+        <td>
+           <strong> Dr Houari  </strong>
+        </td>
+
+
+    </tr>
+
+    <tr>
+        <td>
+Term  :       </td>
+        <td>
+           <strong>  Winter 2026 </strong>
+        </td>
+    </tr>
+
+
+
+
+</table>
+
+       </section>
+
+       <section>
+           <h4> COMP 233 </h4>
+           <p> Probability & Statistics </p>
+<table>
+           <td>
+               Instructor :
+           </td>
+           <td>
+               <strong> Professor Fevens  </strong>
+
+           </td>
+
+           </tr>
+
+           <tr>
+               <td>
+                   Term  :       </td>
+
+               <td>
+                   <strong>  Winter 2026 </strong>
+               </td>
+
+               </table>
+       </section>
+
+
+       <section>
+          <h4> SOEN 228 </h4>
+<p> System Hardware </p>
+
+           <table>
+               <tr>
+               <td>
+                   Instructor :
+               </td>
+               <td>
+                   <strong> Dr Eavis  </strong>
+               </td>
+
+               </tr>
+
+               <tr>
+                   <td>
+                       Term  :       </td>
+
+                   <td>
+                       <strong>  Winter 2026 </strong>
+                   </td>
+
+           </table>
+       </section>
+
+       <section>
+
+          <h4> SOEN 287 </h4>
+           <p>Web Programming </p>
+
+
+           <table>
+               <tr>
+               <td>
+                   Instructor :
+               </td>
+               <td>
+                   <strong> Dr Robert  </strong>
+               </td>
+
+               </tr>
+
+               <tr>
+                   <td>
+                       Term  :       </td>
+
+                   <td>
+                       <strong>  Winter 2026 </strong>
+                   </td>
+
+           </table>
+
+       </section>
+
+
+
+
+
+
+<div>
+=======
+<table>
+  <tr>
+    <td> COMP 249 </td>
+    <td> COMP 233 </td>
+
+    <td> SOEN 228</td>
+    <td> SOEN 287</td>
+
+    <td> + </td>
+  </tr>
+</table>
+
+
+</div>
+
+<div>
+   <h3> UPCOMING ASSIGNMENTS  </h3>
+  <table border = 1>
+<tr>
+  <th>
+    Class
+  </th>
+
+  <th>
+    Assignment Title
+  </th>
+
+
+  <th>
+Due on :
+  </th>
+
+  <th>
+Status
+  </th>
+</tr>
+
+    <tr>
+      <td data-cell="class1"> COMP 249 </td>
+      <td data-cell="title"> Assignment 2 </td>
+      <td data-cell="due date"> March 7 </td>
+      <td data-cell="status">
+      <select>
+          <option value="1">  NOT STARTED </option>
+          <option value="2">  ON GOING </option>
+          <option value="3">  COMPLETED! </option>         </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td data-cell="class2"> COMP 233 </td>
+      <td data-cell="title"> Assignment 3 </td>
+      <td data-cell="due date"> March 13 </td>
+      <td data-cell="status">
+        <select>
+          <option value="1">  NOT STARTED </option>
+          <option value="2">  ON GOING </option>
+          <option value="3">  COMPLETED! </option>         </select>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td data-cell="class3"> SOEN 228 </td>
+      <td data-cell="title"> Lab Report 3 </td>
+      <td data-cell="due date"> March 10 </td>
+      <td data-cell="status">
+        <select>
+          <option value="1">  NOT STARTED </option>
+          <option value="2">  ON GOING </option>
+          <option value="3">  COMPLETED! </option>         </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td data-cell="class1"> SOEN 287 </td>
+      <td data-cell="title"> Assignment 3 </td>
+      <td data-cell="due date"> March 27 </td>
+      <td data-cell="status">
+
+        <select>
+          <option value="1">  NOT STARTED </option>
+          <option value="2">  ON GOING </option>
+          <option value="3">  COMPLETED! </option>         </select>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+
+
+
+
+>>>>>>> fbf5c9b98578fbaf5b139d8de2491f1d68d69dad
+
+
+
+</body>
+</html>

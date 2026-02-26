@@ -4,13 +4,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>THE SMART COURSE COMPANION</title>
+    <link rel="stylesheet" href="upcoming-assignment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-<div>
     <h3> UPCOMING ASSIGNMENTS  </h3>
-    <table border = 1>
+
+
+    <button popovertarget="add-course-popup"> + Add Assignment  </button>
+<br>
+
+<section id = "add-course-popup" popover>
+    <form>
+    <label for="class">Class</label>
+    <input type="text" id="class" name="class" >
+
+    <label for="title">Assignment Title</label>
+    <input type="text" id="title" name="title">
+
+    <label for="duedate">Due Date</label>
+    <input type="date" id="duedate" name="duedate">
+
+    <label for="status">Status</label>
+    <select id="status" name="status">
+        <option value="1">NOT STARTED</option>
+        <option value="2">ON GOING</option>
+        <option value="3">COMPLETED!</option>
+    </select>
+
+    <button class = "bform"  type="submit">Add Assignment</button>
+    </form>
+
+</section>
+    <div style="overflow-x:auto;">
+
+    <table>
+        <thead>
         <tr>
+
+
             <th>
                 Class
             </th>
@@ -27,12 +63,13 @@
             <th>
                 Status
             </th>
-        </tr>
 
+        </tr>
+        </thead>
+<tbody>
         <tr>
-            <td data-cell="class1"> COMP 249 </td>
-            <td data-cell="title"> Assignment 2 </td>
-            <td data-cell="due date"> March 7 </td> <!-- change it to an calendar-->
+            <td data-cell="class1"> <span class="badge">COMP 249</span> </td>            <td data-cell="title"> Assignment 2 </td>
+            <td data-cell="due date"> <input type="date" value="2025-03-07"> </td> <!-- change it to a calendar-->
             <td data-cell="status">
                 <select>
                     <option value="1">  NOT STARTED </option>
@@ -42,9 +79,9 @@
         </tr>
 
         <tr>
-            <td data-cell="class2"> COMP 233 </td>
-            <td data-cell="title"> Assignment 3 </td>
-            <td data-cell="due date"> March 13 </td>
+            <td data-cell="class2"> <span class="badge">COMP 233</span> </td>            <td data-cell="title"> Assignment 3 </td>
+
+            <td data-cell="due date"> <input type="date" value="2025-03-10"> </td>
             <td data-cell="status">
                 <select>
                     <option value="1">  NOT STARTED </option>
@@ -55,9 +92,8 @@
 
 
         <tr>
-            <td data-cell="class3"> SOEN 228 </td>
-            <td data-cell="title"> Lab Report 3 </td>
-            <td data-cell="due date"> March 10 </td>
+            <td data-cell="class3"> <span class="badge"> SOEN 228</span> </td>            <td data-cell="title"> Lab Report 3 </td>
+            <td data-cell="due date"> <input type="date" value="2025-03-18"> </td>
             <td data-cell="status">
                 <select>
                     <option value="1">  NOT STARTED </option>
@@ -67,9 +103,8 @@
         </tr>
 
         <tr>
-            <td data-cell="class1"> SOEN 287 </td>
-            <td data-cell="title"> Assignment 3 </td>
-            <td data-cell="due date"> March 27 </td>
+            <td data-cell="class4"> <span class="badge"> SOEN 287</span> </td>            <td data-cell="title"> Assignment 3 </td>
+            <td data-cell="due date"> <input type="date" value="2025-03-27"> </td>
             <td data-cell="status">
 
                 <select>
@@ -78,8 +113,9 @@
                     <option value="3">  COMPLETED! </option>         </select>
             </td>
         </tr>
-
+</tbody>
     </table>
-</div>
+
+        </div>
 </body>
 </html>

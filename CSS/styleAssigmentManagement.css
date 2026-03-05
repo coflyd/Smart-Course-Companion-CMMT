@@ -17,28 +17,52 @@ body {
 .header {
     background-color: white;
     border-bottom: 5px solid #ddd;
+  justify-content: space-between;
+  display: flex; 
+  align-items: center;
 }
 
 .left-section{
-align-items: center;
-float: left;
+      display: flex;
+    align-items: center;
+    gap: 0px;
 }
 
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  width: 40 px; 
+  Height: auto; 
+}
+
+
 .Instructor-dashboard{
-margin-left: 60px;
-margin-top: -35px;
+  display: block;
+margin-left: 0px;
+margin-top: 0px;
 line-height: 0px;
 }
 
 .right-section {
-align-items: right;
-float: right;
-margin-top: -50px;
-margin-right: 10px;
+  Display: flex;
+align-items: center;
+gap: 15px;
 }
 
 .sign-out{
-  cursor: pointer;
+  display: block;
+    margin-left: auto;
+    align-content: center;
+    background-color: #e30101;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 
@@ -72,7 +96,7 @@ margin-right: 10px;
 .Course-tabs{
   background-color: #EBEBF0;
   border-radius: 0px;
-  width: 30%;
+  width: 100%;
   border-radius: 40px
 }
 
@@ -128,6 +152,7 @@ margin-right: 10px;
     background-color: white;
     font-weight: bold;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 16px;
 }
 
 /* ---------- Assignment Table ----------  */

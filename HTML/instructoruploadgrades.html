@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- SMART STUDENT COMPANION - instructoruploadgrades.html
+ Description: Instructor Interface- Adding and Removing Assignments
+ By Thushika Thavarajah (27516126) -->
+
+<html>
+<head>
+    <title>Instructor Dashboard Smart</title>
+    <link rel="stylesheet" href="styleuploadgrade.css">
+</head>
+<body>
+
+    <!----- Header ----->
+    <header class="header">
+        <div class="left-section">    
+            <div><img src="data/image_1.png" class="logo" width="50"></div>
+      <div class="Instructor-dashboard"><h2> Smart Course Companion</h2>
+        <h6>Instructor Dashboard</h6></div>
+        </div>
+        <div class="right-section">
+             <div class="user">Dr. Roberts</div>
+             <button class="sign-out">Sign Out</button>
+        </div>
+    </div>
+    </header>
+
+    <!----- Per class Container ----->
+    <div class="container">
+        
+        <!--Hard Coded element -->
+        <h1>CS 101</h1>
+        <p class="course-Name">Introduction to Computer Science
+        <br>Spring 2026
+        </p>
+
+        <!--Navigation Tabs -->
+        <div class="Course-tabs">
+            <button class="tab">Overview</button>
+            <button class="tab-active">Assignments</button>
+            <button class="tab">Student Progress</button>
+            <button class="tab">Course Settings</button>
+        </div>
+
+        <!-- Assignment Section -->
+        <div class="assignment-box">
+
+            <div class="assignment-header">
+                <h3>Assignment Management</h3>
+             <div class="total-weight"> 100%
+             </div>
+               
+              <input type="text" id="title" placeholder="Assignment Title">
+            <input type="date" id="dueDate">
+            <input type="number" id="weight" placeholder="Weight (%)">
+            <input type="number" id="points" placeholder="Total Points">
+           
+            <button id="addAssignmentBtn">Add</button>
+         
+          </div>
+            <!-- Secondary Tabs -->
+            <div class="sub-tabs">
+                <button class="sub-tab">Assignments</button>
+                <button class="sub-tabactive">Upload Grades</button>
+            </div>
+          <br>
+
+      <!-- Upload Grade -->    
+      <div class="Upload Sections">
+  <div class="Upload-Container">
+    <h3>Upload Files</h3>
+    <div class="drop-Upload">
+      <header>
+        <div class ="uploadiconimg"><img src="https://static.vecteezy.com/system/resources/previews/000/421/494/original/upload-icon-vector-illustration.jpg" class="uploadicon" width="50"></div>
+        <h4>Upload a CSV file with Student ID and Grades</h4>
+      </header>
+      <input type="file" hidden accept=".csv" id="fileID">
+      <button class="btn">Choose File</button>
+     <br>
+    <input type= "submit">
+    </div>
+
+    <div class="Upload-Template-Example">
+      <h5>CSV Format Example:</h5>
+        <div class="Upload-Template-Example-container">
+          StudentID, AssignmentName, Grade
+          <div class="Upload-Template-Example-container-Example">
+            123456789, Midterm #1 ,92
+            </br>123456790, Midterm #1 ,88
+          </br>123456791, Midterm #1 ,97
+          </div>
+        </div>
+    
+    
+  </div>
+</div>    
+       
+      
+      
+      </div>
+    </div>
+
+<script src="scriptAddAssignment_inst.js"></script>
+</body>
+</html>

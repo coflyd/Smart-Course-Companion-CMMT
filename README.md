@@ -1,6 +1,6 @@
 # Smart-Course-Companion-CMMT
 
-**DEADLINE** : February 27
+**Web site** : https://smart-course-companion-cmmt.vercel.app/HTML/registerLogin.html
 
 Prototype: 
 https://docs.google.com/presentation/d/1831EBKL1sH7Lxst371tOx3bPFt3l9v5ap3rTSeYvCLo/mobilepresent?slide=id.p34

@@ -6,14 +6,14 @@
 <html>
 <head>
     <title>Instructor Dashboard Smart</title>
-    <link rel="stylesheet" href="styleuploadgrade.css">
+    <link rel="stylesheet" href="../CSS/styleuploadgrade.css">
 </head>
 <body>
 
     <!----- Header ----->
     <header class="header">
         <div class="left-section">    
-            <div><img src="data/image_1.png" class="logo" width="50"></div>
+            <div><img src="../data/image_1.png" class="logo" width="50"></div>
       <div class="Instructor-dashboard"><h2> Smart Course Companion</h2>
         <h6>Instructor Dashboard</h6></div>
         </div>
@@ -35,10 +35,10 @@
 
         <!--Navigation Tabs -->
         <div class="Course-tabs">
-            <button class="tab">Overview</button>
+            <button class="tab" onclick="location.href='../HTML/CourseOverview-templateA.html'">Overview</button>
             <button class="tab-active">Assignments</button>
-            <button class="tab">Student Progress</button>
-            <button class="tab">Course Settings</button>
+            <button class="tab" onclick="location.href='../HTML/CourseOverview-templateA.html'">Student Progress</button>
+            <button class="tab" onclick="location.href='../HTML/courseSettings.html'">Course Settings</button>
         </div>
 
         <!-- Assignment Section -->
@@ -59,46 +59,37 @@
           </div>
             <!-- Secondary Tabs -->
             <div class="sub-tabs">
-                <button class="sub-tab">Assignments</button>
+                <button class="sub-tab" onclick="location.href='../HTML/instructorAssignments.html'">Assignments</button>
                 <button class="sub-tabactive">Upload Grades</button>
             </div>
-          <br>
-
-      <!-- Upload Grade -->    
-      <div class="Upload Sections">
-  <div class="Upload-Container">
-    <h3>Upload Files</h3>
-    <div class="drop-Upload">
-      <header>
-        <div class ="uploadiconimg"><img src="https://static.vecteezy.com/system/resources/previews/000/421/494/original/upload-icon-vector-illustration.jpg" class="uploadicon" width="50"></div>
-        <h4>Upload a CSV file with Student ID and Grades</h4>
-      </header>
-      <input type="file" hidden accept=".csv" id="fileID">
-      <button class="btn">Choose File</button>
-     <br>
-    <input type= "submit">
-    </div>
-
-    <div class="Upload-Template-Example">
-      <h5>CSV Format Example:</h5>
-        <div class="Upload-Template-Example-container">
-          StudentID, AssignmentName, Grade
-          <div class="Upload-Template-Example-container-Example">
-            123456789, Midterm #1 ,92
-            </br>123456790, Midterm #1 ,88
-          </br>123456791, Midterm #1 ,97
-          </div>
+            <br>
+            <div class="Upload-Container">
+                <h3>Upload Files</h3>
+                <div class="drop-Upload">
+                    <div class="uploadiconimg">
+                        <img src="https://static.vecteezy.com/system/resources/previews/000/421/494/original/upload-icon-vector-illustration.jpg" width="50">
+                    </div>
+                    <h4>Upload a CSV file with Student ID and Grades</h4>
+                    <input type="file" hidden accept=".csv" id="fileID">
+                    <button class="btn" onclick="document.getElementById('fileID').click()">Choose File</button>
+                    <br>
+                    <input type="submit">
+                </div>
+                <div class="Upload-Template-Example">
+                    <h5>CSV Format Example:</h5>
+                    <div class="Upload-Template-Example-container">
+                        StudentID, AssignmentName, Grade
+                        <div class="Upload-Template-Example-container-Example">
+                            123456789, Midterm #1, 92<br>
+                            123456790, Midterm #1, 88<br>
+                            123456791, Midterm #1, 97
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-    
-  </div>
-</div>    
-       
-      
-      
-      </div>
     </div>
-
-<script src="scriptAddAssignment_inst.js"></script>
+ <script src="../JavaScript/scriptAddAssignment_inst.js"></script>
 </body>
+
 </html>

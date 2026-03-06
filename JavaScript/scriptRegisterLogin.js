@@ -53,3 +53,15 @@ function switchToggle(role) {
       toggles[1].classList.add('active');
     }
   }
+
+
+function handleSubmit() {
+    const activeToggle = document.querySelector('.toggle.active');
+    const role = activeToggle ? activeToggle.textContent.trim() : 'Student';
+    if (role === 'Instructor') {
+        window.location.href = '../HTML/instructorAssignments.html';
+    } else {
+        window.location.href = '../HTML/student-ui.html';
+    }
+}
+

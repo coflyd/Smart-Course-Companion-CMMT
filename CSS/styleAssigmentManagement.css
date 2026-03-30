@@ -1,0 +1,276 @@
+/*  ---------------------------------------------
+SMART COURSE COMPANION — styleAssigmentManagement.css
+Description: Style elements corresponding to instructorDashboardAssignments.html
+By Thushika Thavarajah (27516126)
+-------------------------------------------------- */
+
+/* ----------  Instructor Nav ---------- */
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+}
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    float: none;
+}
+.Instructor-dashboard {
+    margin-left: 0;
+    margin-top: 0;
+    line-height: 1.4;
+    font-weight: 700;
+    font-size: 15px;
+}
+.inst-label {
+    display: block;
+    font-size: 11px;
+    color: slategrey;
+    font-weight: 400;
+}
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    float: none;
+    margin: 0;
+}
+.inst-nav {
+    display: flex;
+    gap: 4px;
+    padding: 6px 24px;
+    border-top: 1px solid #f3f4f6;
+    background-color: #ffffff;
+}
+.inst-nav-link {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px 6px 0 0;
+}
+.inst-nav-link.active {
+    color: #4a7df3;
+    background-color: #dbeafe;
+}
+
+/* ----------  Page Base ---------- */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f5;
+    margin: 0;
+}
+
+/* ---------- Top Header ----------  */
+
+.header {
+    background-color: white;
+    border-bottom: 5px solid #ddd;
+  justify-content: space-between;
+  display: flex; 
+  align-items: center;
+}
+
+.left-section{
+      display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  width: 40px; 
+  height: auto; 
+}
+
+
+.Instructor-dashboard{
+  display: block;
+margin-left: 0px;
+margin-top: 0px;
+line-height: 0px;
+}
+
+.right-section {
+  display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.sign-out{
+  display: block;
+    margin-left: auto;
+    align-content: center;
+    background-color: #e30101;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* ---------- Assignment Management container----------  */
+
+.container {
+    background-color: #f4fafa;
+    margin: 30px auto;
+    width: 85%;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.total-weight{
+    color: green;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* course-Name */
+.course-Name {
+    color: gray;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+
+/* ---------- Tabs  ----------  */
+.Course-tabs{
+  background-color: #EBEBF0;
+  width: 100%;
+  border-radius: 40px;
+}
+
+.assignment-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 0px;
+}
+
+.tabs {
+  display: inline-flex;
+    background-color: #D3D3D3;  
+    padding: 4px;
+    border-radius: 20px;
+    gap: 4px;
+}
+
+.tab {
+    padding: 6px 14px;
+    border: none;
+    background-color: transparent;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tab-active {
+   background-color: white;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1)
+}
+
+
+.sub-tabs{
+  display: inline-flex;
+    background-color: #e5e7eb;
+    padding: 4px;
+    border-radius: 20px;
+    margin: 15px 0;
+    gap: 4px;
+}
+
+.sub-tab {
+    padding: 5px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.sub-tabactive{
+    background-color: white;
+    font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 16px;
+}
+
+/* ---------- Assignment Table ----------  */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.assignmentTable {
+padding-left: 60px;
+}
+
+th {
+    background-color: #f2f4f7;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+/* --------- Assignment Management Inputs ---------- */
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    width: 20%;
+    padding: 6px;
+    border: 2px solid #ccc;
+    border-radius: 60px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4a7df3;
+}
+
+/* ----------  Buttons----------  */
+
+button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Add button */
+#addAssignmentBtn {
+    background-color: #4a7df3;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Delete button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b52a37;
+}
+
+/* ---------- Total Weight Display ----------  */
+
+#totalWeight {
+    font-weight: bold;
+}

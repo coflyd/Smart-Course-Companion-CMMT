@@ -349,8 +349,8 @@
 }
 
 .vis-icone {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   flex-shrink: 0;
 }

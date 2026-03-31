@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   INSTRUCTOR — instructor-course.html
-  Vue d'un cours avec 4 onglets :
+  Page d'un cours avec 4 onglets :
   Overview | Assignments | Student Progress | Course Settings
 -->
 <html lang="en">
@@ -27,6 +27,7 @@
         </div>
       </div>
       <div class="header-user">
+        <span class="user-avatar">DR</span>
         <div class="header-user-info">
           <strong>Dr. Roberts</strong>
           <small>Instructor</small>
@@ -34,26 +35,19 @@
         <button class="btn-signout" onclick="signOut()">Sign Out</button>
       </div>
     </div>
-    <nav class="header-nav nav-instructor">
-      <a href="instructor-dashboard.html">DASHBOARD</a>
-    </nav>
   </header>
 
   <!-- ══════════════════════════════
        SOUS-HEADER DU COURS
        ══════════════════════════════ -->
   <div class="cours-header">
-    <a href="instructor-dashboard.html" class="lien-retour">← Back to Dashboard</a>
-    <h2>CS 101</h2>
-    <p>Introduction to Computer Science</p>
-    <p>Spring 2026</p>
-  </div>
+    <div class="page-contenu" style="padding-top: 14px; padding-bottom: 0;">
+      <a href="instructor-dashboard.html" class="lien-retour">← Back to Dashboard</a>
+      <h2>CS 101</h2>
+      <p>Introduction to Computer Science</p>
+      <p>Spring 2026</p>
 
-  <!-- ══════════════════════════════
-       BARRE D'ONGLETS
-       ══════════════════════════════ -->
-  <div class="onglets-barre">
-    <div class="page-contenu" style="padding-top: 0; padding-bottom: 0;">
+      <!-- Onglets -->
       <div class="onglets-liste">
         <button class="onglet-btn actif" onclick="switchOnglet('overview', this)">Overview</button>
         <button class="onglet-btn" onclick="switchOnglet('assignments', this)">Assignments</button>
@@ -68,291 +62,473 @@
        ══════════════════════════════ -->
   <main class="page-contenu">
 
-    <!-- ── ONGLET 1 : Overview ── -->
+    <!-- ─────────────────────────────
+         ONGLET 1 : Overview
+         ───────────────────────────── -->
     <section id="tab-overview" class="tab-contenu actif">
 
+      <!-- 3 stats -->
       <div class="stats-grille">
         <div class="stat-carte">
-          <small>Students Enrolled</small>
-          <strong>13</strong>
-          <span>Active this semester</span>
+          <small>Students On Track</small>
+          <strong>10 / 13</strong>
+          <span>77% completion rate (68%)</span>
         </div>
         <div class="stat-carte">
-          <small>Overall Class Average</small>
-          <strong>84%</strong>
+          <small>Enrolled Students</small>
+          <strong>13</strong>
+          <span>Active in course</span>
+        </div>
+        <div class="stat-carte">
+          <small>Avg Completion</small>
+          <strong>87%</strong>
+          <span>Based on student progress</span>
         </div>
       </div>
 
+      <!-- Completion by assignment -->
       <div class="section-carte">
         <h3 class="section-titre">Completion Breakdown by Assignment</h3>
 
         <div class="barre-ligne">
           <div class="barre-label">
             <span>Midterm Exam</span>
-            <span class="barre-count">13 / 13 students (100%)</span>
+            <span class="barre-count">13/13 students (100%)</span>
           </div>
-          <div class="barre-track"><div class="barre-fill" style="width: 100%; background-color: var(--vert);"></div></div>
+          <div class="barre-track">
+            <div class="barre-fill vert" style="width: 100%;"></div>
+          </div>
         </div>
 
         <div class="barre-ligne">
           <div class="barre-label">
             <span>Final Project</span>
-            <span class="barre-count">8 / 13 students (62%)</span>
+            <span class="barre-count">8/13 students (62%)</span>
           </div>
-          <div class="barre-track"><div class="barre-fill" style="width: 62%;"></div></div>
+          <div class="barre-track">
+            <div class="barre-fill" style="width: 62%;"></div>
+          </div>
         </div>
 
         <div class="barre-ligne">
           <div class="barre-label">
             <span>Lab Assignments</span>
-            <span class="barre-count">13 / 13 students (100%)</span>
+            <span class="barre-count">13/13 students (100%)</span>
           </div>
-          <div class="barre-track"><div class="barre-fill" style="width: 100%; background-color: var(--vert);"></div></div>
+          <div class="barre-track">
+            <div class="barre-fill vert" style="width: 100%;"></div>
+          </div>
         </div>
 
         <div class="barre-ligne">
           <div class="barre-label">
             <span>Homework 1–5</span>
-            <span class="barre-count">11 / 13 students (85%)</span>
+            <span class="barre-count">11/13 students (85%)</span>
           </div>
-          <div class="barre-track"><div class="barre-fill" style="width: 85%;"></div></div>
+          <div class="barre-track">
+            <div class="barre-fill" style="width: 85%;"></div>
+          </div>
         </div>
 
         <div class="barre-ligne">
           <div class="barre-label">
             <span>Quiz 1–3</span>
-            <span class="barre-count">12 / 13 students (92%)</span>
+            <span class="barre-count">12/13 students (92%)</span>
           </div>
-          <div class="barre-track"><div class="barre-fill" style="width: 92%;"></div></div>
+          <div class="barre-track">
+            <div class="barre-fill" style="width: 92%;"></div>
+          </div>
+        </div>
+
+        <div class="barre-ligne">
+          <div class="barre-label">
+            <span>Participation</span>
+            <span class="barre-count">10/13 students (77%)</span>
+          </div>
+          <div class="barre-track">
+            <div class="barre-fill" style="width: 77%;"></div>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ── ONGLET 2 : Assignments ── -->
+    <!-- ─────────────────────────────
+         ONGLET 2 : Assignments
+         ───────────────────────────── -->
     <section id="tab-assignments" class="tab-contenu">
 
-      <!-- Formulaire d'ajout (inline, simple) -->
-      <div class="ajout-barre">
-        <input type="text"   id="a-titre"  placeholder="Assignment Title">
-        <input type="date"   id="a-date">
-        <input type="number" id="a-poids"  placeholder="Weight (%)">
-        <input type="number" id="a-points" placeholder="Total Points">
-        <button class="btn-instructor" onclick="ajouterAssignment()">+ Add</button>
+      <!-- Sous-onglets : Assignments | Upload Grades -->
+      <div class="sous-onglets">
+        <button class="sous-onglet-btn actif" onclick="switchSousOnglet('liste', this)">Assignments</button>
+        <button class="sous-onglet-btn" onclick="switchSousOnglet('upload', this)">Upload Grades</button>
       </div>
 
-      <div class="tableau-wrapper">
-        <table class="tableau">
-          <thead>
-            <tr>
-              <th>Assignment</th>
-              <th>Due Date</th>
-              <th>Weight</th>
-              <th>Points</th>
-              <th>Submissions</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="tableau-assignments">
-            <tr>
-              <td>Midterm Exam</td>
-              <td>Feb 15, 2026</td>
-              <td>30%</td>
-              <td>100</td>
-              <td>13 / 13</td>
-              <td><button class="btn-danger btn-sm" onclick="supprimerLigne(this)">Delete</button></td>
-            </tr>
-            <tr>
-              <td>Final Project</td>
-              <td>Apr 20, 2026</td>
-              <td>40%</td>
-              <td>100</td>
-              <td>8 / 13</td>
-              <td><button class="btn-danger btn-sm" onclick="supprimerLigne(this)">Delete</button></td>
-            </tr>
-            <tr>
-              <td>Lab Assignments</td>
-              <td>Ongoing</td>
-              <td>20%</td>
-              <td>50</td>
-              <td>13 / 13</td>
-              <td><button class="btn-danger btn-sm" onclick="supprimerLigne(this)">Delete</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <!-- ── Sous-panel : liste des assignments ── -->
+      <div id="sous-liste" class="sous-tab actif">
 
-      <!-- Sous-onglet Upload Grades -->
-      <div class="upload-section">
-        <h3 class="section-titre" style="margin-bottom: 16px;">Upload Grades</h3>
-        <div class="drop-zone">
-          <p>📄 Upload a CSV file with Student ID and Grades</p>
-          <input type="file" id="fichier-csv" accept=".csv" hidden>
-          <button class="btn-secondaire" onclick="document.getElementById('fichier-csv').click()">Choose File</button>
+        <div class="assignment-entete">
+          <div>
+            <h3 class="section-titre" style="margin-bottom: 4px;">Assignment Management</h3>
+            <p style="font-size: 13px; color: var(--gris-texte);">Total Weight : <strong>100%</strong></p>
+          </div>
+          <button class="btn-instructor" onclick="ouvrirModaleAssignment()">+ Add Assignment</button>
         </div>
+
+        <div class="tableau-wrapper">
+          <table class="tableau">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Assignment</th>
+                <th>Due Date</th>
+                <th>Weight</th>
+                <th>Points</th>
+                <th>Submissions</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableau-assignments">
+              <tr>
+                <td>1</td>
+                <td>Midterm Exam</td>
+                <td>2026-03-14</td>
+                <td>30%</td>
+                <td>100</td>
+                <td>4/13</td>
+                <td class="actions-cell">
+                  <button class="btn-icone-edit" title="Edit" onclick="editerAssignment(this)">✏</button>
+                  <button class="btn-icone-del" title="Delete" onclick="supprimerLigne(this)">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Final Project</td>
+                <td>2026-05-14</td>
+                <td>40%</td>
+                <td>100</td>
+                <td>4/13</td>
+                <td class="actions-cell">
+                  <button class="btn-icone-edit" title="Edit" onclick="editerAssignment(this)">✏</button>
+                  <button class="btn-icone-del" title="Delete" onclick="supprimerLigne(this)">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Lab Assignments (Weekly)</td>
+                <td>2026-03-25</td>
+                <td>20%</td>
+                <td>100</td>
+                <td>4/13</td>
+                <td class="actions-cell">
+                  <button class="btn-icone-edit" title="Edit" onclick="editerAssignment(this)">✏</button>
+                  <button class="btn-icone-del" title="Delete" onclick="supprimerLigne(this)">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Participation</td>
+                <td>2026-03-19</td>
+                <td>10%</td>
+                <td>50</td>
+                <td>4/13</td>
+                <td class="actions-cell">
+                  <button class="btn-icone-edit" title="Edit" onclick="editerAssignment(this)">✏</button>
+                  <button class="btn-icone-del" title="Delete" onclick="supprimerLigne(this)">🗑</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ── Sous-panel : Upload Grades ── -->
+      <div id="sous-upload" class="sous-tab">
+        <div class="upload-zone">
+          <div class="upload-icone">⬆</div>
+          <h4>Upload Grade File</h4>
+          <p>Drag and drop your CSV file here, or click to browse</p>
+          <input type="file" id="fichier-csv" accept=".csv" hidden onchange="fichierSelectionne(this)">
+          <button class="btn-secondaire" onclick="document.getElementById('fichier-csv').click()">Choose File to Upload</button>
+          <p class="upload-nom" id="upload-nom"></p>
+        </div>
+
         <div class="csv-exemple">
           <strong>CSV Format Example:</strong>
           <code>
             StudentID, AssignmentName, Grade<br>
             123456789, Midterm #1, 92<br>
-            123456790, Midterm #1, 88
+            123456790, Midterm #1, 88<br>
+            123456791, Midterm #1, 97
           </code>
         </div>
       </div>
 
     </section>
 
-    <!-- ── ONGLET 3 : Student Progress ── -->
+    <!-- ─────────────────────────────
+         ONGLET 3 : Student Progress
+         Vue lecture seule
+         ───────────────────────────── -->
     <section id="tab-progress" class="tab-contenu">
 
-      <div class="stats-grille quatre-colonnes">
+      <div class="alerte-info">
+        📊 This is a <strong>view only</strong> page. Student progress is based on submitted assessments and is updated automatically.
+      </div>
+
+      <!-- Stats globales -->
+      <div class="stats-grille quatre-col">
         <div class="stat-carte">
-          <small>Total Enrolled</small>
+          <small>Overall Grade</small>
+          <strong>88%</strong>
+        </div>
+        <div class="stat-carte">
+          <small>Enrolled Students</small>
           <strong>13</strong>
         </div>
         <div class="stat-carte">
-          <small>Avg Completion Rate</small>
-          <strong>87%</strong>
-        </div>
-        <div class="stat-carte">
-          <small>Fully Completed All</small>
-          <strong>9</strong>
-        </div>
-        <div class="stat-carte">
-          <small>At Least One Missing</small>
-          <strong>4</strong>
+          <small>On Track</small>
+          <strong>10</strong>
         </div>
       </div>
 
-      <h3 class="section-titre">Completion by Assessment</h3>
-
-      <div class="progress-carte">
-        <h4>Midterm Exam</h4>
-        <div class="progress-stats">
-          <div class="progress-stat"><small>COMPLETED</small><strong>13 / 13</strong><span>100% of class</span></div>
-          <div class="progress-stat"><small>NOT SUBMITTED</small><strong>0 / 13</strong><span>0% of class</span></div>
-          <div class="progress-stat"><small>CLASS AVERAGE</small><strong>74%</strong><span>Among submitted</span></div>
+      <!-- Completion Distribution -->
+      <div class="section-carte">
+        <h3 class="section-titre">Completion Distribution</h3>
+        <div class="distrib-grille">
+          <div class="distrib-item">
+            <div class="distrib-barre-wrap">
+              <div class="distrib-barre vert" style="height: 80%;"></div>
+            </div>
+            <span>90-100%</span>
+          </div>
+          <div class="distrib-item">
+            <div class="distrib-barre-wrap">
+              <div class="distrib-barre violet" style="height: 60%;"></div>
+            </div>
+            <span>80-89%</span>
+          </div>
+          <div class="distrib-item">
+            <div class="distrib-barre-wrap">
+              <div class="distrib-barre jaune" style="height: 40%;"></div>
+            </div>
+            <span>70-79%</span>
+          </div>
+          <div class="distrib-item">
+            <div class="distrib-barre-wrap">
+              <div class="distrib-barre orange" style="height: 20%;"></div>
+            </div>
+            <span>Below 70%</span>
+          </div>
         </div>
-        <div class="barre-track"><div class="barre-fill" style="width: 100%; background-color: var(--vert);"></div></div>
       </div>
 
-      <div class="progress-carte">
-        <h4>Final Project</h4>
-        <div class="progress-stats">
-          <div class="progress-stat"><small>COMPLETED</small><strong>8 / 13</strong><span>62% of class</span></div>
-          <div class="progress-stat"><small>NOT SUBMITTED</small><strong>5 / 13</strong><span>38% of class</span></div>
-          <div class="progress-stat"><small>CLASS AVERAGE</small><strong>88%</strong><span>Among submitted</span></div>
-        </div>
-        <div class="barre-track"><div class="barre-fill" style="width: 62%;"></div></div>
-      </div>
+      <!-- Progression par assessment -->
+      <div class="section-carte">
+        <h3 class="section-titre">Individual Assessment Progress</h3>
 
-      <div class="progress-carte">
-        <h4>Lab Assignments</h4>
-        <div class="progress-stats">
-          <div class="progress-stat"><small>COMPLETED</small><strong>13 / 13</strong><span>100% of class</span></div>
-          <div class="progress-stat"><small>NOT SUBMITTED</small><strong>0 / 13</strong><span>0% of class</span></div>
-          <div class="progress-stat"><small>CLASS AVERAGE</small><strong>92%</strong><span>Among submitted</span></div>
+        <div class="progress-carte">
+          <div class="progress-carte-entete">
+            <h4>Midterm Exam</h4>
+            <span class="progress-pct">100%</span>
+          </div>
+          <div class="progress-stats-grille">
+            <div class="progress-stat"><small>COMPLETED</small><strong>13/13</strong><span>100% of class</span></div>
+            <div class="progress-stat"><small>NOT SUBMITTED</small><strong>0/13</strong><span>0% of class</span></div>
+            <div class="progress-stat"><small>CLASS AVERAGE</small><strong>74%</strong><span>Among submitted</span></div>
+          </div>
+          <div class="barre-track"><div class="barre-fill vert" style="width: 100%;"></div></div>
         </div>
-        <div class="barre-track"><div class="barre-fill" style="width: 100%; background-color: var(--vert);"></div></div>
-      </div>
 
+        <div class="progress-carte">
+          <div class="progress-carte-entete">
+            <h4>Final Project</h4>
+            <span class="progress-pct">62%</span>
+          </div>
+          <div class="progress-stats-grille">
+            <div class="progress-stat"><small>COMPLETED</small><strong>8/13</strong><span>62% of class</span></div>
+            <div class="progress-stat"><small>NOT SUBMITTED</small><strong>5/13</strong><span>38% of class</span></div>
+            <div class="progress-stat"><small>CLASS AVERAGE</small><strong>88%</strong><span>Among submitted</span></div>
+          </div>
+          <div class="barre-track"><div class="barre-fill" style="width: 62%;"></div></div>
+        </div>
+
+        <div class="progress-carte">
+          <div class="progress-carte-entete">
+            <h4>Lab Assignments</h4>
+            <span class="progress-pct">100%</span>
+          </div>
+          <div class="progress-stats-grille">
+            <div class="progress-stat"><small>COMPLETED</small><strong>13/13</strong><span>100% of class</span></div>
+            <div class="progress-stat"><small>NOT SUBMITTED</small><strong>0/13</strong><span>0% of class</span></div>
+            <div class="progress-stat"><small>CLASS AVERAGE</small><strong>92%</strong><span>Among submitted</span></div>
+          </div>
+          <div class="barre-track"><div class="barre-fill vert" style="width: 100%;"></div></div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- ── ONGLET 4 : Course Settings ── -->
+    <!-- ─────────────────────────────
+         ONGLET 4 : Course Settings
+         ───────────────────────────── -->
     <section id="tab-settings" class="tab-contenu">
 
-      <!-- Sous-onglets internes -->
+      <h3 class="section-titre" style="margin-bottom: 16px;">Course Settings</h3>
+
+      <!-- Sous-onglets -->
       <div class="sous-onglets">
-        <button class="sous-onglet-btn actif" onclick="switchSousOnglet('visibility', this)">Visibility</button>
-        <button class="sous-onglet-btn" onclick="switchSousOnglet('templates', this)">Templates</button>
-        <button class="sous-onglet-btn" onclick="switchSousOnglet('details', this)">Course Details</button>
+        <button class="sous-onglet-btn actif" onclick="switchSousSettings('visibility', this)">Visibility</button>
+        <button class="sous-onglet-btn" onclick="switchSousSettings('templates', this)">Templates</button>
+        <button class="sous-onglet-btn" onclick="switchSousSettings('details', this)">Course Details</button>
       </div>
 
       <!-- Visibility -->
-      <div id="sous-visibility" class="sous-tab actif">
-        <div class="setting-ligne">
-          <div>
-            <h4>Course Visibility</h4>
-            <p id="vis-label">Course is currently visible to all enrolled students</p>
+      <div id="settings-visibility" class="sous-tab actif">
+        <div class="section-carte">
+
+          <div class="setting-ligne">
+            <div>
+              <h4>Course Visibility</h4>
+              <p id="vis-label">Course is currently visible to all enrolled students</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="vis-toggle" checked onchange="majVisibilite(this)">
+              <span class="toggle-curseur"></span>
+            </label>
           </div>
-          <label class="toggle-switch">
-            <input type="checkbox" checked onchange="majVisibilite(this)">
-            <span class="toggle-curseur"></span>
-          </label>
+
+          <div class="champ" style="margin-top: 16px;">
+            <label>Course Home Settings</label>
+            <p style="font-size: 12px; color: var(--gris-texte); margin-bottom: 8px;">Enrolled Students Only</p>
+          </div>
+
+          <button class="btn-instructor" onclick="afficherToast('Visibility settings saved!')">
+            Save Visibility Settings
+          </button>
+
         </div>
-        <div class="champ">
-          <label>Course Access</label>
-          <select>
-            <option>Enrolled Students Only</option>
-            <option>All University Students</option>
-            <option>Public (Anyone with link)</option>
-            <option>Instructors Only</option>
-          </select>
-        </div>
-        <button class="btn-instructor" onclick="afficherToast('Visibility settings saved!')">Save Settings</button>
       </div>
 
       <!-- Templates -->
-      <div id="sous-templates" class="sous-tab">
-        <div class="templates-grille">
-          <div class="template-carte actif" onclick="selectionnerTemplate(this)">
-            <h4>Standard Course</h4>
-            <p>Weekly modules, quizzes, and a final exam</p>
+      <div id="settings-templates" class="sous-tab">
+        <div class="section-carte">
+
+          <div class="templates-grille">
+
+            <div class="template-groupe">
+              <h4 class="template-groupe-titre">Standard Course Template</h4>
+              <div class="template-carte actif" onclick="selectionnerTemplate(this)">
+                <div class="template-carte-entete">
+                  <span>Default Course Structure</span>
+                  <button class="btn-secondaire btn-sm" onclick="event.stopPropagation()">Edit Template</button>
+                </div>
+                <p>Midterm (30%) · Final Project (40%) · Labs (20%) · Participation (10%)</p>
+              </div>
+            </div>
+
+            <div class="template-groupe">
+              <h4 class="template-groupe-titre">Project-Based Template</h4>
+              <div class="template-carte" onclick="selectionnerTemplate(this)">
+                <div class="template-carte-entete">
+                  <span>Project-Focused Structure</span>
+                  <button class="btn-secondaire btn-sm" onclick="event.stopPropagation()">Edit Template</button>
+                </div>
+                <p>Project Milestones (60%) · Peer Review (20%) · Participation (20%)</p>
+              </div>
+            </div>
+
           </div>
-          <div class="template-carte" onclick="selectionnerTemplate(this)">
-            <h4>Project-Based</h4>
-            <p>Milestone deliverables and peer reviews</p>
-          </div>
-          <div class="template-carte" onclick="selectionnerTemplate(this)">
-            <h4>Flipped Classroom</h4>
-            <p>Pre-class readings and in-class activities</p>
-          </div>
-          <div class="template-carte" onclick="selectionnerTemplate(this)">
-            <h4>Self-Paced</h4>
-            <p>No deadlines, progress at your own speed</p>
-          </div>
+
+          <button class="btn-instructor" style="margin-top: 16px;" onclick="afficherToast('Template applied!')">
+            Apply Selected Template
+          </button>
+
         </div>
-        <button class="btn-instructor" onclick="afficherToast('Template applied!')">Apply Template</button>
       </div>
 
       <!-- Course Details -->
-      <div id="sous-details" class="sous-tab">
-        <div class="form-deux-colonnes">
-          <div class="champ">
-            <label>Course Code</label>
-            <input type="text" value="CS 101">
+      <div id="settings-details" class="sous-tab">
+        <div class="section-carte">
+
+          <div class="form-deux-col">
+            <div class="champ">
+              <label>Course Code</label>
+              <input type="text" value="CS 101">
+            </div>
+            <div class="champ">
+              <label>Semester</label>
+              <input type="text" value="Spring 2026">
+            </div>
           </div>
+
           <div class="champ">
-            <label>Semester</label>
-            <input type="text" value="Spring 2026">
+            <label>Course Title</label>
+            <input type="text" value="Introduction to Computer Science">
           </div>
-        </div>
-        <div class="champ">
-          <label>Course Title</label>
-          <input type="text" value="Introduction to Computer Science">
-        </div>
-        <div class="champ">
-          <label>Description</label>
-          <textarea rows="3">Fundamentals of programming, algorithms, and computational thinking.</textarea>
-        </div>
-        <div class="form-deux-colonnes">
+
           <div class="champ">
-            <label>Instructor</label>
-            <input type="text" value="Dr. Roberts">
+            <label>Description</label>
+            <textarea rows="3">Fundamentals of programming, algorithms, and computational thinking.</textarea>
           </div>
-          <div class="champ">
-            <label>Max Enrollment</label>
-            <input type="number" value="30">
+
+          <div class="form-deux-col">
+            <div class="champ">
+              <label>Instructor</label>
+              <input type="text" value="Dr. Roberts">
+            </div>
+            <div class="champ">
+              <label>End Date</label>
+              <input type="date" value="2026-06-30">
+            </div>
           </div>
+
+          <button class="btn-instructor" onclick="afficherToast('Course details saved!')">
+            Save Course Details
+          </button>
+
         </div>
-        <button class="btn-instructor" onclick="afficherToast('Course details saved!')">Save Details</button>
       </div>
 
     </section>
 
   </main>
 
-  <!-- Toast notification -->
+  <!-- MODALE — Create New Assignment -->
+  <div class="overlay" id="overlay-assign" onclick="fermerModaleAssignment()"></div>
+  <div class="modale" id="modale-assign">
+    <div class="modale-entete">
+      <div>
+        <h3>Create New Assignment</h3>
+      </div>
+      <button class="modale-fermer" onclick="fermerModaleAssignment()">✕</button>
+    </div>
+    <div class="champ">
+      <label for="a-titre">Assignment Title</label>
+      <input type="text" id="a-titre" placeholder="e.g. Midterm Exam">
+    </div>
+    <div class="champ">
+      <label for="a-date">End Date</label>
+      <input type="date" id="a-date">
+    </div>
+    <div class="form-deux-col" style="gap: 12px;">
+      <div class="champ">
+        <label for="a-poids">Weight (%)</label>
+        <input type="number" id="a-poids" placeholder="0" min="0" max="100">
+      </div>
+      <div class="champ">
+        <label for="a-points">Total Points</label>
+        <input type="number" id="a-points" placeholder="100" min="0">
+      </div>
+    </div>
+    <div class="modale-actions">
+      <button class="btn-secondaire" onclick="fermerModaleAssignment()">Cancel</button>
+      <button class="btn-instructor" onclick="ajouterAssignment()">Create Assignment</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
   <script src="../JS/shared.js"></script>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   INSTRUCTOR — instructor-dashboard.html
-  Dashboard instructeur : liste des cours + bouton Add Course
+  Dashboard : liste des cours en tableau + modale Add Course
 -->
 <html lang="en">
 <head>
@@ -13,9 +13,6 @@
 </head>
 <body>
 
-  <!-- ══════════════════════════════
-       HEADER (branche instructor)
-       ══════════════════════════════ -->
   <header class="header">
     <div class="header-top">
       <div class="header-logo">
@@ -26,6 +23,7 @@
         </div>
       </div>
       <div class="header-user">
+        <span class="user-avatar">DR</span>
         <div class="header-user-info">
           <strong>Dr. Roberts</strong>
           <small>Instructor</small>
@@ -33,16 +31,8 @@
         <button class="btn-signout" onclick="signOut()">Sign Out</button>
       </div>
     </div>
-
-    <!-- Navigation instructeur -->
-    <nav class="header-nav nav-instructor">
-      <a href="instructor-dashboard.html" class="actif">DASHBOARD</a>
-    </nav>
   </header>
 
-  <!-- ══════════════════════════════
-       CONTENU PRINCIPAL
-       ══════════════════════════════ -->
   <main class="page-contenu">
 
     <div class="titre-ligne">
@@ -53,61 +43,55 @@
       <button class="btn-instructor" onclick="ouvrirModale()">+ Add Course</button>
     </div>
 
-    <!-- Grille de cours -->
-    <div class="grille-cours" id="grille-cours">
-
-      <a href="instructor-course.html" class="carte-cours">
-        <div class="carte-couleur" style="background-color: #7b6cf6;"></div>
-        <div class="carte-corps">
-          <span class="carte-code">CS 101</span>
-          <h3 class="carte-nom">Introduction to Computer Science</h3>
-          <hr class="carte-separateur">
-          <div class="carte-info">
-            <span>Semester: <strong>Spring 2026</strong></span>
-            <span>Students: <strong>13</strong></span>
-          </div>
-        </div>
-      </a>
-
-      <a href="instructor-course.html" class="carte-cours">
-        <div class="carte-couleur" style="background-color: #a78bfa;"></div>
-        <div class="carte-corps">
-          <span class="carte-code">CS 201</span>
-          <h3 class="carte-nom">Data Structures & Algorithms</h3>
-          <hr class="carte-separateur">
-          <div class="carte-info">
-            <span>Semester: <strong>Spring 2026</strong></span>
-            <span>Students: <strong>15</strong></span>
-          </div>
-        </div>
-      </a>
-
-      <a href="instructor-course.html" class="carte-cours">
-        <div class="carte-couleur" style="background-color: #c4b5fd;"></div>
-        <div class="carte-corps">
-          <span class="carte-code">CS 301</span>
-          <h3 class="carte-nom">Operating Systems</h3>
-          <hr class="carte-separateur">
-          <div class="carte-info">
-            <span>Semester: <strong>Spring 2026</strong></span>
-            <span>Students: <strong>12</strong></span>
-          </div>
-        </div>
-      </a>
-
+    <div class="tableau-wrapper">
+      <table class="tableau">
+        <thead>
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Semester</th>
+            <th>Students</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableau-cours">
+          <tr class="ligne-cliquable">
+            <td><span class="badge-cours">CS 101</span></td>
+            <td>Introduction to Computer Science</td>
+            <td>Spring 2026</td>
+            <td>13</td>
+            <td><button class="btn-voir" onclick="window.location.href='instructor-course.html'">View →</button></td>
+          </tr>
+          <tr class="ligne-cliquable">
+            <td><span class="badge-cours">CS 201</span></td>
+            <td>Data Structures &amp; Algorithms</td>
+            <td>Spring 2026</td>
+            <td>15</td>
+            <td><button class="btn-voir" onclick="window.location.href='instructor-course.html'">View →</button></td>
+          </tr>
+          <tr class="ligne-cliquable">
+            <td><span class="badge-cours">CS 301</span></td>
+            <td>Operating Systems</td>
+            <td>Spring 2026</td>
+            <td>12</td>
+            <td><button class="btn-voir" onclick="window.location.href='instructor-course.html'">View →</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </main>
 
-  <!-- ══════════════════════════════
-       MODALE — Add Course
-       ══════════════════════════════ -->
+  <!-- MODALE — Add New Course -->
   <div class="overlay" id="overlay" onclick="fermerModale()"></div>
   <div class="modale" id="modale">
     <div class="modale-entete">
-      <h3>Add New Course</h3>
+      <div>
+        <h3>Add New Course</h3>
+        <p class="modale-sous-titre">Create a new course to manage assignments and track student progress.</p>
+      </div>
       <button class="modale-fermer" onclick="fermerModale()">✕</button>
     </div>
-    <p class="modale-sous-titre">Create a new course to manage assignments and track student progress.</p>
     <div class="champ">
       <label for="m-code">Course Code</label>
       <input type="text" id="m-code" placeholder="e.g. CS 101">
@@ -127,7 +111,7 @@
     </div>
     <div class="modale-actions">
       <button class="btn-secondaire" onclick="fermerModale()">Cancel</button>
-      <button class="btn-instructor" onclick="ajouterCours()">Save Course</button>
+      <button class="btn-instructor" onclick="ajouterCours()">Create Course</button>
     </div>
   </div>
 

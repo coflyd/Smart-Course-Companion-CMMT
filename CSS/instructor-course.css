@@ -1,30 +1,45 @@
 /* ==============================================
    INSTRUCTOR — instructor-course.css
-   Vue détail d'un cours : onglets, tableaux, settings
+   Page détail cours : 4 onglets
    ============================================== */
+
+/* Avatar initiales header */
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--blanc);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
 /* ── Sous-header du cours ── */
 .cours-header {
   background-color: var(--blanc);
   border-bottom: 1px solid var(--gris-bordure);
-  padding: 16px 24px;
 }
 
 .lien-retour {
   display: inline-block;
   font-size: 13px;
   font-weight: 600;
-  color: var(--violet);
+  color: var(--gris-texte);
   text-decoration: none;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  transition: color 0.2s;
 }
 
 .lien-retour:hover {
-  text-decoration: underline;
+  color: var(--violet);
 }
 
 .cours-header h2 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--texte);
 }
@@ -36,19 +51,14 @@
 }
 
 /* ── Barre d'onglets ── */
-.onglets-barre {
-  background-color: var(--blanc);
-  border-bottom: 1px solid var(--gris-bordure);
-}
-
 .onglets-liste {
   display: flex;
-  gap: 4px;
-  padding: 0;
+  gap: 2px;
+  margin-top: 16px;
 }
 
 .onglet-btn {
-  padding: 12px 18px;
+  padding: 10px 18px;
   border: none;
   border-bottom: 2px solid transparent;
   background: transparent;
@@ -70,32 +80,27 @@
   border-bottom-color: var(--violet);
 }
 
-/* ── Sections d'onglets ── */
-.tab-contenu {
-  display: none;
-}
+/* ── Sections tab ── */
+.tab-contenu { display: none; }
+.tab-contenu.actif { display: block; }
 
-.tab-contenu.actif {
-  display: block;
-}
-
-/* ── Grille de stats ── */
+/* ── Grilles de stats ── */
 .stats-grille {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 24px;
 }
 
-.stats-grille.quatre-colonnes {
-  grid-template-columns: repeat(4, 1fr);
+.stats-grille.quatre-col {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .stat-carte {
   background-color: var(--blanc);
   border: 1px solid var(--gris-bordure);
   border-radius: 12px;
-  padding: 20px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -105,12 +110,12 @@
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: var(--gris-texte);
 }
 
 .stat-carte strong {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--texte);
 }
@@ -120,24 +125,25 @@
   color: var(--gris-texte);
 }
 
-/* ── Carte de section (avec bordure) ── */
+/* ── Carte de section ── */
 .section-carte {
   background-color: var(--blanc);
   border: 1px solid var(--gris-bordure);
   border-radius: 12px;
   padding: 24px;
+  margin-bottom: 20px;
 }
 
 .section-titre {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--texte);
   margin-bottom: 20px;
 }
 
-/* ── Barres de progression ── */
+/* ── Barres de progression (overview) ── */
 .barre-ligne {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .barre-label {
@@ -151,8 +157,8 @@
 
 .barre-count {
   font-weight: 400;
-  color: var(--gris-texte);
   font-size: 13px;
+  color: var(--gris-texte);
 }
 
 .barre-track {
@@ -166,190 +172,13 @@
   height: 100%;
   background-color: var(--violet);
   border-radius: 8px;
-  transition: width 0.5s ease;
 }
 
-/* ── Formulaire ajout assignment (inline) ── */
-.ajout-barre {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 16px;
-  background-color: var(--blanc);
-  border: 1px solid var(--gris-bordure);
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
+.barre-fill.vert   { background-color: #22c55e; }
+.barre-fill.jaune  { background-color: #f59e0b; }
+.barre-fill.orange { background-color: #f97316; }
 
-.ajout-barre input {
-  flex: 1;
-  min-width: 130px;
-  padding: 9px 12px;
-  border: 1.5px solid var(--gris-bordure);
-  border-radius: 8px;
-  font-family: var(--font);
-  font-size: 13px;
-  color: var(--texte);
-  background-color: var(--gris-bg);
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.ajout-barre input:focus {
-  border-color: var(--violet);
-}
-
-/* ── Tableau ── */
-.tableau-wrapper {
-  background-color: var(--blanc);
-  border: 1px solid var(--gris-bordure);
-  border-radius: 12px;
-  overflow: hidden;
-  overflow-x: auto;
-  margin-bottom: 28px;
-}
-
-.tableau {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.tableau thead {
-  background-color: var(--gris-bg);
-}
-
-.tableau th {
-  padding: 11px 16px;
-  text-align: left;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--gris-texte);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--gris-bordure);
-}
-
-.tableau td {
-  padding: 13px 16px;
-  border-bottom: 1px solid var(--gris-bordure);
-  color: var(--texte);
-  vertical-align: middle;
-}
-
-.tableau tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.tableau tbody tr:hover {
-  background-color: #fafafa;
-}
-
-.btn-sm {
-  padding: 5px 12px;
-  font-size: 12px;
-}
-
-/* ── Section Upload ── */
-.upload-section {
-  margin-top: 8px;
-}
-
-.drop-zone {
-  border: 2px dashed var(--gris-bordure);
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-  transition: border-color 0.2s;
-}
-
-.drop-zone:hover {
-  border-color: var(--violet);
-}
-
-.drop-zone p {
-  font-size: 14px;
-  color: var(--gris-texte);
-}
-
-.csv-exemple {
-  background-color: var(--gris-bg);
-  border: 1px solid var(--gris-bordure);
-  border-radius: 8px;
-  padding: 16px;
-  font-size: 13px;
-}
-
-.csv-exemple strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--texte);
-  font-size: 13px;
-}
-
-.csv-exemple code {
-  font-family: monospace;
-  color: var(--gris-texte);
-  line-height: 1.8;
-}
-
-/* ── Cartes Student Progress ── */
-.progress-carte {
-  background-color: var(--blanc);
-  border: 1px solid var(--gris-bordure);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-.progress-carte h4 {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.progress-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.progress-stat {
-  background-color: var(--gris-bg);
-  border-radius: 8px;
-  padding: 12px;
-}
-
-.progress-stat small {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--gris-texte);
-  margin-bottom: 4px;
-}
-
-.progress-stat strong {
-  display: block;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--texte);
-}
-
-.progress-stat span {
-  font-size: 12px;
-  color: var(--gris-texte);
-}
-
-/* ── Sous-onglets (Course Settings) ── */
+/* ── Sous-onglets (assignments / settings) ── */
 .sous-onglets {
   display: flex;
   gap: 6px;
@@ -381,35 +210,264 @@
   font-weight: 600;
 }
 
-.sous-tab {
-  display: none;
-  flex-direction: column;
-  gap: 14px;
-}
+.sous-tab { display: none; }
+.sous-tab.actif { display: block; }
 
-.sous-tab.actif {
+/* ── Entête assignments ── */
+.assignment-entete {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
 }
 
-/* ── Setting ligne (visibility toggle) ── */
+/* ── Tableau assignments ── */
+.tableau-wrapper {
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tableau {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tableau thead { background-color: var(--gris-bg); }
+
+.tableau th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gris-texte);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+.tableau td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gris-bordure);
+  color: var(--texte);
+  vertical-align: middle;
+}
+
+.tableau tbody tr:last-child td { border-bottom: none; }
+.tableau tbody tr:hover { background-color: #fafafa; }
+
+/* Boutons icônes edit/delete */
+.actions-cell { display: flex; gap: 8px; }
+
+.btn-icone-edit,
+.btn-icone-del {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-icone-edit:hover { background-color: var(--violet-clair); }
+.btn-icone-del:hover  { background-color: #fee2e2; }
+
+/* ── Zone Upload ── */
+.upload-zone {
+  border: 2px dashed var(--gris-bordure);
+  border-radius: 12px;
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s;
+}
+
+.upload-zone:hover { border-color: var(--violet); }
+
+.upload-icone {
+  font-size: 2rem;
+  color: var(--gris-texte);
+}
+
+.upload-zone h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--texte);
+}
+
+.upload-zone p {
+  font-size: 13px;
+  color: var(--gris-texte);
+}
+
+.upload-nom {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--violet);
+}
+
+.csv-exemple {
+  background-color: var(--gris-bg);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.csv-exemple strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: var(--texte);
+}
+
+.csv-exemple code {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--gris-texte);
+  line-height: 1.8;
+}
+
+/* ── Alerte info (Student Progress) ── */
+.alerte-info {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #1e40af;
+  margin-bottom: 20px;
+}
+
+/* ── Distribution graphique ── */
+.distrib-grille {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  height: 120px;
+  padding: 0 20px;
+}
+
+.distrib-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.distrib-barre-wrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.distrib-barre {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background-color: var(--violet);
+}
+
+.distrib-barre.vert   { background-color: #22c55e; }
+.distrib-barre.violet { background-color: var(--violet); }
+.distrib-barre.jaune  { background-color: #f59e0b; }
+.distrib-barre.orange { background-color: #f97316; }
+
+.distrib-item span {
+  font-size: 11px;
+  color: var(--gris-texte);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── Cartes Student Progress ── */
+.progress-carte {
+  border: 1px solid var(--gris-bordure);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.progress-carte-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-carte-entete h4 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.progress-pct {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--violet);
+}
+
+.progress-stats-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.progress-stat {
+  background-color: var(--gris-bg);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.progress-stat small {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gris-texte);
+  margin-bottom: 3px;
+}
+
+.progress-stat strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--texte);
+}
+
+.progress-stat span {
+  font-size: 11px;
+  color: var(--gris-texte);
+}
+
+/* ── Settings : ligne de toggle ── */
 .setting-ligne {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
-  background-color: var(--gris-bg);
-  border-radius: 8px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gris-bordure);
+  margin-bottom: 16px;
 }
 
 .setting-ligne h4 {
   font-size: 14px;
   font-weight: 600;
+  margin-bottom: 3px;
 }
 
 .setting-ligne p {
   font-size: 12px;
   color: var(--gris-texte);
-  margin-top: 2px;
 }
 
 /* Toggle switch */
@@ -420,11 +478,7 @@
   flex-shrink: 0;
 }
 
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
 
 .toggle-curseur {
   position: absolute;
@@ -447,19 +501,64 @@
   transition: transform 0.2s;
 }
 
-.toggle-switch input:checked + .toggle-curseur {
-  background-color: var(--violet);
+.toggle-switch input:checked + .toggle-curseur { background-color: var(--violet); }
+.toggle-switch input:checked + .toggle-curseur::before { transform: translateX(18px); }
+
+/* ── Templates ── */
+.templates-grille {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.toggle-switch input:checked + .toggle-curseur::before {
-  transform: translateX(18px);
+.template-groupe-titre {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gris-texte);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
 }
 
-/* Champs formulaire */
+.template-carte {
+  border: 1.5px solid var(--gris-bordure);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.template-carte:hover { border-color: var(--violet); }
+
+.template-carte.actif {
+  border-color: var(--violet);
+  background-color: var(--violet-clair);
+}
+
+.template-carte-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.template-carte-entete span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texte);
+}
+
+.template-carte p {
+  font-size: 13px;
+  color: var(--gris-texte);
+}
+
+/* ── Formulaire (champs settings) ── */
 .champ {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 14px;
 }
 
 .champ label {
@@ -485,54 +584,80 @@
 
 .champ input:focus,
 .champ select:focus,
-.champ textarea:focus {
-  border-color: var(--violet);
-}
+.champ textarea:focus { border-color: var(--violet); }
 
-.form-deux-colonnes {
+.form-deux-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-/* ── Templates ── */
-.templates-grille {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+/* ── Modale (Add Assignment) ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
-.template-carte {
-  border: 1.5px solid var(--gris-bordure);
-  border-radius: 10px;
-  padding: 16px;
-  cursor: pointer;
-  transition: all 0.2s;
+.overlay.visible { display: block; }
+
+.modale {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blanc);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 440px;
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  gap: 14px;
 }
 
-.template-carte:hover {
-  border-color: var(--violet);
+.modale.visible { display: flex; }
+
+.modale-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.template-carte.actif {
-  border-color: var(--violet);
-  background-color: var(--violet-clair);
-}
+.modale-entete h3 { font-size: 17px; font-weight: 700; }
 
-.template-carte h4 {
+.modale-fermer {
+  background: var(--gris-bg);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: var(--texte);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.template-carte p {
-  font-size: 12px;
-  color: var(--gris-texte);
-  line-height: 1.4;
+.modale-fermer:hover {
+  background-color: var(--rouge);
+  color: var(--blanc);
+  border-color: var(--rouge);
 }
 
-/* ── Toast notification ── */
+.modale-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ── Toast ── */
 .toast {
   position: fixed;
   bottom: 24px;
@@ -545,7 +670,7 @@
   font-weight: 500;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.25s, transform 0.25s;
   pointer-events: none;
   z-index: 999;
 }
@@ -554,3 +679,6 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Petit bouton */
+.btn-sm { padding: 5px 12px; font-size: 12px; }

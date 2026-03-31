@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- SMART STUDENT COMPANION - instructorAssignments.html
+ Description: Instructor Interface- Adding and Removing Assignments
+ By Thushika Thavarajah (27516126) -->
+
+<html>
+<head>
+    <title>Instructor Dashboard Smart</title>
+    <link rel="stylesheet" href="../CSS/styleAssigmentManagement.css">
+</head>
+<body>
+
+    <!----- Header ----->
+    <header class="header">
+        <div class="left-section"></div>    
+            <div><img src="../data/image_1.png" alt="Book logo" class="logo" width="50"></div>
+            <div class="Instructor-dashboard">Smart Course Companion <h6>Instructor Dashboard</h6></div>
+        </div>
+        <div class="right-section">
+             <div class="user">Dr. Roberts</div>
+             <div class="sign-out">Sign Out</div>
+        </div>
+    </div>
+    </header>
+
+    <!----- Per class Container ----->
+    <div class="container">
+        
+        <!--Hard Coded element -->
+        <h1>CS 101</h1>
+        <p class="course-Name">Introduction to Computer Science
+        <br>Spring 2026
+        </p>
+
+        <!--Navigation Tabs -->
+        <div class="Course-tabs">
+            <button class="tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Overview</button>
+            <button class="tab-active">Assignments</button>
+            <button class="tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Student Progress</button>
+            <button class="tab" onclick="window.location.href='../HTML/courseSettings.html'">Course Settings</button>
+        </div>
+
+        <!-- Assignment Section -->
+        <div class="assignment-box">
+
+            <div class="assignment-header">
+                <h3>Assignment Management</h3>
+             <div class="total-weight"> 100%
+             </div>
+               
+              <input type="text" id="title" placeholder="Assignment Title">
+            <input type="date" id="dueDate">
+            <input type="number" id="weight" placeholder="Weight (%)">
+            <input type="number" id="points" placeholder="Total Points">
+           
+            <button id="addAssignmentBtn">Add</button>
+         
+          </div>
+            <!-- Secondary Tabs -->
+            <div class="sub-tabs">
+                <button class="sub-tabactive">Assignments</button>
+                <button class="sub-tab">Upload Grades</button>
+            </div>
+          <br>
+         
+            <!-- Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Due Date</th>
+                        <th>Weight</th>
+                        <th>Points</th>
+                        <th>Submissions</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="assignmentTable">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+<script src="../JavaScript/scriptAddAssignment_inst.js"></script>
+</body>
+</html>

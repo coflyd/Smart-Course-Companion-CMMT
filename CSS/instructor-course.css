@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==============================================
    INSTRUCTOR — instructor-course.css
    Page cours : 4 onglets
@@ -540,3 +541,87 @@
   pointer-events: none; z-index: 999;
 }
 .toast.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive mobile ── */
+@media (max-width: 600px) {
+
+  /* Tableau : scroll horizontal au lieu de déborder */
+  .tableau-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tableau {
+    min-width: 500px; /* force le scroll plutôt que l'écrasement */
+  }
+
+  /* Stats en colonne sur mobile */
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pills onglets : scroll horizontal */
+  .onglets-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .onglets-pills::-webkit-scrollbar { display: none; }
+
+  .pill {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  /* Sous-pills aussi */
+  .sous-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .sous-pills::-webkit-scrollbar { display: none; }
+
+  .sous-pill {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Section bloc padding réduit */
+  .section-bloc {
+    padding: 16px;
+  }
+
+  /* Progress stats en colonne */
+  .progress-stats-grille {
+    grid-template-columns: 1fr;
+  }
+
+  /* Form deux colonnes → une colonne */
+  .form-deux-col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Assign header en colonne */
+  .assign-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-add-course {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Modale plein écran sur mobile */
+  .modale {
+    max-width: 95vw;
+    padding: 20px 16px;
+  }
+}

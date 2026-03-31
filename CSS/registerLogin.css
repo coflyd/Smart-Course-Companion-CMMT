@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==============================================
    SMART COURSE COMPANION — registerLogin.css
    Page de connexion et d'inscription
@@ -252,4 +253,78 @@ body.bg-image {
 
 .btn-submit:hover {
   background-color: var(--bleu-hover);
+}
+
+/* ── Message d'erreur inline ── */
+.msg-erreur {
+  background-color: #fff0f0;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  color: #b91c1c;
+  font-size: 13px;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+}
+
+/* ── Popup de succès ── */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.popup-boite {
+  background-color: var(--blanc);
+  border-radius: 16px;
+  padding: 32px 28px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+.popup-boite h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--texte);
+  margin-bottom: 12px;
+}
+
+.popup-boite p {
+  font-size: 14px;
+  color: var(--gris-texte);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.popup-boite .btn-submit {
+  margin-top: 0;
+}
+
+/* ── Responsive mobile ── */
+@media (max-width: 640px) {
+
+  body {
+    padding: 16px 12px;
+    align-items: flex-start;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+
+  /* Cache le panneau gauche sur mobile, trop long */
+  .panneau-gauche {
+    display: none;
+  }
+
+  .panneau-droit {
+    padding: 28px 20px;
+  }
 }

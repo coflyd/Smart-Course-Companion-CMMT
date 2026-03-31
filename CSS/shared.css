@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==============================================
    SMART COURSE COMPANION — shared.css
    Styles communs aux deux branches (Student + Instructor)
@@ -246,4 +247,59 @@ body {
   font-weight: 700;
   margin-bottom: 20px;
   color: var(--texte);
+}
+
+/* ================================================
+   RESPONSIVE MOBILE
+   ================================================ */
+@media (max-width: 600px) {
+
+  /* Header top : empile logo et user */
+  .header-top {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 14px;
+  }
+
+  /* Nav : scroll horizontal si les liens ne rentrent pas */
+  .header-nav {
+    padding: 4px 10px;
+    gap: 2px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    /* Cache la scrollbar mais garde le scroll */
+    scrollbar-width: none;
+  }
+
+  .header-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-nav a {
+    font-size: 11px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Page contenu : moins de padding sur mobile */
+  .page-contenu {
+    padding: 16px 12px;
+  }
+
+  /* Bouton sign out plus compact */
+  .btn-signout {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  /* Nom utilisateur plus petit */
+  .header-user-info strong {
+    font-size: 12px;
+  }
+
+  .header-user-info small {
+    font-size: 10px;
+  }
 }

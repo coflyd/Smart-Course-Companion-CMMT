@@ -66,6 +66,9 @@
       <!-- Formulaire -->
       <form>
 
+        <!-- Message d'erreur (caché par défaut) -->
+        <p class="msg-erreur" id="msg-erreur" style="display:none;"></p>
+
         <!-- Champ visible seulement en mode Register -->
         <div class="champ" id="champ-nom">
           <label for="nom">Full Name</label>
@@ -98,6 +101,15 @@
 
       </form>
 
+    </div>
+  </div>
+
+  <!-- Popup succès inscription -->
+  <div class="popup-overlay" id="popup-succes" style="display:none;">
+    <div class="popup-boite">
+      <h3>You're registered! 🎉</h3>
+      <p>Your account has been created successfully.<br>Please use the <strong>Sign In</strong> page to log in.</p>
+      <button class="btn-submit" onclick="fermerPopup()">Go to Sign In</button>
     </div>
   </div>
 

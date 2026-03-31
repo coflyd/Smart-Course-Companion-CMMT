@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--
+  STUDENT — student-analytics.html
+  Analytics : graphique de performance par cours
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Course Companion — Analytics</title>
+  <link rel="stylesheet" href="../CSS/shared.css">
+  <link rel="stylesheet" href="../CSS/student-analytics.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       HEADER
+       ══════════════════════════════ -->
+  <header class="header">
+    <div class="header-top">
+      <div class="header-logo">
+        <img src="../data/image_1.png" alt="Logo">
+        <div class="header-logo-text">
+          <strong>Smart Course Companion</strong>
+          <small>Student Dashboard</small>
+        </div>
+      </div>
+      <div class="header-user">
+        <div class="header-user-info">
+          <strong>Masila Baduza</strong>
+          <small>Student</small>
+        </div>
+        <button class="btn-signout" onclick="signOut()">Sign Out</button>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="student-dashboard.html">MY COURSES</a>
+      <a href="student-upcoming.html">UPCOMING ASSIGNMENTS</a>
+      <a href="student-analytics.html" class="actif">ANALYTICS</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════
+       CONTENU PRINCIPAL
+       ══════════════════════════════ -->
+  <main class="page-contenu">
+
+    <h2 class="page-titre">Analytics</h2>
+
+    <!-- Carte du graphique -->
+    <div class="carte-graphique">
+
+      <h3 class="graphique-titre">Course Performance</h3>
+
+      <!-- Légende -->
+      <div class="legende">
+        <div class="legende-item">
+          <span class="legende-dot dot-bleu"></span>
+          Your grade
+        </div>
+        <div class="legende-item">
+          <span class="legende-dot dot-clair"></span>
+          Class average
+        </div>
+      </div>
+
+      <!-- Zone du graphique à barres -->
+      <div class="graphique-zone">
+
+        <!-- Axe Y -->
+        <div class="axe-y">
+          <span>100</span>
+          <span>75</span>
+          <span>50</span>
+          <span>25</span>
+          <span>0</span>
+        </div>
+
+        <!-- Barres -->
+        <div class="barres-zone">
+
+          <!-- Lignes de grille horizontales -->
+          <div class="grille">
+            <div class="grille-ligne"></div>
+            <div class="grille-ligne"></div>
+            <div class="grille-ligne"></div>
+            <div class="grille-ligne"></div>
+          </div>
+
+          <!-- Groupe de barres par cours -->
+          <div class="groupe-barres">
+
+            <div class="colonne-cours">
+              <div class="paire-barres">
+                <div class="barre barre-bleu" style="height: 88%;"></div>
+                <div class="barre barre-clair" style="height: 72%;"></div>
+              </div>
+              <div class="label-cours">COMP 249</div>
+            </div>
+
+            <div class="colonne-cours">
+              <div class="paire-barres">
+                <div class="barre barre-bleu" style="height: 80%;"></div>
+                <div class="barre barre-clair" style="height: 65%;"></div>
+              </div>
+              <div class="label-cours">COMP 233</div>
+            </div>
+
+            <div class="colonne-cours">
+              <div class="paire-barres">
+                <div class="barre barre-bleu" style="height: 91%;"></div>
+                <div class="barre barre-clair" style="height: 78%;"></div>
+              </div>
+              <div class="label-cours">SOEN 228</div>
+            </div>
+
+            <div class="colonne-cours">
+              <div class="paire-barres">
+                <div class="barre barre-bleu" style="height: 82%;"></div>
+                <div class="barre barre-clair" style="height: 70%;"></div>
+              </div>
+              <div class="label-cours">SOEN 287</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Résumé des notes -->
+    <div class="resume-grille">
+
+      <div class="resume-carte">
+        <small>COMP 249</small>
+        <strong>88%</strong>
+        <span>Your Grade</span>
+      </div>
+
+      <div class="resume-carte">
+        <small>COMP 233</small>
+        <strong>80%</strong>
+        <span>Your Grade</span>
+      </div>
+
+      <div class="resume-carte">
+        <small>SOEN 228</small>
+        <strong>91%</strong>
+        <span>Your Grade</span>
+      </div>
+
+      <div class="resume-carte">
+        <small>SOEN 287</small>
+        <strong>82%</strong>
+        <span>Your Grade</span>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../JS/shared.js"></script>
+</body>
+</html>

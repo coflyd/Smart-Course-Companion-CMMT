@@ -1,9 +1,24 @@
 /* ==============================================
    INSTRUCTOR — instructor-dashboard.css
-   Dashboard instructeur : grille de cours
+   Dashboard : tableau des cours
    ============================================== */
 
-/* ── Ligne titre + sous-titre + bouton ── */
+/* ── Avatar initiales (haut droite header) ── */
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--blanc);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Ligne titre + bouton ── */
 .titre-ligne {
   display: flex;
   justify-content: space-between;
@@ -17,68 +32,79 @@
   margin-top: 4px;
 }
 
-/* ── Grille de cours ── */
-.grille-cours {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-/* ── Carte de cours ── */
-.carte-cours {
+/* ── Tableau des cours ── */
+.tableau-wrapper {
   background-color: var(--blanc);
   border: 1px solid var(--gris-bordure);
   border-radius: 12px;
-  text-decoration: none;
-  color: inherit;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.carte-cours:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  border-color: var(--violet);
-}
-
-.carte-couleur {
-  height: 5px;
+.tableau {
   width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
 
-.carte-corps {
-  padding: 18px;
+.tableau thead {
+  background-color: var(--gris-bg);
 }
 
-.carte-code {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--violet);
-}
-
-.carte-nom {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texte);
-  margin: 6px 0 14px 0;
-}
-
-.carte-separateur {
-  border: none;
-  border-top: 1px solid var(--gris-bordure);
-  margin-bottom: 12px;
-}
-
-.carte-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.tableau th {
+  padding: 12px 18px;
+  text-align: left;
   font-size: 12px;
+  font-weight: 700;
   color: var(--gris-texte);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--gris-bordure);
 }
 
-.carte-info strong {
+.tableau td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--gris-bordure);
   color: var(--texte);
+  vertical-align: middle;
+}
+
+.tableau tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ligne-cliquable:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+/* Badge code de cours */
+.badge-cours {
+  display: inline-block;
+  background-color: var(--violet-clair);
+  color: var(--violet);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* Bouton View → */
+.btn-voir {
+  background: transparent;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--violet);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-voir:hover {
+  background-color: var(--violet-clair);
+  border-color: var(--violet);
 }
 
 /* ── Overlay + Modale ── */
@@ -86,7 +112,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
 
@@ -104,11 +130,11 @@
   border-radius: 16px;
   padding: 28px;
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
   z-index: 200;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .modale.visible {
@@ -118,12 +144,20 @@
 .modale-entete {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .modale-entete h3 {
   font-size: 17px;
   font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.modale-sous-titre {
+  font-size: 13px;
+  color: var(--gris-texte);
+  line-height: 1.5;
 }
 
 .modale-fermer {
@@ -134,18 +168,16 @@
   height: 30px;
   font-size: 14px;
   cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modale-fermer:hover {
   background-color: var(--rouge);
   color: var(--blanc);
   border-color: var(--rouge);
-}
-
-.modale-sous-titre {
-  font-size: 13px;
-  color: var(--gris-texte);
-  margin-top: -8px;
 }
 
 .champ {
@@ -176,6 +208,10 @@
 .champ input:focus,
 .champ select:focus {
   border-color: var(--violet);
+}
+
+.champ input::placeholder {
+  color: #9a9bb0;
 }
 
 .modale-actions {

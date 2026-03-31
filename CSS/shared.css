@@ -1,0 +1,249 @@
+/* ==============================================
+   SMART COURSE COMPANION — shared.css
+   Styles communs aux deux branches (Student + Instructor)
+   Header, navigation, boutons de base, variables
+   ============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ── Variables de couleur ── */
+:root {
+  /* Branche Student */
+  --bleu:         #6092ff;
+  --bleu-clair:   #dbeafe;
+  --bleu-actif:   #94b5fd;
+
+  /* Branche Instructor */
+  --violet:       #7b6cf6;
+  --violet-clair: #ede9fe;
+
+  /* Couleurs communes */
+  --rouge:        #e30101;
+  --gris-bg:      #f5f5f5;
+  --gris-bordure: #e0e0e0;
+  --gris-texte:   #4b5563;
+  --blanc:        #ffffff;
+  --texte:        #1a1a2e;
+
+  /* Typographie */
+  --font: 'Poppins', sans-serif;
+}
+
+/* ── Reset de base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--gris-bg);
+  color: var(--texte);
+}
+
+/* ================================================
+   HEADER COMMUN
+   Utilisé par toutes les pages sauf registerLogin
+   Background : même couleur que le bouton du register (#7b9fd4)
+   ================================================ */
+.header {
+  background-color: #7b9fd4;
+  border-bottom: none;
+  width: 100%;
+}
+
+/* Barre du haut : logo + infos utilisateur */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+/* Logo + nom du site */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.header-logo-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blanc);
+}
+
+.header-logo-text small {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+/* Infos utilisateur connecté (côté droit) */
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-user-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blanc);
+}
+
+.header-user-info small {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Bouton Sign Out */
+.btn-signout {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--blanc);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-signout:hover {
+  background-color: var(--rouge);
+  border-color: var(--rouge);
+}
+
+/* ================================================
+   NAVIGATION COMMUNE
+   Barre de liens sous le header-top
+   ================================================ */
+.header-nav {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 24px;
+  display: flex;
+  gap: 4px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 7px 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.header-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--blanc);
+}
+
+/* Lien de la page courante */
+.header-nav a.actif {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--blanc);
+}
+
+/* Navigation instructeur — même structure, couleur violette */
+.header-nav.nav-instructor a:hover,
+.header-nav.nav-instructor a.actif {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--blanc);
+}
+
+/* ================================================
+   BOUTONS COMMUNS
+   ================================================ */
+.btn-principal {
+  background-color: var(--bleu);
+  color: var(--blanc);
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-principal:hover {
+  opacity: 0.9;
+}
+
+.btn-instructor {
+  background-color: var(--violet);
+  color: var(--blanc);
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-instructor:hover {
+  opacity: 0.9;
+}
+
+.btn-secondaire {
+  background-color: var(--blanc);
+  color: var(--gris-texte);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondaire:hover {
+  border-color: var(--bleu);
+  color: var(--bleu);
+}
+
+.btn-danger {
+  background-color: var(--rouge);
+  color: var(--blanc);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  opacity: 0.85;
+}
+
+/* ================================================
+   WRAPPER DE PAGE
+   Zone de contenu principale sous le header
+   ================================================ */
+.page-contenu {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.page-titre {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--texte);
+}

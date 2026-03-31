@@ -6,9 +6,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Variables locales (même palette que shared.css) */
+/* Variables locales — couleurs d'origine de Constance Fleury */
 :root {
-  --bleu:         #6092ff;
+  --bleu:         #7b9fd4;   /* couleur originale du bouton register */
+  --bleu-hover:   #6a8ec0;
   --bleu-clair:   #dbeafe;
   --rouge:        #e30101;
   --gris-bg:      #f0f2f8;
@@ -238,9 +239,9 @@ body {
   font-weight: 600;
   cursor: pointer;
   margin-top: 4px;
-  transition: opacity 0.2s;
+  transition: background-color 0.2s;
 }
 
 .btn-submit:hover {
-  opacity: 0.88;
+  background-color: var(--bleu-hover);
 }

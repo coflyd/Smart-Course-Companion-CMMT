@@ -45,10 +45,11 @@ body {
 /* ================================================
    HEADER COMMUN
    Utilisé par toutes les pages sauf registerLogin
+   Background : même couleur que le bouton du register (#7b9fd4)
    ================================================ */
 .header {
-  background-color: var(--blanc);
-  border-bottom: 1px solid var(--gris-bordure);
+  background-color: #7b9fd4;
+  border-bottom: none;
   width: 100%;
 }
 
@@ -76,12 +77,12 @@ body {
   display: block;
   font-size: 14px;
   font-weight: 700;
-  color: var(--texte);
+  color: var(--blanc);
 }
 
 .header-logo-text small {
   font-size: 11px;
-  color: var(--gris-texte);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
 }
 
@@ -96,28 +97,31 @@ body {
   display: block;
   font-size: 14px;
   font-weight: 600;
+  color: var(--blanc);
 }
 
 .header-user-info small {
   font-size: 11px;
-  color: var(--gris-texte);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Bouton Sign Out */
 .btn-signout {
-  background-color: var(--rouge);
+  background-color: rgba(255, 255, 255, 0.2);
   color: var(--blanc);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   padding: 7px 14px;
   font-family: var(--font);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .btn-signout:hover {
-  opacity: 0.85;
+  background-color: var(--rouge);
+  border-color: var(--rouge);
 }
 
 /* ================================================
@@ -125,7 +129,7 @@ body {
    Barre de liens sous le header-top
    ================================================ */
 .header-nav {
-  border-top: 1px solid var(--gris-bordure);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
   padding: 6px 24px;
   display: flex;
   gap: 4px;
@@ -135,28 +139,28 @@ body {
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
-  color: var(--gris-texte);
+  color: rgba(255, 255, 255, 0.85);
   padding: 7px 14px;
   border-radius: 6px;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .header-nav a:hover {
-  background-color: var(--bleu-clair);
-  color: var(--bleu);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--blanc);
 }
 
 /* Lien de la page courante */
 .header-nav a.actif {
-  background-color: var(--bleu-clair);
-  color: var(--bleu);
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--blanc);
 }
 
 /* Navigation instructeur — même structure, couleur violette */
 .header-nav.nav-instructor a:hover,
 .header-nav.nav-instructor a.actif {
-  background-color: var(--violet-clair);
-  color: var(--violet);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--blanc);
 }
 
 /* ================================================

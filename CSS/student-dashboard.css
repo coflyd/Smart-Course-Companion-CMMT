@@ -1,0 +1,190 @@
+/* ==============================================
+   STUDENT — student-dashboard.css
+   Dashboard étudiant : grille de cours
+   ============================================== */
+
+/* ── Ligne titre + bouton Add Course ── */
+.titre-ligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* ── Grille de cours ── */
+.grille-cours {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ── Carte de cours ── */
+.carte-cours {
+  background-color: var(--blanc);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carte-cours:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Bande de couleur en haut de chaque carte */
+.carte-couleur {
+  height: 5px;
+  width: 100%;
+}
+
+.carte-corps {
+  padding: 18px;
+}
+
+.carte-code {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bleu);
+}
+
+.carte-nom {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texte);
+  margin: 6px 0 14px 0;
+}
+
+.carte-separateur {
+  border: none;
+  border-top: 1px solid var(--gris-bordure);
+  margin-bottom: 12px;
+}
+
+.carte-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--gris-texte);
+}
+
+.carte-info strong {
+  color: var(--texte);
+}
+
+/* ── Overlay (fond sombre derrière la modale) ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+}
+
+.overlay.visible {
+  display: block;
+}
+
+/* ── Modale Add Course ── */
+/* IMPORTANT : display:none par défaut, display:flex seulement avec .visible */
+.modale {
+  display: none;         /* cachée par défaut */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blanc);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 440px;
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modale.visible {
+  display: flex;         /* visible seulement quand .visible est ajouté par JS */
+}
+  display: flex;
+}
+
+.modale-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modale-entete h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.modale-fermer {
+  background: var(--gris-bg);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modale-fermer:hover {
+  background-color: var(--rouge);
+  color: var(--blanc);
+  border-color: var(--rouge);
+}
+
+.modale-sous-titre {
+  font-size: 13px;
+  color: var(--gris-texte);
+  margin-top: -8px;
+}
+
+/* Champs réutilisés depuis registerLogin */
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.champ label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texte);
+}
+
+.champ input {
+  padding: 10px 13px;
+  border: 1.5px solid var(--gris-bordure);
+  border-radius: 8px;
+  background-color: var(--gris-bg);
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--texte);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.champ input:focus {
+  border-color: var(--bleu);
+}
+
+.champ input::placeholder {
+  color: #9a9bb0;
+}
+
+.modale-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}

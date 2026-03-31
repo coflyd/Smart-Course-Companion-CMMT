@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+  INSTRUCTOR — instructor-dashboard.html
+  Dashboard : grille de cartes + modale Add Course
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Course Companion — Instructor Dashboard</title>
+  <link rel="stylesheet" href="../CSS/shared.css">
+  <link rel="stylesheet" href="../CSS/instructor-dashboard.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-top">
+      <div class="header-logo">
+        <img src="../data/image_1.png" alt="Logo">
+        <div class="header-logo-text">
+          <strong>Smart Course Companion</strong>
+          <small>Instructor Dashboard</small>
+        </div>
+      </div>
+      <div class="header-user">
+        <div class="user-avatar-cercle">DR</div>
+        <div class="header-user-info">
+          <strong>Dr. Roberts</strong>
+          <small>Instructor</small>
+        </div>
+        <button class="btn-signout" onclick="signOut()">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-contenu">
+
+    <div class="titre-ligne">
+      <div>
+        <h2 class="page-titre">My Courses</h2>
+        <p class="page-sous-titre">Manage and monitor your courses</p>
+      </div>
+      <button class="btn-add-course" onclick="ouvrirModale()">+ Add Course</button>
+    </div>
+
+    <!-- Grille de cartes -->
+    <div class="grille-cours" id="grille-cours">
+
+      <a href="instructor-course.html" class="carte-cours">
+        <div class="carte-corps">
+          <div class="carte-code">CS 101</div>
+          <div class="carte-nom">Introduction to Computer Science</div>
+          <hr class="carte-sep">
+          <div class="carte-ligne"><span>Semester</span><strong>Spring 2026</strong></div>
+          <div class="carte-ligne"><span>Students</span><strong>13</strong></div>
+        </div>
+      </a>
+
+      <a href="instructor-course.html" class="carte-cours">
+        <div class="carte-corps">
+          <div class="carte-code">CS 201</div>
+          <div class="carte-nom">Data Structures &amp; Algorithms</div>
+          <hr class="carte-sep">
+          <div class="carte-ligne"><span>Semester</span><strong>Spring 2026</strong></div>
+          <div class="carte-ligne"><span>Students</span><strong>15</strong></div>
+        </div>
+      </a>
+
+      <a href="instructor-course.html" class="carte-cours">
+        <div class="carte-corps">
+          <div class="carte-code">CS 301</div>
+          <div class="carte-nom">Operating Systems</div>
+          <hr class="carte-sep">
+          <div class="carte-ligne"><span>Semester</span><strong>Spring 2026</strong></div>
+          <div class="carte-ligne"><span>Students</span><strong>12</strong></div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- MODALE Add New Course -->
+  <div class="overlay" id="overlay" onclick="fermerModale()"></div>
+  <div class="modale" id="modale">
+    <div class="modale-entete">
+      <div>
+        <h3>Add New Course</h3>
+        <p class="modale-sous-titre">Create a new course to manage assignments and track student progress.</p>
+      </div>
+      <button class="modale-fermer" onclick="fermerModale()">✕</button>
+    </div>
+    <div class="champ">
+      <label for="m-code">Course Code</label>
+      <input type="text" id="m-code" placeholder="e.g., CS 101">
+    </div>
+    <div class="champ">
+      <label for="m-nom">Course Name</label>
+      <input type="text" id="m-nom" placeholder="e.g., Introduction to Computer Science">
+    </div>
+    <div class="champ">
+      <label for="m-semestre">Semester</label>
+      <input type="text" id="m-semestre" placeholder="Spring 2026">
+    </div>
+    <div class="modale-actions">
+      <button class="btn-annuler" onclick="fermerModale()">Cancel</button>
+      <button class="btn-add-course" onclick="ajouterCours()">Create Course</button>
+    </div>
+  </div>
+
+  <script src="../JS/shared.js"></script>
+  <script src="../JS/instructor-dashboard.js"></script>
+</body>
+</html>

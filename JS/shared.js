@@ -28,3 +28,8 @@ function marquerLienActif() {
 
 /* Lance marquerLienActif dès que la page est chargée */
 window.addEventListener('load', marquerLienActif);
+
+/* NOTE : la modale Add Course ne s'ouvre PAS automatiquement.
+   Elle s'ouvrira au clic sur le bouton "+ Add Course".
+   Quand la BD sera connectée, on pourra vérifier si des cours
+   existent déjà avant de proposer l'ajout. */

@@ -91,12 +91,12 @@ function toggleVisibilite(checkbox) {
   const icone  = document.getElementById('vis-icone');
 
   if (checkbox.checked) {
-    label.textContent  = 'Course is currently visible to all enrolled students';
-    icone.textContent  = '👁';
+    label.textContent = 'Course is currently visible to all enrolled students';
+    icone.src         = '../data/image_7.png';   /* œil ouvert */
     alerte.style.display = 'none';
   } else {
-    label.textContent  = 'Course is hidden from students';
-    icone.textContent  = '🚫';
+    label.textContent = 'Course is hidden from students';
+    icone.src         = '../data/image_9.png';   /* interdit */
     alerte.style.display = 'block';
   }
 }

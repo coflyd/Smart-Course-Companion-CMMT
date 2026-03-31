@@ -16,19 +16,19 @@
   <header class="header">
     <div class="header-top">
       <div class="header-logo">
-        <div class="logo-icone">📖</div>
+        <img src="../data/image_1.png" alt="Logo">
         <div class="header-logo-text">
           <strong>Smart Course Companion</strong>
           <small>Instructor Dashboard</small>
         </div>
       </div>
       <div class="header-user">
-        <button class="btn-signout-inst" onclick="signOut()">→ Sign Out</button>
         <div class="user-avatar-cercle">DR</div>
         <div class="header-user-info">
           <strong>Dr. Roberts</strong>
           <small>Instructor</small>
         </div>
+        <button class="btn-signout" onclick="signOut()">Sign Out</button>
       </div>
     </div>
   </header>
@@ -48,6 +48,9 @@
         <button class="pill" onclick="switchOnglet('progress', this)">Student Progress</button>
         <button class="pill" onclick="switchOnglet('settings', this)">Course Settings</button>
       </div>
+
+      <!-- Espace respirant sous la navigation -->
+      <div style="height: 20px;"></div>
     </div>
   </div>
 
@@ -308,7 +311,7 @@
 
           <div class="visibility-row" id="vis-row">
             <div class="vis-left">
-              <span class="vis-icone" id="vis-icone">👁</span>
+              <img src="../data/image_7.png" class="vis-icone" id="vis-icone" alt="visibility icon">
               <div>
                 <strong>Course Visibility</strong>
                 <p id="vis-label">Course is currently visible to all enrolled students</p>
@@ -335,7 +338,7 @@
           </div>
 
           <button class="btn-save" onclick="afficherToast('Visibility settings saved!')">
-            💾 Save Visibility Settings
+            <img src="../data/image_8.png" class="btn-icone-img" alt="save"> Save Visibility Settings
           </button>
 
         </div>
@@ -345,7 +348,7 @@
 
           <div class="templates-header">
             <p style="font-size:13px;color:var(--gris-texte);">Save and reuse course structures across semesters</p>
-            <button class="btn-annuler" onclick="afficherToast('Template saved!')">💾 Save Current as Template</button>
+            <button class="btn-annuler" onclick="afficherToast('Template saved!')"><img src="../data/image_8.png" class="btn-icone-img" alt="save"> Save Current as Template</button>
           </div>
 
           <div class="template-card">
@@ -407,7 +410,7 @@
           </div>
 
           <button class="btn-save" onclick="afficherToast('Course details saved!')">
-            💾 Save Course Details
+            <img src="../data/image_8.png" class="btn-icone-img" alt="save"> Save Course Details
           </button>
 
         </div>

@@ -36,6 +36,14 @@ body {
   padding: 32px 16px;
 }
 
+/* Image de fond pleine page */
+body.bg-image {
+  background-image: url('../data/image_6.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* ── Conteneur principal : deux panneaux côte à côte ── */
 .container {
   display: grid;
@@ -45,7 +53,7 @@ body {
   background-color: var(--blanc);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.22);
 }
 
 /* ── Panneau gauche (gris, présentation) ── */

@@ -59,7 +59,7 @@ function handleSubmit() {
     const activeToggle = document.querySelector('.toggle.active');
     const role = activeToggle ? activeToggle.textContent.trim() : 'Student';
     if (role === 'Instructor') {
-        window.location.href = '../HTML/instructorAssignments.html';
+        window.location.href = '../HTML/InstructorDashboard.html';
     } else {
         window.location.href = '../HTML/student-ui.html';
     }

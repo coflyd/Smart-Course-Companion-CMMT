@@ -1,66 +1,344 @@
-/* --- Global Styles & Variables --- */
-:root {
-    --primary-blue: #7ca3f3;
-    --navy-fill: #4e6b9a;
-    --success-green: #10b981;
-    --warning-orange: #f59e0b;
-    --text-dark: #1f2937;
-    --text-gray: #6b7280;
-    --bg-light: #f8fafc;
-    --border-color: #f1f5f9;
-    --white: #ffffff;
-}
+/* Smart Course Companion - Instructor Dashboard CSS */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* --- Header & Navigation --------------------------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* ── HEADER ── */
 header {
     display: flex;
-    background-color: var(--white);
+    flex-direction: row;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--border-color);
+    padding: 0 24px;
+    height: 60px;
 }
 
-main header {
-    background-color: transparent;
-    margin-left: 0px;
-}
-
-.header-left, .header-right {
+.header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 12px;
 }
 
 .brand-logo img {
-    height: 45px;
-    border-radius: 25%;
+    width: 40px;
+    height: auto;
 }
 
 .brand-text strong {
     display: block;
-    font-size: 1.1rem;
+    font-size: 15px;
+    font-weight: 700;
 }
 
-.brand-text small, .userinfo-text small {
-    color: var(--text-gray);
+.brand-text small {
+    font-size: 11px;
+    color: slategrey;
+    font-weight: 400;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-divider {
+    width: 1px;
+    height: 32px;
+    background-color: lightgray;
 }
 
 .user-info {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
-.userinfo-text  {
+
+.userinfo-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.userinfo-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.userinfo-text small {
+    font-size: 11px;
+    color: slategrey;
+    font-weight: 400;
+}
+
+.signout-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: none;
+    color: #1a1f36;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ── NAV ── */
+nav {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.nav-tabs {
+    background-color: #f0f2f8;
+    border-radius: 50px;
+    padding: 6px;
+    display: inline-flex;
+    gap: 4px;
+}
+
+.tab, .tab-active {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.tab-active {
+    background-color: #ffffff;
+    color: #1a1f36;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+/* ── MAIN ── */
+main {
+    padding: 24px;
+}
+
+.page-intro {
+    margin-bottom: 20px;
+}
+
+.page-intro h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1f36;
+    margin-bottom: 4px;
+}
+
+.page-intro p {
+    font-size: 13px;
+    color: slategrey;
+    font-weight: 400;
+}
+
+/* ── ADD COURSE BUTTON ── */
+.add-course-btn {
+    background-color: #7b9fd4;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* ── COURSE GRID ── */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #f0f2f8;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    margin-bottom: 8px;
+}
+
+.course-code {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1f36;
+}
+
+.course-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1f36;
+    margin-bottom: 10px;
+}
+
+.card-divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 10px 0;
+}
+
+.course-details {
+    font-size: 12px;
+    color: slategrey;
+    font-weight: 400;
+}
+
+.course-details p {
+    margin-bottom: 4px;
+}
+
+.course-details span {
+    color: #7b9fd4;
+    font-weight: 600;
+}
+
+/* ── POPUP ── */
+.dim-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-up-window {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.pop-up-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.close-x {
+    background: #e0e4f0;
+    border: none;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-up-window h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.pop-up-window p {
+    font-size: 13px;
+    color: slategrey;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.input-field {
+    margin-bottom: 14px;
+}
+
+.input-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.input-field input,
+.input-field select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e0e4f0;
+    border-radius: 8px;
+    background-color: #f5f7fc;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+.pop-up-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.save-btn {
+    background-color: #7b9fd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: none;
+    border: 1.5px solid #e0e4f0;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
     flex-direction: column;
 }
 .userinfo-text strong {

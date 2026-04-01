@@ -1,4 +1,5 @@
-/* Smart Course Companion - Instructor Dashboard CSS */
+/* Smart Course Companion - Instructor Dashboard CSS
+   Matching student-ui style by Maélys HOUNKPONOU */
 
 * {
     box-sizing: border-box;
@@ -640,4 +641,198 @@ td {
     font-weight: 700;
     color: #1a1f36;
     margin-bottom: 2px;
+}
+
+/* ── SETTINGS CARD ── */
+.settings-card {
+    background-color: #f0f2f8;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.settings-card h3 {
+    font-size: 16px;
+    color: #1a1f36;
+    margin-bottom: 16px;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.setting-row strong {
+    display: block;
+    font-size: 14px;
+    color: #1a1f36;
+    margin-bottom: 4px;
+}
+
+/* ── TOGGLE SWITCH ── */
+.toggle-switch {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #e0e4f0;
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    background-color: #ffffff;
+    border-radius: 999px;
+    transition: transform 0.2s;
+}
+
+input:checked + .slider {
+    background-color: #7b9fd4;
+}
+
+input:checked + .slider::before {
+    transform: translateX(18px);
+}
+
+/* ── SETTINGS SELECT ── */
+.settings-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #e0e4f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+/* ── SAVE BUTTON ── */
+.save-settings-btn {
+    background-color: #7b9fd4;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* ── TEMPLATES GRID ── */
+.templates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.template-card {
+    background: #ffffff;
+    border: 1.5px solid #e0e4f0;
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.template-card.selected {
+    border-color: #7b9fd4;
+    background-color: #f0f5fc;
+}
+
+.template-card strong {
+    display: block;
+    font-size: 13px;
+    color: #1a1f36;
+    margin-bottom: 4px;
+}
+
+.template-badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 2px 8px;
+    background-color: #e8eef8;
+    color: #7b9fd4;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+/* ── FORM GROUPS ── */
+.form-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1f36;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px 14px;
+    border: 1.5px solid #e0e4f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    resize: vertical;
+}
+
+/* ── TOAST ── */
+.toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background-color: #1a1f36;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -1,4 +1,4 @@
-/* Smart Course Companion - Instructor Dashboard CSS*/
+/* Smart Course Companion - Instructor Dashboard CSS */
 
 * {
     box-sizing: border-box;
@@ -338,4 +338,306 @@ main {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* ── BACK BUTTON ── */
+.back-btn {
+    background: none;
+    border: none;
+    color: #7b9fd4;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+/* ── COURSE TITLE SECTION ── */
+.course-title-section {
+    margin-bottom: 20px;
+}
+
+.course-title-section h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1f36;
+    margin-bottom: 4px;
+}
+
+.course-subtitle {
+    font-size: 13px;
+    color: slategrey;
+    font-weight: 400;
+    margin-bottom: 2px;
+}
+
+/* ── COURSE TABS ── */
+.course-tabs {
+    display: flex;
+    gap: 4px;
+    background-color: #f0f2f8;
+    border-radius: 50px;
+    padding: 6px;
+    display: inline-flex;
+    margin-bottom: 24px;
+}
+
+.course-tab {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.course-tab-active {
+    background-color: #ffffff;
+    color: #1a1f36;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+/* ── STATS ── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stats-row .stats-card {
+    flex: 1;
+}
+
+.stats-card {
+    background-color: #f0f2f8;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stats-card small {
+    font-size: 11px;
+    color: slategrey;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stats-card strong {
+    font-size: 28px;
+    color: #1a1f36;
+}
+
+.stats-card span {
+    font-size: 12px;
+    color: slategrey;
+    font-weight: 400;
+}
+
+/* ── BREAKDOWN ── */
+.breakdown-card {
+    background-color: #f0f2f8;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.breakdown-card h3 {
+    font-size: 15px;
+    margin-bottom: 16px;
+    color: #1a1f36;
+}
+
+.assessment-item {
+    margin-bottom: 16px;
+}
+
+.assessment-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.assessment-label .count {
+    color: slategrey;
+    font-weight: 400;
+}
+
+.progress-track {
+    background-color: #e2e8f0;
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #7b9fd4;
+    border-radius: 10px;
+}
+
+/* ── ASSIGNMENT BOX ── */
+.assignment-box {
+    background-color: #f0f2f8;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.assignment-box h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.total-weight {
+    color: #10b981;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.assignment-inputs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.assignment-inputs input {
+    padding: 8px 12px;
+    border: 1.5px solid #e0e4f0;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    background: #ffffff;
+    outline: none;
+}
+
+.add-btn {
+    background-color: #7b9fd4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sub-tabs {
+    display: inline-flex;
+    background-color: #e2e8f0;
+    border-radius: 50px;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.sub-tab, .sub-tab-active {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.sub-tab-active {
+    background-color: #ffffff;
+    color: #1a1f36;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background-color: #f0f2f8;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 13px;
+    color: #1a1f36;
+}
+
+td {
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 400;
+    border-top: 1px solid #f0f2f8;
+}
+
+.delete-btn {
+    background-color: #e30101;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* ── ASSESSMENT CARDS (Student Progress) ── */
+.assessment-card {
+    background-color: #f0f2f8;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.assessment-card > strong {
+    font-size: 15px;
+    color: #1a1f36;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.card-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.stat-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.stat-item small {
+    font-size: 10px;
+    color: slategrey;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.stat-item div {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1f36;
+    margin-bottom: 2px;
 }

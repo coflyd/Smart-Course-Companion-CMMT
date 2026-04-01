@@ -1,118 +1,87 @@
 <!DOCTYPE html>
-<!--
-  SMART COURSE COMPANION — registerLogin.html
-  Page d'accueil : connexion et inscription
-  Auteur : Constance Fleury
--->
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Course Companion — Login</title>
-  <link rel="stylesheet" href="../CSS/registerLogin.css">
-</head>
-<body class="bg-image">
+<!--======================================
+SMART COURSE COMPANION — registerLogin.html
+Auteur : Constance Fleury
+Description: Register Login Page HTML
+========================================-->
+<html>
+    </head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smart Course Companion</title>
+        <link rel="stylesheet" href="../CSS/styleRegisterLogin.css">
+    <head>
+    <body>
+        <div class="container">
 
-  <div class="container">
+            <!-- LEFT SIDE -->
+            <div class="leftSection">
+                <div class="logoSCC-description">
+                    <img src="../data/image_1.png" alt="Book logo" class="logo" width="50">
+                    <h1>Smart Course Companion</h1>
+                    <p class="description">Your personalized academic organizer for tracking courses, assessments, and academic progress</p>
+                </div>
+                
+                <div class="feature">
+                    <img src="../data/image_2.png" alt="Student logo" class="logo" width="60">
+                    <div class="feature-content">
+                        <h4>For Students</h4>
+                        <p>Track courses, manage assessments, and visualize your academic progress</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <img src="../data/image_3.png" alt="Student logo" class="logo" width="60">
+                    <div class="feature-content">
+                        <h4>For Instructors</h4>
+                        <p>Create courses, manage assessments, and monitor student engagement</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- ── Panneau gauche : présentation du site ── -->
-    <div class="panneau-gauche">
+            <!-- RIGHT SIDE -->
+            <div class="rightSection">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Sign in to your account or create a new one</p>
+                <div class="tabs">
+                    <button class="tab" onclick="switchTab('login')">Login</button>
+                    <button class="tab active" onclick="switchTab('Register')">Register</button>
+                </div>
 
-      <div class="logo-bloc">
-        <img src="../data/image_1.png" alt="Logo Smart Course Companion">
-        <h1>Smart Course Companion</h1>
-        <p>Your personalized academic organizer for tracking courses, assessments, and academic progress</p>
-      </div>
 
-      <div class="feature">
-        <img src="../data/image_2.png" alt="Student icon">
-        <div>
-          <h4>For Students</h4>
-          <p>Track courses, manage assessments, and visualize your academic progress</p>
+                <div class="selector">
+                    <span>I am a:</span>
+                    <div class="toggle-group">
+                        <button class="toggle active" onclick="switchToggle('Student')">Student</button>
+                        <button class="toggle" onclick="switchToggle('Instructor')">Instructor</button>
+                    </div>
+                </div>
+                
+                <form>
+                    <div class="form-group" id="field-name">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Jhon Smith">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="you@university.ca">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    
+                    <div class="form-group" id="field-confirm">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    
+                    <button type="button" class="submit-btn" id="submit-btn" onclick="handleSubmit()">Create Account</button>
+                </form>
+            </div>
         </div>
-      </div>
-
-      <div class="feature">
-        <img src="../data/image_3.png" alt="Instructor icon">
-        <div>
-          <h4>For Instructors</h4>
-          <p>Create courses, manage assessments, and monitor student engagement</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ── Panneau droit : formulaire Login / Register ── -->
-    <div class="panneau-droit">
-
-      <h2>Welcome Back</h2>
-      <p class="sous-titre">Sign in to your account or create a new one</p>
-
-      <!-- Onglets Login / Register -->
-      <div class="onglets">
-        <button class="onglet actif" onclick="switchOnglet('login')">Login</button>
-        <button class="onglet" onclick="switchOnglet('register')">Register</button>
-      </div>
-
-      <!-- Sélecteur de rôle : Student ou Instructor -->
-      <div class="selecteur-role">
-        <span>I am a :</span>
-        <div class="toggle-groupe">
-          <button class="toggle actif" onclick="switchRole('student')">Student</button>
-          <button class="toggle" onclick="switchRole('instructor')">Instructor</button>
-        </div>
-      </div>
-
-      <!-- Formulaire -->
-      <form>
-
-        <!-- Message d'erreur (caché par défaut) -->
-        <p class="msg-erreur" id="msg-erreur" style="display:none;"></p>
-
-        <!-- Champ visible seulement en mode Register -->
-        <div class="champ" id="champ-nom">
-          <label for="nom">Full Name</label>
-          <input type="text" id="nom" placeholder="John Smith">
-        </div>
-
-        <div class="champ">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@university.ca">
-        </div>
-
-        <div class="champ">
-          <label for="mdp">Password</label>
-          <input type="password" id="mdp" placeholder="••••••••">
-        </div>
-
-        <!-- Champ visible seulement en mode Register -->
-        <div class="champ" id="champ-confirmation">
-          <label for="mdp2">Confirm Password</label>
-          <input type="password" id="mdp2" placeholder="••••••••">
-        </div>
-
-        <br>
-
-        <button type="button" class="btn-submit" id="btn-submit" onclick="handleSubmit()">
-          Create Account
-        </button>
-
-        <br>
-
-      </form>
-
-    </div>
-  </div>
-
-  <!-- Popup succès inscription -->
-  <div class="popup-overlay" id="popup-succes" style="display:none;">
-    <div class="popup-boite">
-      <h3>You're registered! 🎉</h3>
-      <p>Your account has been created successfully.<br>Please use the <strong>Sign In</strong> page to log in.</p>
-      <button class="btn-submit" onclick="fermerPopup()">Go to Sign In</button>
-    </div>
-  </div>
-
-  <script src="../JS/registerLogin.js"></script>
-</body>
+        <script src="../JavaScript/scriptRegisterLogin.js"></script>
+    </body>
 </html>

@@ -13,36 +13,35 @@
 </head>
 <body>
 <header>
-<div id="top-bar">
-
-    <section id="title-logo">
-        <img src="../data/logo-ssc.png">
-        <div>
-            <h1>THE SMART COURSE COMPANION</h1>
-            <small id="dashboard">Student Dashboard</small>
+    <div class="header-left">
+        <div class="brand-logo">
+            <img src="../data/SCC Logo.PNG" alt="SCC Logo"></div>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Student Dashboard</small></div>
+    </div>
+    <div class="header-right">
+        <button class="signout-btn" onclick="window.location.href='registerLogin.html'">
+            <img src="../data/SignOut.png" alt="Exit icon">
+            <span>Sign Out</span></button>
+        <div class="header-divider"></div>
+        <div class="user-info">
+            <img src="../data/person.png">
+            <div class="userinfo-text">
+                <strong>Masila Baduza</strong>
+                <small>Student</small></div>
         </div>
-    </section>
-
-    <section id="profile">
-        <img src="../data/person.png">
-        <div id="person">
-            <strong>Masila Baduza</strong>
-            <small id="role">Student</small>
-        </div>
-        <button id="s-o-btn">Sign Out</button>
-    </section>
-
-</div>
-
-<nav>
-    <ul>
-        <li><a href="../HTML/student-ui.html" >MY COURSES</a></li>
-        <li><a href="../HTML/upcoming-assignment.html" id="current-page">UPCOMING ASSIGNMENTS</a></li>
-        <li><a href="../HTML/analytics.html">ANALYTICS</a></li>
-    </ul>
-</nav>
+    </div>
 </header>
+<nav>
+    <div class="nav-tabs">
+        <button class="tab" onclick="window.location.href='../HTML/student-ui.html'">My Courses</button>
+        <button class="tab-active" onclick="window.location.href='../HTML/upcoming-assignment.html'">Upcoming Assignments</button>
+        <button class="tab" onclick="window.location.href='../HTML/analytics.html'">Analytics</button>
+    </div>
+</nav>
 
+<main>
 <h3>UPCOMING ASSIGNMENTS </h3>
 
 
@@ -95,6 +94,14 @@
                 Status
             </th>
 
+            <th>
+                Grade
+            </th>
+
+            <th>
+                Weight
+            </th>
+
         </tr>
         </thead>
 <tbody>
@@ -105,8 +112,10 @@
                 <select>
                     <option value="1">  NOT STARTED </option>
                     <option value="2">  ON GOING </option>
-                    <option value="3">  COMPLETED! </option>         </select>
+                    <option value="3">  COMPLETED! </option></select>
             </td>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
         </tr>
 
         <tr>
@@ -118,6 +127,9 @@
                     <option value="1">  NOT STARTED </option>
                     <option value="2">  ON GOING </option>
                     <option value="3">  COMPLETED! </option>         </select>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
+
             </td>
         </tr>
 
@@ -130,6 +142,8 @@
                     <option value="1">  NOT STARTED </option>
                     <option value="2">  ON GOING </option>
                     <option value="3">  COMPLETED! </option>         </select>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
             </td>
         </tr>
 
@@ -142,11 +156,14 @@
                     <option value="1">  NOT STARTED </option>
                     <option value="2">  ON GOING </option>
                     <option value="3">  COMPLETED! </option>         </select>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
             </td>
         </tr>
 </tbody>
     </table>
 
         </div>
+</main>
 </body>
 </html>

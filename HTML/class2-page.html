@@ -8,32 +8,34 @@
     <link rel="stylesheet" href="../CSS/style-class2-page.css">
 </head>
 <body>
-<header id="main-header">
-    <div id="top-bar">
-        <section id="title-logo">
-            <img src="../data/image_1.png" id="site-logo">
-            <div>
-                <h1>SMART COURSE COMPANION</h1>
-                <small id="dashboard">Student Dashboard</small>
-            </div>
-        </section>
-        <section id="profile">
-            <img src="../data/image_2.png" id="student">
-            <div id="person">
-                <strong>Masila Baduza</strong>
-                <small id="role">Student</small>
-            </div>
-            <button id="s-o-btn">Sign Out</button>
-        </section>
+<header>
+    <div class="header-left">
+        <div class="brand-logo">
+            <img src="../data/SCC Logo.PNG" alt="SCC Logo"></div>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Student Dashboard</small></div>
     </div>
-    <nav>
-        <ul>
-            <li><a href="../HTML/student-ui.html" id="current-page">MY COURSES</a></li>
-            <li><a href="../HTML/upcoming-assignment.html">UPCOMING ASSIGNMENTS</a></li>
-            <li><a href="../HTML/analytics.html">ANALYTICS</a></li>
-        </ul>
-    </nav>
+    <div class="header-right">
+        <button class="signout-btn" onclick="window.location.href='registerLogin.html'">
+            <img src="../data/SignOut.png" alt="Exit icon">
+            <span>Sign Out</span></button>
+        <div class="header-divider"></div>
+        <div class="user-info">
+            <img src="../data/person.png">
+            <div class="userinfo-text">
+                <strong>Masila Baduza</strong>
+                <small>Student</small></div>
+        </div>
+    </div>
 </header>
+<nav>
+    <div class="nav-tabs">
+        <button class="tab-active" onclick="window.location.href='../HTML/student-ui.html'">My Courses</button>
+        <button class="tab" onclick="window.location.href='../HTML/upcoming-assignment.html'">Upcoming Assignments</button>
+        <button class="tab" onclick="window.location.href='../HTML/analytics.html'">Analytics</button>
+    </div>
+</nav>
 <div id="course-header">
     <a href="../HTML/student-ui.html" id="back-btn">← Back to Courses</a>
     <div id="course-title-row">
@@ -45,6 +47,7 @@
         </div>
     </div>
 </div>
+<main>
 <div id="buttons">
 
     <button id = delete-button popovertarget="delete-popup"> Delete Course </button>
@@ -127,5 +130,6 @@
     </section>
 
 </div>
+</main>
 </body>
 </html>

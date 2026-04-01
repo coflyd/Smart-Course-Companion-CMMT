@@ -1,95 +1,117 @@
 <!DOCTYPE html>
-<!-- SMART STUDENT COMPANION - instructoruploadgrades.html
- Description: Instructor Interface- Adding and Removing Assignments
+<!-- SMART COURSE COMPANION - instructoruploadgrades.html
  By Thushika Thavarajah (27516126) -->
-
-<html>
+<html lang="en">
 <head>
-    <title>Instructor Dashboard Smart</title>
-    <link rel="stylesheet" href="../CSS/styleuploadgrade.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard - Upload Grades</title>
+    <link rel="stylesheet" href="../CSS/InstructorDashboard_StudentProgress.css">
 </head>
 <body>
 
-    <!----- Header ----->
-    <header class="header">
-        <div class="left-section">    
-            <div><img src="../data/image_1.png" class="logo" width="50"></div>
-      <div class="Instructor-dashboard"><h2> Smart Course Companion</h2>
-        <h6>Instructor Dashboard</h6></div>
+<!-- HEADER -->
+<header>
+    <div class="header-left">
+        <div class="brand-logo">
+            <img src="../data/image_1.png" alt="SCC Logo">
         </div>
-        <div class="right-section">
-             <div class="user">Dr. Roberts</div>
-             <button class="sign-out">Sign Out</button>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Instructor Dashboard</small>
         </div>
     </div>
-    </header>
-
-    <!----- Per class Container ----->
-    <div class="container">
-        
-        <!--Hard Coded element -->
-        <h1>CS 101</h1>
-        <p class="course-Name">Introduction to Computer Science
-        <br>Spring 2026
-        </p>
-
-        <!--Navigation Tabs -->
-        <div class="Course-tabs">
-            <button class="tab" onclick="location.href='../HTML/CourseOverview-templateA.html'">Overview</button>
-            <button class="tab-active">Assignments</button>
-            <button class="tab" onclick="location.href='../HTML/CourseOverview-templateA.html'">Student Progress</button>
-            <button class="tab" onclick="location.href='../HTML/courseSettings.html'">Course Settings</button>
+    <div class="header-right">
+        <button class="signout-btn" onclick="window.location.href='../HTML/registerLogin.html'">
+            <span>Sign Out</span>
+        </button>
+        <div class="header-divider"></div>
+        <div class="user-info">
+            <div class="userinfo-circle">DR</div>
+            <div class="userinfo-text">
+                <strong>Dr. Roberts</strong>
+                <small>Instructor</small>
+            </div>
         </div>
+    </div>
+</header>
 
-        <!-- Assignment Section -->
-        <div class="assignment-box">
+<!-- NAV -->
+<nav>
+    <div class="nav-tabs">
+        <button class="tab-active" onclick="window.location.href='../HTML/InstructorDashboard.html'">My Courses</button>
+    </div>
+</nav>
 
-            <div class="assignment-header">
-                <h3>Assignment Management</h3>
-             <div class="total-weight"> 100%
-             </div>
-               
-              <input type="text" id="title" placeholder="Assignment Title">
+<!-- MAIN -->
+<main>
+
+    <!-- BACK -->
+    <button class="back-btn" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">← Back to Course</button>
+
+    <!-- COURSE TITLE -->
+    <div class="course-title-section">
+        <h1>CS 101</h1>
+        <p class="course-subtitle">Introduction to Computer Science</p>
+        <p class="course-subtitle">Spring 2026</p>
+    </div>
+
+    <!-- COURSE TABS -->
+    <div class="course-tabs">
+        <button class="course-tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Overview</button>
+        <button class="course-tab course-tab-active">Assignments</button>
+        <button class="course-tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Student Progress</button>
+        <button class="course-tab" onclick="window.location.href='../HTML/courseSettings.html'">Course Settings</button>
+    </div>
+
+    <!-- ASSIGNMENT BOX -->
+    <div class="assignment-box">
+        <h3>Assignment Management</h3>
+        <div class="total-weight">100%</div>
+
+        <div class="assignment-inputs">
+            <input type="text" id="title" placeholder="Assignment Title">
             <input type="date" id="dueDate">
             <input type="number" id="weight" placeholder="Weight (%)">
             <input type="number" id="points" placeholder="Total Points">
-           
-            <button id="addAssignmentBtn">Add</button>
-         
-          </div>
-            <!-- Secondary Tabs -->
-            <div class="sub-tabs">
-                <button class="sub-tab" onclick="location.href='../HTML/instructorAssignments.html'">Assignments</button>
-                <button class="sub-tabactive">Upload Grades</button>
+            <button class="add-btn" id="addAssignmentBtn">Add</button>
+        </div>
+
+        <!-- SUB TABS -->
+        <div class="sub-tabs">
+            <button class="sub-tab" onclick="window.location.href='../HTML/instructorAssignments.html'">Assignments</button>
+            <button class="sub-tab-active">Upload Grades</button>
+        </div>
+
+        <!-- UPLOAD ZONE -->
+        <div class="upload-zone">
+            <h4>Upload Files</h4>
+            <div class="drop-area">
+                <img src="https://static.vecteezy.com/system/resources/previews/000/421/494/original/upload-icon-vector-illustration.jpg" width="50" style="margin-bottom:12px;">
+                <p class="course-subtitle">Upload a CSV file with Student ID and Grades</p>
+                <input type="file" hidden accept=".csv" id="fileID">
+                <button class="add-btn" onclick="document.getElementById('fileID').click()">Choose File</button>
+                <br><br>
+                <button class="save-settings-btn" style="width:auto; padding: 10px 24px;">Submit</button>
             </div>
-            <br>
-            <div class="Upload-Container">
-                <h3>Upload Files</h3>
-                <div class="drop-Upload">
-                    <div class="uploadiconimg">
-                        <img src="https://static.vecteezy.com/system/resources/previews/000/421/494/original/upload-icon-vector-illustration.jpg" width="50">
-                    </div>
-                    <h4>Upload a CSV file with Student ID and Grades</h4>
-                    <input type="file" hidden accept=".csv" id="fileID">
-                    <button class="btn" onclick="document.getElementById('fileID').click()">Choose File</button>
-                    <br>
-                    <input type="submit">
-                </div>
-                <div class="Upload-Template-Example">
-                    <h5>CSV Format Example:</h5>
-                    <div class="Upload-Template-Example-container">
-                        StudentID, AssignmentName, Grade
-                        <div class="Upload-Template-Example-container-Example">
-                            123456789, Midterm #1, 92<br>
-                            123456790, Midterm #1, 88<br>
-                            123456791, Midterm #1, 97
-                        </div>
-                    </div>
+
+            <div class="csv-example">
+                <p style="font-size:13px; font-weight:700; margin-bottom:8px;">CSV Format Example:</p>
+                <div class="csv-box">
+                    <p>StudentID, AssignmentName, Grade</p>
+                    <p style="color:slategrey; font-weight:400;">
+                        123456789, Midterm #1, 92<br>
+                        123456790, Midterm #1, 88<br>
+                        123456791, Midterm #1, 97
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
- <script src="../JavaScript/scriptAddAssignment_inst.js"></script>
-</body>
 
+    </div>
+
+</main>
+
+<script src="../JavaScript/scriptAddAssignment_inst.js"></script>
+</body>
 </html>

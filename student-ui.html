@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<!-- SMART STUDENT COMPANION STUDENT INTERFACE (DASHBOARD)
+ By Maélys HOUNKPONOU ID : 40323380 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> THE SMART COURSE COMPANION </title>
+    <link rel="stylesheet" href="../CSS/student-ui.css">
+</head>
+<body>
+    <header><!-- Start of Header-->
+        <div class="header-left"> <!-- Start Left Header Wrapper -->
+            <div class="brand-logo">
+                <img src="../data/SCC Logo.PNG" alt="SCC Logo"></div>
+
+            <div class="brand-text">
+                <strong>Smart Course Companion</strong>
+                <small>Student Dashboard</small></div>
+
+        </div> <!-- End Left Header Wrapper -->
+        <div class="header-right"> <!-- Start Right Header Wrapper-->
+            <button class="signout-btn" onclick="window.location.href='registerLogin.html'">
+                <img src="../data/SignOut.png" alt="Exit icon">
+                <span>Sign Out</span></button>
+
+            <div class="header-divider"></div><!-- Divides the sign out and user icon -->
+
+            <div class="user-info">
+                <img src="../data/person.png">
+                <div class="userinfo-text">
+                    <strong>Masila Baduza</strong>
+                    <small>Student</small></div>
+            </div>
+        </div><!-- End Right Header Wrapper-->
+    </header><!-- End of Header -->
+
+
+    <nav>
+
+        <!--Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-active" onclick="window.location.href='../HTML/student-ui.html'">My Courses</button>
+            <button class="tab" onclick="window.location.href='../HTML/upcoming-assignment.html'">Upcoming Assignments</button>
+            <button class="tab" onclick="window.location.href='../HTML/analytics.html'">Analytics</button>
+        </div>
+
+    </nav>
+
+
+<main>
+  <h3> MY COURSES </h3>
+
+<button class= "add-course-btn" popovertarget="add-course-popup"> + Add Course </button>
+<br>
+
+<section id = "add-course-popup" popover>
+    <form>
+        <label for="class">Class Code</label>
+        <input type="text" id="class" name="class" >
+
+
+        <label for="title">Class Title</label>
+        <input type="text" id="title" name="title">
+
+        <label for="prof">Professor</label>
+        <input type="text" id="prof" name="prof">
+
+        <label for="term"> Term </label>
+        <input type="text" id="term" name="prof">
+
+        <button class= "add-course-btn"  type="submit">Add Course </button>
+    </form>
+    </section>
+
+
+
+<div id = "courses">
+    <a href="class1-page.html" class="link">
+    <section class="course-item">
+        <img src="../data/SCC Logo.PNG">
+
+<h4> COMP 249 </h4>
+ <p>Object-Oriented Programming </p>
+        <div class="info1">
+        <p> Instructor :</p>
+        <p class="instructor"> Dr Houari </p>
+            </div>
+            <div class="info2">
+            <p> Term  : </p>
+        <p class="wterm">  Winter 2026 </p>
+
+</div>
+    </section>
+    </a>
+
+    <a href="class2-page.html" class="link">
+
+    <section class="course-item">
+        <img src="../data/logo-vert.png">
+        <h4> COMP 233 </h4>
+           <p> Probability & Statistics </p>
+           <div class="info1">
+               <p> Instructor :</p>
+               <p class="instructor"> Professor Fevens </p>  </div>
+        <div class="info2">
+           <p> Term  : </p>
+           <p class="wterm"> Winter 2026 </p>
+               </div>
+       </section>
+</a>
+    <a href="class3-page.html" class="link">
+    <section class="course-item">
+        <img src="../data/logo-yellow.png">
+
+        <h4> SOEN 228 </h4>
+        <p> System Hardware </p>
+
+        <div class="info1">
+            <p> Instructor :</p>
+        <p class="instructor">
+         Dr Eavis  </p></div>
+        <div class="info2">
+        <p> Term  : </p>
+        <p class="wterm">  Winter 2026 </p>
+            </div>
+       </section>
+    </a>
+    <a href="class4-page.html" class="link">
+    <section class="course-item">
+        <img src="../data/logo-pink.png">
+
+        <h4> SOEN 287 </h4>
+           <p>Web Programming </p>
+
+
+            <div class="info1">
+
+                <p> Instructor :</p>
+            <p class="instructor">Dr Robert  </p></div>
+        <div class="info2">
+            <p> Term  : </p>
+            <p class="wterm">  Winter 2026 </p>
+            </div>
+       </section>
+    </a>
+
+
+</div>
+</main>
+</body>
+</html>

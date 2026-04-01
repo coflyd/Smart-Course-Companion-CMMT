@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- SMART STUDENT COMPANION STUDENT INTERFACE (UPCOMING ASSIGNMENT PAGE)
+ By Maélys HOUNKPONOU ID : 40323380 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>THE SMART COURSE COMPANION</title>
+    <link rel="stylesheet" href="../CSS/upcoming-assignment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <div class="brand-logo">
+            <img src="../data/SCC Logo.PNG" alt="SCC Logo"></div>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Student Dashboard</small></div>
+    </div>
+    <div class="header-right">
+        <button class="signout-btn" onclick="window.location.href='registerLogin.html'">
+            <img src="../data/SignOut.png" alt="Exit icon">
+            <span>Sign Out</span></button>
+        <div class="header-divider"></div>
+        <div class="user-info">
+            <img src="../data/person.png">
+            <div class="userinfo-text">
+                <strong>Masila Baduza</strong>
+                <small>Student</small></div>
+        </div>
+    </div>
+</header>
+<nav>
+    <div class="nav-tabs">
+        <button class="tab" onclick="window.location.href='../HTML/student-ui.html'">My Courses</button>
+        <button class="tab-active" onclick="window.location.href='../HTML/upcoming-assignment.html'">Upcoming Assignments</button>
+        <button class="tab" onclick="window.location.href='../HTML/analytics.html'">Analytics</button>
+    </div>
+</nav>
+
+<main>
+<h3>UPCOMING ASSIGNMENTS </h3>
+
+
+    <button popovertarget="add-course-popup"> + Add Assignment  </button>
+<br>
+
+<section id = "add-course-popup" popover>
+    <form>
+    <label for="class">Class</label>
+    <input type="text" id="class" name="class" >
+
+    <label for="title">Assignment Title</label>
+    <input type="text" id="title" name="title">
+
+    <label for="duedate">Due Date</label>
+    <input type="date" id="duedate" name="duedate">
+
+    <label for="status">Status</label>
+    <select id="status" name="status">
+        <option value="1">NOT STARTED</option>
+        <option value="2">ON GOING</option>
+        <option value="3">COMPLETED!</option>
+    </select>
+
+    <button class = "bform"  type="submit">Add Assignment</button>
+    </form>
+
+</section>
+    <div style="overflow-x:auto;">
+
+    <table>
+        <thead>
+        <tr>
+
+
+            <th>
+                Class
+            </th>
+
+            <th>
+                Assignment Title
+            </th>
+
+
+            <th>
+                Due on :
+            </th>
+
+            <th>
+                Status
+            </th>
+
+            <th>
+                Grade
+            </th>
+
+            <th>
+                Weight
+            </th>
+
+        </tr>
+        </thead>
+<tbody>
+        <tr>
+            <td data-cell="class1"> <span class="badge">COMP 249</span> </td>            <td data-cell="title"> Assignment 2 </td>
+            <td data-cell="due date"> <input type="date" value="2025-03-07"> </td> <!-- change it to a calendar-->
+            <td data-cell="status">
+                <select>
+                    <option value="1">  NOT STARTED </option>
+                    <option value="2">  ON GOING </option>
+                    <option value="3">  COMPLETED! </option></select>
+            </td>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
+        </tr>
+
+        <tr>
+            <td data-cell="class2"> <span class="badge">COMP 233</span> </td>            <td data-cell="title"> Assignment 3 </td>
+
+            <td data-cell="due date"> <input type="date" value="2025-03-10"> </td>
+            <td data-cell="status">
+                <select>
+                    <option value="1">  NOT STARTED </option>
+                    <option value="2">  ON GOING </option>
+                    <option value="3">  COMPLETED! </option>         </select>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <td data-cell="class3"> <span class="badge"> SOEN 228</span> </td>            <td data-cell="title"> Lab Report 3 </td>
+            <td data-cell="due date"> <input type="date" value="2025-03-18"> </td>
+            <td data-cell="status">
+                <select>
+                    <option value="1">  NOT STARTED </option>
+                    <option value="2">  ON GOING </option>
+                    <option value="3">  COMPLETED! </option>         </select>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
+            </td>
+        </tr>
+
+        <tr>
+            <td data-cell="class4"> <span class="badge"> SOEN 287</span> </td>            <td data-cell="title"> Assignment 3 </td>
+            <td data-cell="due date"> <input type="date" value="2025-03-27"> </td>
+            <td data-cell="status">
+
+                <select>
+                    <option value="1">  NOT STARTED </option>
+                    <option value="2">  ON GOING </option>
+                    <option value="3">  COMPLETED! </option>         </select>
+            <td data-cell="grade"> <input type="number" value="100"> </td>
+            <td data-cell="weight"> <input type="number" value="100"> </td>
+            </td>
+        </tr>
+</tbody>
+    </table>
+
+        </div>
+</main>
+</body>
+</html>

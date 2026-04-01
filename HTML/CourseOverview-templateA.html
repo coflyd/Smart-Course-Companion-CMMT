@@ -1,87 +1,92 @@
-<!-- This page includes the generic template used for the demo of the Instructor's view 
- of the Course Overview, as well as the Student Progress Tab
- template A-->
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<!-- Smart Course Companion - Course Overview
+    by: Markayla Black-Johnson (40131616) -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS 101 - Course Overview</title>
+    <title>Course Overview</title>
     <link rel="stylesheet" href="../CSS/InstructorDashboard_StudentProgress.css">
-
 </head>
 <body>
-  <header><!-- Start of Header-->
-            <div class="header-left"><!-- Start Left Header Wrapper -->
-                <div class="brand-logo">
-                    <img src="../data/image_1" alt="SCC Logo"></div>
-                
-                <div class="brand-text">
-                    <strong>Smart Course Companion</strong>
-                    <small>Instructor Dashboard</small></div>
-                    
-            </div> <!-- End Left Header Wrapper -->
-            <div class="header-right"> <!-- Start Right Header Wrapper-->
-                <button class="signout-btn">
-                   <span>Sign Out</span></button>
-                        
-                <div class="header-divider"></div><!-- Divides the sign out and user icon -->
-                
-                <div class="user-info">
-                    <div class="userinfo-circle">DR</div>
-                    <div class="userinfo-text">
-                        <strong>Dr. Roberts</strong>
-                        <small>Instructor</small></div>
-                    </div>
-            </div><!-- End Right Header Wrapper-->
-        </header><!-- End of Header -->
 
-        <main>
-    <nav class="navigation-btn">
-        <button class="back-to-dash" onclick="location.href='../HTML/InstructorDashboard.html'"> &lt; Back to Dashboard</button>
-    </nav>
+<!-- HEADER -->
+<header>
+    <div class="header-left">
+        <div class="brand-logo">
+            <img src="../data/image_1.png" alt="SCC Logo">
+        </div>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Instructor Dashboard</small>
+        </div>
+    </div>
+    <div class="header-right">
+        <button class="signout-btn" onclick="window.location.href='../HTML/registerLogin.html'">
+            <span>Sign Out</span>
+        </button>
+        <div class="header-divider"></div>
+        <div class="user-info">
+            <div class="userinfo-circle">DR</div>
+            <div class="userinfo-text">
+                <strong>Dr. Roberts</strong>
+                <small>Instructor</small>
+            </div>
+        </div>
+    </div>
+</header>
 
-    <header class="course-title-selection">
-        <h1>CS 101</h1>
-        <div class="course-detail-wrapper">
-            <p class="course-name">Introduction to Computer Science</p>
-            <p class="course-details">Spring 2026</p>
-        </div> 
-    </header> 
-    
-    <div class="tab-container">
-        <button>Overview</button>
-        <button>Assignments</button>
-        <button>Student Progress</button>
-        <button>Course Settings</button>
+<!-- NAV -->
+<nav>
+    <div class="nav-tabs">
+        <button class="tab-active" onclick="window.location.href='../HTML/InstructorDashboard.html'">My Courses</button>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+    <!-- BACK -->
+    <button class="back-btn" onclick="window.location.href='../HTML/InstructorDashboard.html'">← Back to Dashboard</button>
+
+    <!-- COURSE TITLE -->
+    <div class="course-title-section">
+        <h1 id="course-code-title">CS 101</h1>
+        <p id="course-name-title" class="course-subtitle">Introduction to Computer Science</p>
+        <p class="course-subtitle">Spring 2026</p>
     </div>
 
-    <section id="overview-section">
-        <div class="summary-grid">
+    <!-- COURSE TABS -->
+    <div class="course-tabs">
+        <button class="course-tab course-tab-active" onclick="switchTab('overview', this)">Overview</button>
+        <button class="course-tab" onclick="switchTab('assignments', this)">Assignments</button>
+        <button class="course-tab" onclick="switchTab('progress', this)">Student Progress</button>
+        <button class="course-tab" onclick="window.location.href='../HTML/courseSettings.html'">Course Settings</button>
+    </div>
+
+    <!-- OVERVIEW SECTION -->
+    <section id="section-overview">
+        <div class="stats-grid">
             <div class="stats-card">
-                <div class="stats-header"><span>Students Enrolled</span></div>
-                <div class="stats-info">
-                    <span class="student-num">13</span>
-                    <span class="stats-description">Active this Semester</span>
-                </div>
+                <small>Students Enrolled</small>
+                <strong>13</strong>
+                <span>Active this Semester</span>
             </div>
             <div class="stats-card">
-                <div class="stats-header"><span>Overall Class Average</span></div>
-                <div class="stats-info">
-                    <span class="number">84%</span>
-                </div>
+                <small>Overall Class Average</small>
+                <strong>84%</strong>
             </div>
         </div>
 
-        <div class="breakdown-container">
+        <div class="breakdown-card">
             <h3>Completion Breakdown by Assignment</h3>
-            
+
             <div class="assessment-item">
                 <div class="assessment-label">
                     <span>Midterm Exam</span>
                     <span class="count">13 / 13 students (100%)</span>
                 </div>
-                <div class="progress-tracking"><div class="progress-fill bar-100"></div></div>
+                <div class="progress-track"><div class="progress-fill" style="width:100%; background-color:#10b981;"></div></div>
             </div>
 
             <div class="assessment-item">
@@ -89,7 +94,7 @@
                     <span>Final Project</span>
                     <span class="count">8 / 13 students (62%)</span>
                 </div>
-                <div class="progress-tracking"><div class="progress-fill bar-62"></div></div>
+                <div class="progress-track"><div class="progress-fill" style="width:62%;"></div></div>
             </div>
 
             <div class="assessment-item">
@@ -97,7 +102,7 @@
                     <span>Lab Assignments</span>
                     <span class="count">13 / 13 students (100%)</span>
                 </div>
-                <div class="progress-tracking"><div class="progress-fill bar-100"></div></div>
+                <div class="progress-track"><div class="progress-fill" style="width:100%; background-color:#10b981;"></div></div>
             </div>
 
             <div class="assessment-item">
@@ -105,7 +110,7 @@
                     <span>Homework 1-5</span>
                     <span class="count">11 / 13 students (85%)</span>
                 </div>
-                <div class="progress-tracking"><div class="progress-fill bar-85"></div></div>
+                <div class="progress-track"><div class="progress-fill" style="width:85%;"></div></div>
             </div>
 
             <div class="assessment-item">
@@ -113,7 +118,7 @@
                     <span>Quiz 1-3</span>
                     <span class="count">12 / 13 students (92%)</span>
                 </div>
-                <div class="progress-tracking"><div class="progress-fill bar-92"></div></div>
+                <div class="progress-track"><div class="progress-fill" style="width:92%;"></div></div>
             </div>
 
             <div class="assessment-item">
@@ -121,95 +126,109 @@
                     <span>Participation</span>
                     <span class="count">10 / 13 students (77%)</span>
                 </div>
-                <div class="progress-tracking"><div class="progress-fill bar-77"></div></div>
+                <div class="progress-track"><div class="progress-fill" style="width:77%;"></div></div>
             </div>
         </div>
     </section>
 
-    <section id="student-progress-section" style="display: none;">
-    <div class="progress-summary-row">
-        <div class="stats-card"><small>TOTAL ENROLLED</small><strong>13</strong></div>
-        <div class="stats-card"><small>AVG COMPLETION RATE</small><strong>87%</strong></div>
-        <div class="stats-card"><small>FULLY COMPLETED ALL</small><strong>9</strong></div>
-        <div class="stats-card"><small>AT LEAST ONE MISSING</small><strong>4</strong></div>
-    </div>
+    <!-- ASSIGNMENTS SECTION -->
+    <section id="section-assignments" style="display:none;">
+        <div class="assignment-box">
+            <h3>Assignment Management</h3>
+            <div class="total-weight">100%</div>
 
-    <h3>Completion by Assessment</h3>
+            <div class="assignment-inputs">
+                <input type="text" id="title" placeholder="Assignment Title">
+                <input type="date" id="dueDate">
+                <input type="number" id="weight" placeholder="Weight (%)">
+                <input type="number" id="points" placeholder="Total Points">
+                <button id="addAssignmentBtn" class="add-btn">Add</button>
+            </div>
 
-    <div class="assessment-card">
-        <div class="card-label"><strong>Midterm Exam</strong></div>
-        <div class="card-stats-grid">
-            <div class="stat-item"><small>COMPLETED</small><div class="stat-main"><strong>13</strong>/13</div><small class="percentage">100% of class</small></div>
-            <div class="stat-item"><small>NOT SUBMITTED</small><div class="stat-main"><strong>0</strong>/13</div><small class="percentage">0% of class</small></div>
-            <div class="stat-item"><small>CLASS AVERAGE</small><div class="stat-main"><strong>74%</strong></div><small class="percentage">Among submitted</small></div>
+            <div class="sub-tabs">
+                <button class="sub-tab-active" onclick="switchSubTab('assignments-table', this)">Assignments</button>
+                <button class="sub-tab" onclick="window.location.href='../HTML/instructoruploadgrades.html'">Upload Grades</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Due Date</th>
+                        <th>Weight</th>
+                        <th>Points</th>
+                        <th>Submissions</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="assignmentTable"></tbody>
+            </table>
         </div>
-        <div class="card-progress-track"><div class="card-progress-fill" style="width: 100%;"></div></div>
-    </div>
+    </section>
 
-    <div class="assessment-card">
-        <div class="card-label"><strong>Final Project</strong></div>
-        <div class="card-stats-grid">
-            <div class="stat-item"><small>COMPLETED</small><div class="stat-main"><strong>8</strong>/13</div><small class="percentage">62% of class</small></div>
-            <div class="stat-item"><small>NOT SUBMITTED</small><div class="stat-main"><strong>5</strong>/13</div><small class="percentage">38% of class</small></div>
-            <div class="stat-item"><small>CLASS AVERAGE</small><div class="stat-main"><strong>88%</strong></div><small class="percentage">Among submitted</small></div>
+    <!-- STUDENT PROGRESS SECTION -->
+    <section id="section-progress" style="display:none;">
+        <div class="stats-row">
+            <div class="stats-card"><small>TOTAL ENROLLED</small><strong>13</strong></div>
+            <div class="stats-card"><small>AVG COMPLETION</small><strong>87%</strong></div>
+            <div class="stats-card"><small>FULLY COMPLETED</small><strong>9</strong></div>
+            <div class="stats-card"><small>AT LEAST ONE MISSING</small><strong>4</strong></div>
         </div>
-        <div class="card-progress-track"><div class="card-progress-fill" style="width: 62%;"></div></div>
-    </div>
 
-    <div class="assessment-card">
-        <div class="card-label"><strong>Lab Assignments</strong></div>
-        <div class="card-stats-grid">
-            <div class="stat-item"><small>COMPLETED</small><div class="stat-main"><strong>13</strong>/13</div><small class="percentage">100% of class</small></div>
-            <div class="stat-item"><small>NOT SUBMITTED</small><div class="stat-main"><strong>0</strong>/13</div><small class="percentage">0% of class</small></div>
-            <div class="stat-item"><small>CLASS AVERAGE</small><div class="stat-main"><strong>92%</strong></div><small class="percentage">Among submitted</small></div>
+        <h3 style="margin-bottom:16px;">Completion by Assessment</h3>
+
+        <div class="assessment-card">
+            <strong>Midterm Exam</strong>
+            <div class="card-stats-grid">
+                <div class="stat-item"><small>COMPLETED</small><div><strong>13</strong>/13</div><small>100% of class</small></div>
+                <div class="stat-item"><small>NOT SUBMITTED</small><div><strong>0</strong>/13</div><small>0% of class</small></div>
+                <div class="stat-item"><small>CLASS AVERAGE</small><div><strong>74%</strong></div><small>Among submitted</small></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:100%;"></div></div>
         </div>
-        <div class="card-progress-track"><div class="card-progress-fill" style="width: 100%;"></div></div>
-    </div>
 
-    <div class="assessment-card">
-        <div class="card-label"><strong>Homework 1-5</strong></div>
-        <div class="card-stats-grid">
-            <div class="stat-item"><small>COMPLETED</small><div class="stat-main"><strong>11</strong>/13</div><small class="percentage">85% of class</small></div>
-            <div class="stat-item"><small>NOT SUBMITTED</small><div class="stat-main"><strong>2</strong>/13</div><small class="percentage">15% of class</small></div>
-            <div class="stat-item"><small>CLASS AVERAGE</small><div class="stat-main"><strong>81%</strong></div><small class="percentage">Among submitted</small></div>
+        <div class="assessment-card">
+            <strong>Final Project</strong>
+            <div class="card-stats-grid">
+                <div class="stat-item"><small>COMPLETED</small><div><strong>8</strong>/13</div><small>62% of class</small></div>
+                <div class="stat-item"><small>NOT SUBMITTED</small><div><strong>5</strong>/13</div><small>38% of class</small></div>
+                <div class="stat-item"><small>CLASS AVERAGE</small><div><strong>88%</strong></div><small>Among submitted</small></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:62%;"></div></div>
         </div>
-        <div class="card-progress-track"><div class="card-progress-fill" style="width: 85%;"></div></div>
-    </div>
 
-    <div class="assessment-card">
-        <div class="card-label"><strong>Quiz 1-3</strong></div>
-        <div class="card-stats-grid">
-            <div class="stat-item"><small>COMPLETED</small><div class="stat-main"><strong>12</strong>/13</div><small class="percentage">92% of class</small></div>
-            <div class="stat-item"><small>NOT SUBMITTED</small><div class="stat-main"><strong>1</strong>/13</div><small class="percentage">8% of class</small></div>
-            <div class="stat-item"><small>CLASS AVERAGE</small><div class="stat-main"><strong>79%</strong></div><small class="percentage">Among submitted</small></div>
+        <div class="assessment-card">
+            <strong>Lab Assignments</strong>
+            <div class="card-stats-grid">
+                <div class="stat-item"><small>COMPLETED</small><div><strong>13</strong>/13</div><small>100% of class</small></div>
+                <div class="stat-item"><small>NOT SUBMITTED</small><div><strong>0</strong>/13</div><small>0% of class</small></div>
+                <div class="stat-item"><small>CLASS AVERAGE</small><div><strong>92%</strong></div><small>Among submitted</small></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:100%;"></div></div>
         </div>
-        <div class="card-progress-track"><div class="card-progress-fill" style="width: 92%;"></div></div>
-    </div>
-
-    <div class="assessment-card">
-        <div class="card-label"><strong>Participation</strong></div>
-        <div class="card-stats-grid">
-            <div class="stat-item"><small>COMPLETED</small><div class="stat-main"><strong>10</strong>/13</div><small class="percentage">77% of class</small></div>
-            <div class="stat-item"><small>NOT SUBMITTED</small><div class="stat-main"><strong>3</strong>/13</div><small class="percentage">23% of class</small></div>
-            <div class="stat-item"><small>CLASS AVERAGE</small><div class="stat-main"><strong>95%</strong></div><small class="percentage">Among submitted</small></div>
-        </div>
-        <div class="card-progress-track"><div class="card-progress-fill" style="width: 77%;"></div></div>
-    </div>
-</section>
-
-    <section id="assignments-section" style="display: none;"></section>
-    <section id="course-settings-section" style="display: none;"></section>
+    </section>
 
 </main>
-<script src="../JavaScript/InstructorDashboard_StudentProgress_script.js"></script>
 
+<script src="../JavaScript/InstructorDashboard_StudentProgress_script.js"></script>
+<script>
+    // Read URL params for course code/name
+    window.addEventListener('load', () => {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        const name = params.get('name');
+        if (code) document.getElementById('course-code-title').textContent = code.replace(/(\D+)(\d+)/, '$1 $2');
+        if (name) document.getElementById('course-name-title').textContent = decodeURIComponent(name);
+    });
+
+    function switchTab(tab, btn) {
+        document.querySelectorAll('.course-tab').forEach(t => t.classList.remove('course-tab-active'));
+        btn.classList.add('course-tab-active');
+        document.getElementById('section-overview').style.display = 'none';
+        document.getElementById('section-assignments').style.display = 'none';
+        document.getElementById('section-progress').style.display = 'none';
+        document.getElementById('section-' + tab).style.display = 'block';
+    }
+</script>
 </body>
 </html>
-
-
-
-                
-
-
-
-      

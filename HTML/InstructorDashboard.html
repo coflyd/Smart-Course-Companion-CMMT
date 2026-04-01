@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- Smart Course Companion - Instructor Dashboard and Course Overview
+    by: Markayla Black-Johnson (40131616)-->
+<html>  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>Smart Course Companion</title>
+        <link rel="stylesheet" href="../CSS/InstructorDashboard_StudentProgress.css">
+    </head>
+
+    <body>
+        
+        <header><!-- Start of Header-->
+            <div class="header-left"><!-- Start Left Header Wrapper -->
+                <div class="brand-logo">
+                    <img src="../data/image_1.png" alt="Logo"></div>
+                
+                <div class="brand-text">
+                    <strong>Smart Course Companion</strong>
+                    <small>Instructor Dashboard</small></div>
+                    
+            </div> <!-- End Left Header Wrapper -->
+            <div class="header-right"> <!-- Start Right Header Wrapper-->
+                <button class="signout-btn">
+                    <span>Sign Out</span></button>
+                        
+                <div class="header-divider"></div><!-- Divides the sign out and user icon -->
+                
+                <div class="user-info">
+                    <div class="userinfo-circle">DR</div>
+                    <div class="userinfo-text">
+                        <strong>Dr. Roberts</strong>
+                        <small>Instructor</small></div>
+                    </div>
+            </div><!-- End Right Header Wrapper-->
+        </header><!-- End of Header -->
+        
+        <main><!-- Start of Main -->
+            <header><!-- Start of Page Intro Header -->
+                <div class="page-intro">
+                <div class="page-description">
+                    <h1>My Courses</h1>
+                    <p>Manage and monitor your courses</p>
+                    </div></div>
+                    
+                </header>
+
+                <div class="stretch-btn">
+                    <button id="add-course-btn" class="add-course-btn" onclick="openPopUp()">
+                    <strong>+ Add Course</strong></button>
+                </div>
+
+            <div class="course-grid"><!--Course Card wrapper-->
+                <div class="course-card published" onclick="location.href='../HTML/CourseOverview-templateA.html?code=CS101&name=Introduction%20to%20Computer%20Science'">
+    
+                    <div class="card-header"><!--Card Header-->
+                        <span class="course-code">CS 101</span>
+                    </div>
+                    
+                    <div class="card-subheader"><!--Card Subheader-->
+                        <h3 class="course-name">Introduction to Computer Science</h3></div>
+                        
+                    <hr class="card-divider"> <!-- Thin line that separate titles from details-->
+                    <div class="course-details">
+                        <p>Semester: <span>Spring 2026</span></p>
+                        <p>Students: <span>13</span></p></div>
+                </div>
+
+                <div class="course-card published" onclick="location.href='../HTML/CourseOverview-templateA.html?code=CS201&name=Data%20Structures%20%26%20Algorithms'">
+    
+                    <div class="card-header"><!--Card Header-->
+                        <span class="course-code">CS 201</span>
+                       </div>
+                    
+                    <div class="card-subheader"><!--Card Subheader-->
+                        <h3 class="course-name">Data Structures & Algorithms</h3></div>
+                        
+                    <hr class="card-divider"> <!-- Thin line that separate titles from details-->
+                    <div class="course-details">
+                        <p>Semester: <span>Spring 2026</span></p>
+                        <p>Students: <span>15</span></p></div>
+                </div>
+
+                <div class="course-card published" onclick="location.href='../HTML/CourseOverview-templateA.html?code=CS301&name=Operating%20Systems'">
+    
+                    <div class="card-header"><!--Card Header-->
+                        <span class="course-code">CS 301</span>
+                        </div>
+                    
+                    <div class="card-subheader"><!--Card Subheader-->
+                        <h3 class="course-name">Operating Systems</h3></div>
+                        
+                    <hr class="card-divider"> <!-- Thin line that separate titles from details-->
+                    <div class="course-details">
+                        <p>Semester: <span>Spring 2026</span></p>
+                        <p>Students: <span>12</span></p></div>
+                </div>
+            </div>
+        </main><!-- End of Main -->
+
+        <div id="add-pop-up" class="dim-background"><!-- Start of "Add Course" Pop-up window -->
+            
+            <div class="pop-up-window"><!--Start of Pop-up Window-->
+                <div class="pop-up-header"> <!-- Pop-up header section -->
+                    <button class="close-x" onclick="closePopUp()">
+                        &times; </button>   <!-- symbol for the 'X' button -->
+                    <div class="pop-up-text">
+                        <h2>Add New Course</h2>
+                        <p>Create a new course to manage assignments and track student progress.</p></div> 
+                            </div>
+
+                    <form id="addCourseForm"><!--Start of Add Course Form-->
+                        <div class="input-field">
+                            <label>Course Code</label><!--Enter Course Code-->
+                            <input type="text" name="course_code" placeholder="e.g. CS 101" required> 
+                            <!--required checks if empty, if true, throw a message-->
+                            </div>
+                        <div class="input-field">
+                            <label>Course Name</label><!--Enter Course Name-->
+                            <input type="text" name="course_name" placeholder="e.g. Introduction to Computer Science" required> 
+                            <!--required checks if empty, if true, throw a message-->
+                            </div>
+                        <div class="input-field">
+                            <label>Semester</label><!--Dropdown select for Semester-->
+                            <select name="semester" required><!--required checks if empty, if true, throw a message-->
+                                <option value="">Select semester...</option>
+                                <option value="spring-2026">Spring 2026</option>
+                                <option value="summer-2026">Summer 2026</option>
+                                <option value="fall-2026">Fall 2026</option>
+                                </select>
+                            </div>
+                        <div class="pop-up-actions"><!-- Cancel or Submit Form-->
+                            <button type="button" class="cancel-btn" onclick="closePopUp()">Cancel</button>
+                            <button type="submit" class="save-btn">Save Changes</button>
+                            </div>
+                    </form><!--End of Add Course Form-->
+            </div><!--End of Pop-up Window-->
+        </div><!-- End of "Add Course" Pop-up window -->
+
+        <script src="../JavaScript/InstructorDashboard_StudentProgress_script.js"></script>
+
+    </body>
+</html>

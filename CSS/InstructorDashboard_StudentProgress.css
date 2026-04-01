@@ -1,5 +1,4 @@
-/* Smart Course Companion - Instructor Dashboard CSS
-   Matching student-ui style by Maélys HOUNKPONOU */
+/* Smart Course Companion - Instructor Dashboard CSS */
 
 * {
     box-sizing: border-box;
@@ -835,4 +834,39 @@ input:checked + .slider::before {
 .toast.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ── UPLOAD ZONE ── */
+.upload-zone {
+    margin-top: 16px;
+}
+
+.upload-zone h4 {
+    font-size: 15px;
+    color: #1a1f36;
+    margin-bottom: 12px;
+}
+
+.drop-area {
+    border: 2.5px dashed #c4cfe0;
+    border-radius: 10px;
+    padding: 32px;
+    text-align: center;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.csv-example {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.csv-box {
+    background-color: #f0f2f8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-family: monospace;
+    font-weight: 600;
 }

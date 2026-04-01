@@ -9,198 +9,200 @@ Description: Course Settings Page
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Course Companion — Course Settings</title>
-    <link rel="stylesheet" href="../CSS/courseSettings.css">
+    <link rel="stylesheet" href="InstructorDashboard_StudentProgress.css">
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-inner">
-            <div class="left-section">
-                <img src="../data/image_1.png" alt="Book logo" class="logo" width="40">
-                <div class="Instructor-dashboard">
-                    Smart Course Companion
-                    <span class="inst-label">Instructor Dashboard</span>
-                </div>
-            </div>
-            <div class="right-section">
-                <div class="user">Dr. Roberts</div>
-                <div class="sign-out">Sign Out</div>
-            </div>
+<!-- HEADER -->
+<header>
+    <div class="header-left">
+        <div class="brand-logo">
+            <img src="../data/image_1.png" alt="SCC Logo">
         </div>
-        <nav class="inst-nav">
-            <a href="../HTML/instructorAssignments.html" class="inst-nav-link active">MY COURSES</a>
-            <a href="../HTML/instructorAssignments.html" class="inst-nav-link">STUDENT PROGRESS</a>
-            <a href="../HTML/instructorAssignments.html" class="inst-nav-link">ANALYTICS</a>
-        </nav>
-    </header>
-
-    <!-- PAGE WRAPPER -->
-    <div class="page-wrapper">
-
-        <!-- BACK LINK -->
-        <button class="back-link">← Back to Dashboard</button>
-
-        <!-- COURSE HEADER -->
-        <div class="course-header">
-            <h1>CS 101</h1>
-            <p>Introduction to Computer Science</p>
-            <p>Spring 2026</p>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Instructor Dashboard</small>
         </div>
-
-        <!-- PAGE-LEVEL TABS -->
-        <div class="page-tabs">
-             <button class="page-tab" onclick="window.location.href='../HTML/instructorAssignments.html'">Overview</button>
-            <button class="page-tab" onclick="window.location.href='../HTML/instructorAssignments.html'">Assignments</button>
-            <button class="page-tab" onclick="window.location.href='../HTML/instructorStudentProgress.html'">Student Progress</button>
-            <button class="page-tab active">Course Settings</button>
-        </div>
-
-        <!-- SETTINGS CARD -->
-        <div class="card">
-            <div class="card-header">
-                <h2>Course Settings</h2>
-            </div>
-            <div class="card-body">
-
-                <!-- INNER TABS -->
-                <div class="inner-tabs">
-                    <button class="inner-tab active" onclick="switchInnerTab('visibility', this)">Visibility</button>
-                    <button class="inner-tab" onclick="switchInnerTab('templates', this)">Templates</button>
-                    <button class="inner-tab" onclick="switchInnerTab('details', this)">Course Details</button>
-                </div>
-
-                <!-- PANEL: VISIBILITY -->
-                <div class="tab-panel active" id="panel-visibility">
-                    <div class="setting-row">
-                        <div class="setting-row-left">
-                            <span class="setting-icon"></span>
-                            <div>
-                                <h4>Course Visibility</h4>
-                                <p>Course is currently visible to all enrolled students</p>
-                            </div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked id="visibility-toggle" onchange="updateVisibilityLabel()">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="section-label">Course Access Settings</div>
-                    <div class="select-wrapper" style="margin-bottom: 16px;">
-                        <select id="access-select">
-                            <option>Enrolled Students Only</option>
-                            <option>All University Students</option>
-                            <option>Public (Anyone with link)</option>
-                            <option>Instructors Only</option>
-                        </select>
-                    </div>
-
-                    <button class="submit-btn" onclick="showToast('Visibility settings saved!')">Save Visibility Settings</button>
-                </div>
-
-                <!-- PANEL: TEMPLATES -->
-                <div class="tab-panel" id="panel-templates">
-                    <div class="section-label" style="margin-bottom: 12px;">Choose a reusable template</div>
-                    <div class="templates-grid">
-                        <div class="template-card selected" onclick="selectTemplate(this)">
-                            <h4>Standard Course</h4>
-                            <p>Weekly modules, quizzes, and a final exam</p>
-                            <span class="template-badge">Default</span>
-                        </div>
-                        <div class="template-card" onclick="selectTemplate(this)">
-                            <h4>Project-Based</h4>
-                            <p>Milestone deliverables and peer reviews</p>
-                            <span class="template-badge">Popular</span>
-                        </div>
-                        <div class="template-card" onclick="selectTemplate(this)">
-                            <h4>Flipped Classroom</h4>
-                            <p>Pre-class readings and in-class activities</p>
-                            <span class="template-badge">New</span>
-                        </div>
-                        <div class="template-card" onclick="selectTemplate(this)">
-                            <h4>Self-Paced</h4>
-                            <p>No deadlines, progress at your own speed</p>
-                            <span class="template-badge">Flexible</span>
-                        </div>
-                    </div>
-                    <button class="submit-btn" onclick="showToast('Template applied!')">Apply Template</button>
-                </div>
-
-                <!-- PANEL: COURSE DETAILS -->
-                <div class="tab-panel" id="panel-details">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Course Code</label>
-                            <input type="text" value="CS 101">
-                        </div>
-                        <div class="form-group">
-                            <label>Semester</label>
-                            <input type="text" value="Spring 2026">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Course Title</label>
-                        <input type="text" value="Introduction to Computer Science">
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea rows="3" placeholder="Short course description...">Fundamentals of programming, algorithms, and computational thinking.</textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Instructor</label>
-                            <input type="text" value="Dr. Roberts">
-                        </div>
-                        <div class="form-group">
-                            <label>Max Enrollment</label>
-                            <input type="number" value="120">
-                        </div>
-                    </div>
-                    <button class="submit-btn" onclick="showToast('Course details saved!')">Save Course Details</button>
-                </div>
-
+    </div>
+    <div class="header-right">
+        <button class="signout-btn" onclick="window.location.href='../HTML/registerLogin.html'">
+            <span>Sign Out</span>
+        </button>
+        <div class="header-divider"></div>
+        <div class="user-info">
+            <div class="userinfo-circle">DR</div>
+            <div class="userinfo-text">
+                <strong>Dr. Roberts</strong>
+                <small>Instructor</small>
             </div>
         </div>
     </div>
+</header>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast"></div>
+<!-- NAV -->
+<nav>
+    <div class="nav-tabs">
+        <button class="tab-active" onclick="window.location.href='../HTML/InstructorDashboard.html'">My Courses</button>
+    </div>
+</nav>
 
-    <script>
-        function switchPageTab(btn) {
-            document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-        }
+<!-- MAIN -->
+<main>
 
-        function switchInnerTab(name, btn) {
-            document.querySelectorAll('.inner-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('panel-' + name).classList.add('active');
-        }
+    <!-- BACK -->
+    <button class="back-btn" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">← Back to Course</button>
 
-        function selectTemplate(card) {
-            document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
-        }
+    <!-- COURSE TITLE -->
+    <div class="course-title-section">
+        <h1>CS 101</h1>
+        <p class="course-subtitle">Introduction to Computer Science</p>
+        <p class="course-subtitle">Spring 2026</p>
+    </div>
 
-        function updateVisibilityLabel() {
-            const checked = document.getElementById('visibility-toggle').checked;
-            document.querySelector('.setting-row-left p').textContent = checked
-                ? 'Course is currently visible to all enrolled students'
-                : 'Course is currently hidden from students';
-        }
+    <!-- COURSE TABS -->
+    <div class="course-tabs">
+        <button class="course-tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Overview</button>
+        <button class="course-tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Assignments</button>
+        <button class="course-tab" onclick="window.location.href='../HTML/CourseOverview-templateA.html'">Student Progress</button>
+        <button class="course-tab course-tab-active">Course Settings</button>
+    </div>
 
-        let toastTimer;
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.textContent = '✓ ' + msg;
-            toast.classList.add('show');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
-        }
-    </script>
+    <!-- SETTINGS CONTENT -->
+    <div class="settings-card">
+
+        <h3>Course Settings</h3>
+
+        <!-- INNER TABS -->
+        <div class="sub-tabs" style="margin-bottom: 20px;">
+            <button class="sub-tab-active" onclick="switchInnerTab('visibility', this)">Visibility</button>
+            <button class="sub-tab" onclick="switchInnerTab('templates', this)">Templates</button>
+            <button class="sub-tab" onclick="switchInnerTab('details', this)">Course Details</button>
+        </div>
+
+        <!-- VISIBILITY PANEL -->
+        <div class="inner-panel" id="panel-visibility">
+            <div class="setting-row">
+                <div class="setting-row-left">
+                    <div>
+                        <strong>Course Visibility</strong>
+                        <p class="course-subtitle" id="visibility-label">Course is currently visible to all enrolled students</p>
+                    </div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked id="visibility-toggle" onchange="updateVisibilityLabel()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <p style="font-size:12px; color:slategrey; font-weight:600; text-transform:uppercase; margin: 16px 0 8px;">Course Access Settings</p>
+            <select class="settings-select">
+                <option>Enrolled Students Only</option>
+                <option>All University Students</option>
+                <option>Public (Anyone with link)</option>
+                <option>Instructors Only</option>
+            </select>
+
+            <button class="save-settings-btn" onclick="showToast('Visibility settings saved!')">Save Visibility Settings</button>
+        </div>
+
+        <!-- TEMPLATES PANEL -->
+        <div class="inner-panel" id="panel-templates" style="display:none;">
+            <p style="font-size:12px; color:slategrey; font-weight:600; text-transform:uppercase; margin-bottom:12px;">Choose a reusable template</p>
+            <div class="templates-grid">
+                <div class="template-card selected" onclick="selectTemplate(this)">
+                    <strong>Standard Course</strong>
+                    <p class="course-subtitle">Weekly modules, quizzes, and a final exam</p>
+                    <span class="template-badge">Default</span>
+                </div>
+                <div class="template-card" onclick="selectTemplate(this)">
+                    <strong>Project-Based</strong>
+                    <p class="course-subtitle">Milestone deliverables and peer reviews</p>
+                    <span class="template-badge">Popular</span>
+                </div>
+                <div class="template-card" onclick="selectTemplate(this)">
+                    <strong>Flipped Classroom</strong>
+                    <p class="course-subtitle">Pre-class readings and in-class activities</p>
+                    <span class="template-badge">New</span>
+                </div>
+                <div class="template-card" onclick="selectTemplate(this)">
+                    <strong>Self-Paced</strong>
+                    <p class="course-subtitle">No deadlines, progress at your own speed</p>
+                    <span class="template-badge">Flexible</span>
+                </div>
+            </div>
+            <button class="save-settings-btn" onclick="showToast('Template applied!')">Apply Template</button>
+        </div>
+
+        <!-- COURSE DETAILS PANEL -->
+        <div class="inner-panel" id="panel-details" style="display:none;">
+            <div class="form-row-grid">
+                <div class="form-group">
+                    <label>Course Code</label>
+                    <input type="text" value="CS 101">
+                </div>
+                <div class="form-group">
+                    <label>Semester</label>
+                    <input type="text" value="Spring 2026">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Course Title</label>
+                <input type="text" value="Introduction to Computer Science">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea rows="3">Fundamentals of programming, algorithms, and computational thinking.</textarea>
+            </div>
+            <div class="form-row-grid">
+                <div class="form-group">
+                    <label>Instructor</label>
+                    <input type="text" value="Dr. Roberts">
+                </div>
+                <div class="form-group">
+                    <label>Max Enrollment</label>
+                    <input type="number" value="120">
+                </div>
+            </div>
+            <button class="save-settings-btn" onclick="showToast('Course details saved!')">Save Course Details</button>
+        </div>
+
+    </div>
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+    function switchInnerTab(name, btn) {
+        document.querySelectorAll('.sub-tab, .sub-tab-active').forEach(t => {
+            t.className = 'sub-tab';
+        });
+        btn.className = 'sub-tab-active';
+        document.querySelectorAll('.inner-panel').forEach(p => p.style.display = 'none');
+        document.getElementById('panel-' + name).style.display = 'block';
+    }
+
+    function selectTemplate(card) {
+        document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+    }
+
+    function updateVisibilityLabel() {
+        const checked = document.getElementById('visibility-toggle').checked;
+        document.getElementById('visibility-label').textContent = checked
+            ? 'Course is currently visible to all enrolled students'
+            : 'Course is currently hidden from students';
+    }
+
+    let toastTimer;
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = '✓ ' + msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+</script>
 
 </body>
 </html>

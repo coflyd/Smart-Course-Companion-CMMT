@@ -260,13 +260,42 @@ body {
     gap: 6px;
 }
 
-.bar-student {
+#bar-student1 {
     background: #93aee8;
     flex: 1;
 }
 
-.bar-class {
+#bar-class1 {
     background: #c8d8f5;
+    flex: 1;
+}
+
+#bar-student2 {
+    background: #D3E08C;
+    flex: 1;
+}
+
+#bar-class2 {
+    background: #e2eab9;
+    flex: 1;
+}
+
+#bar-student3 {
+    background: #FFE16F;
+    flex: 1;
+}
+
+#bar-class3 {
+    background: #fde990;
+    flex: 1;
+}
+#bar-student4 {
+    background: #FFC4D9;
+    flex: 1;
+}
+
+#bar-class4 {
+    background: #f8dde7;
     flex: 1;
 }
 

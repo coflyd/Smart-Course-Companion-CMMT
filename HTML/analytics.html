@@ -11,36 +11,46 @@
 </head>
 
 <body>
-<header>
-    <div id="top-bar">
+<header><!-- Start of Header-->
+    <div class="header-left"><!-- Start Left Header Wrapper -->
+        <div class="brand-logo">
+            <img src="../data/SCC Logo.PNG" alt="SCC Logo"></div>
 
-        <section id="title-logo">
-            <img src="../data/logo-ssc.png">
-            <div>
-                <h1>THE SMART COURSE COMPANION</h1>
-                <small id="dashboard">Student Dashboard</small>
-            </div>
-        </section>
+        <div class="brand-text">
+            <strong>Smart Course Companion</strong>
+            <small>Student Dashboard</small></div>
 
-        <section id="profile">
+    </div> <!-- End Left Header Wrapper -->
+    <div class="header-right"> <!-- Start Right Header Wrapper-->
+        <button class="signout-btn" onclick="window.location.href='registerLogin.html'">
+            <img src="../data/SignOut.png" alt="Exit icon">
+            <span>Sign Out</span></button>
+
+        <div class="header-divider"></div><!-- Divides the sign out and user icon -->
+
+        <div class="user-info">
             <img src="../data/person.png">
-            <div id="person">
+            <div class="userinfo-text">
                 <strong>Masila Baduza</strong>
-                <small id="role">Student</small>
-            </div>
-            <button id="s-o-btn">Sign Out</button>
-        </section>
+                <small>Student</small></div>
+        </div>
+    </div><!-- End Right Header Wrapper-->
+</header><!-- End of Header -->
 
+    <button class="back-link"
+            onclick="window.location.href='student-ui.html'"> ← Back to Dashboard </button>
+
+<nav>
+
+    <!--Navigation Tabs -->
+    <div class="nav-tabs">
+        <button class="tab" onclick="window.location.href='../HTML/student-ui.html'">My Courses</button>
+        <button class="tab" onclick="window.location.href='../HTML/upcoming-assignment.html'">Upcoming Assignments</button>
+        <button class="tab-active" onclick="window.location.href='../HTML/analytics.html'">Analytics</button>
     </div>
 
-    <nav>
-        <ul>
-            <li><a href="../HTML/student-ui.html">MY COURSES</a></li>
-            <li><a href="../HTML/upcoming-assignment.html">UPCOMING ASSIGNMENTS</a></li>
-            <li><a href="../HTML/analytics.html"  id="current-page">ANALYTICS</a></li>
-        </ul>
-    </nav>
-</header>
+</nav>
+
 <main>
     <div class="card">
     <div class="card-title">Course Performance</div>
@@ -79,26 +89,26 @@
             <div class="bars">
                 <div class="bar-group">
                     <div class="bar-pair">
-                        <div class="bar bar-student" style="height: 88%;" role="img" aria-label="COMP 233 student: 88"></div>
-                        <div class="bar bar-class" style="height: 72%;" role="img" aria-label="COMP 233 class avg: 72"></div>
+                        <div id="bar-student1" style="height: 88%;" role="img" aria-label="COMP 233 student: 88"></div>
+                        <div id="bar-class1" style="height: 72%;" role="img" aria-label="COMP 233 class avg: 72"></div>
                     </div>
                 </div>
                 <div class="bar-group">
                     <div class="bar-pair">
-                        <div class="bar bar-student" style="height: 80%;" role="img" aria-label="COMP 249 student: 80"></div>
-                        <div class="bar bar-class" style="height: 65%;" role="img" aria-label="COMP 249 class avg: 65"></div>
+                        <div id="bar-student2" style="height: 80%;" role="img" aria-label="COMP 249 student: 80"></div>
+                        <div id="bar-class2" style="height: 65%;" role="img" aria-label="COMP 249 class avg: 65"></div>
                     </div>
                 </div>
                 <div class="bar-group">
                     <div class="bar-pair">
-                        <div class="bar bar-student" style="height: 91%;" role="img" aria-label="SOEN 228 student: 91"></div>
-                        <div class="bar bar-class" style="height: 78%;" role="img" aria-label="SOEN 228 class avg: 78"></div>
+                        <div id="bar-student3" style="height: 91%;" role="img" aria-label="SOEN 228 student: 91"></div>
+                        <div id="bar-class3" style="height: 78%;" role="img" aria-label="SOEN 228 class avg: 78"></div>
                     </div>
                 </div>
                 <div class="bar-group">
                     <div class="bar-pair">
-                        <div class="bar bar-student" style="height: 82%;" role="img" aria-label="SOEN 287 student: 82"></div>
-                        <div class="bar bar-class" style="height: 70%;" role="img" aria-label="SOEN 287 class avg: 70"></div>
+                        <div id="bar-student4" style="height: 82%;" role="img" aria-label="SOEN 287 student: 82"></div>
+                        <div id="bar-class4" style="height: 70%;" role="img" aria-label="SOEN 287 class avg: 70"></div>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,5 @@
+const db = require('./db');
+
 const express = require('express'); // importes la librairie Express
 const app = express(); //crées ton application serveur
 PORT = 3000; //port

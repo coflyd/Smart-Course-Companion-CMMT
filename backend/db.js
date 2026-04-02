@@ -1,13 +1,18 @@
-const mysql = require('mysql2'); 
-require('dotenv').config();  //actives dotenv : access var .env and allow process
+require('dotenv').config();
+const mysql = require( 'mysql2');
 
-const pool = mysql.createPool({ //groupe de connexions base de données
-    host: process.env.DB_HOST, 
-    user: process.env.DB_USER, 
-    password: process.env.DB_PASSWORD, 
-    database: process.env.DB_NAME, 
-    port: process.env.DB_PORT 
+const db = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database:process.env.DB_NAME
 });
 
-module.exports = pool.promise(); 
-//exportes pool to use it and promise allow async/await than callbacks
+db.connect((err) => {
+    if(err){
+        console.log("Error connecting to DB");
+    }else{
+        console.log("Connected");
+    }
+});
+module.exports=db;

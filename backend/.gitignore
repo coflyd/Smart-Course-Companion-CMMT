@@ -1,8 +1,6 @@
-/*
-SMART COURSE COMPANION — gitignore
-Auteur : Constance Fleury - 40348933
-Description: add this to protect the web site developpment from leak password
-*/
+#SMART COURSE COMPANION — gitignore
+#Auteur : Constance Fleury - 40348933
+#Description: add this to protect the web site developpment from leak password
 
 node_modules/
 .env

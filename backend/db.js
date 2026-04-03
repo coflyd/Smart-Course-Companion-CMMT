@@ -1,4 +1,11 @@
-const mysql = require('mysql2'); 
+/*
+SMART COURSE COMPANION — db.js
+Auteur : Constance Fleury - 40348933
+Description: gestion of the dataBase with the creation of the pool
+*/
+
+node_modules/
+.envconst mysql = require('mysql2'); 
 require('dotenv').config();  //actives dotenv : access var .env and allow process
 
 const pool = mysql.createPool({ //groupe de connexions base de données

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 03, 2026 at 12:31 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Hôte : localhost
+-- Généré le : ven. 03 avr. 2026 à 03:15
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `scc_db`
+-- Base de données : `scc_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assessments`
+-- Structure de la table `assessments`
 --
 
 CREATE TABLE `assessments` (
@@ -41,7 +41,7 @@ CREATE TABLE `assessments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `courses`
+-- Structure de la table `courses`
 --
 
 CREATE TABLE `courses` (
@@ -55,7 +55,7 @@ CREATE TABLE `courses` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enrollment`
+-- Structure de la table `enrollment`
 --
 
 CREATE TABLE `enrollment` (
@@ -67,22 +67,22 @@ CREATE TABLE `enrollment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grades`
+-- Structure de la table `grades`
 --
 
 CREATE TABLE `grades` (
   `id` int(11) NOT NULL,
   `assessments_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `earned_marks` int(11) NOT NULL,
-  `total_marks` int(11) NOT NULL
+  `status` varchar(100) NOT NULL,
+  `earned_marks` decimal(5,2) NOT NULL,
+  `total_marks` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -95,52 +95,70 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `assessments`
+-- Index pour la table `assessments`
 --
 ALTER TABLE `assessments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `courses`
+-- Index pour la table `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `enrollment`
+-- Index pour la table `enrollment`
 --
 ALTER TABLE `enrollment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `grades`
+-- Index pour la table `grades`
 --
 ALTER TABLE `grades`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `assessments`
+-- AUTO_INCREMENT pour la table `assessments`
 --
 ALTER TABLE `assessments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `enrollment`
+--
+ALTER TABLE `enrollment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `grades`
+--
+ALTER TABLE `grades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

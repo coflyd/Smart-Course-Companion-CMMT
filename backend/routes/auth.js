@@ -1,3 +1,8 @@
+/*
+SMART COURSE COMPANION — routes/auth.js
+Auteur : Constance Fleury - 40348933
+Description: link at the Regiter/Login - check
+*/
 const express = require('express'); 
 const router = express.Router(); 
 const bcrypt= require('bcrypt'); 

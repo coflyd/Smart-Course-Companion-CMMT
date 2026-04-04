@@ -16,6 +16,9 @@ const authRoutes= require('./routes/auth');
 const courseRoutes = require('./routes/courses');
 app.use('/api/courses', courseRoutes);
 
+const assignmentRoutes = require('./routes/assignments');
+app.use('/api/assignments', assignmentRoutes);
+
 //When the server receives a request, it reads the JSON contained within it
 app.use(express.json());
 app.use('/api/auth', authRoutes);

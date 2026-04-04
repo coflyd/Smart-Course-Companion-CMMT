@@ -62,6 +62,11 @@ async function handleSubmit() {
     const email = document.getElementById('input-email').value;
     const password = document.getElementById('input-password').value;
 
+    if (!email || !password) {
+    alert('Please fill in all fields');
+    return;
+    }
+
     if (isLogin) {
         const response = await fetch('http://localhost:3000/api/auth/login', {
             method: 'POST',

@@ -61,10 +61,11 @@ async function handleSubmit() {
     const role = activeToggle ? activeToggle.textContent.trim().toLowerCase() : 'student';
     const email = document.getElementById('input-email').value;
     const password = document.getElementById('input-password').value;
+    const name = document.getElementById('input-name').value;
 
     if (!email || !password) {
-    alert('Please fill in all fields');
-    return;
+        alert('Please fill in all fields');
+        return;
     }
 
     if (isLogin) {
@@ -82,6 +83,19 @@ async function handleSubmit() {
             } else {
                 window.location.href = '../HTML/student-dashboard.html';
             }
+        } else {
+            alert(data.error);
+        }
+    } else {
+        const response = await fetch('http://localhost:3000/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, role })
+        });
+        const data = await response.json();
+        if (data.message) {
+            alert('Account created! Please login.');
+            switchTab('login');
         } else {
             alert(data.error);
         }

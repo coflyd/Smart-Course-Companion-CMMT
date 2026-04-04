@@ -17,6 +17,9 @@ const courseRoutes = require('./routes/courses');
 const assignmentRoutes = require('./routes/assignments');
 const gradesRoutes = require('./routes/grades');
 
+const cors = require('cors');
+app.use(cors());
+
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/assignments', assignmentRoutes);

@@ -10,6 +10,7 @@ const db = require('../db');
 
 const jwt = require('jsonwebtoken');
 
+//REGISTER 
 router.post('/register', async (req, res) => {
     const { name, email, password, role } = req.body; 
 
@@ -24,6 +25,7 @@ router.post('/register', async (req, res) => {
 
 });
 
+//LOGIN
 router.post('/login', async (req, res) => {
     const { email, password } = req.body; 
 

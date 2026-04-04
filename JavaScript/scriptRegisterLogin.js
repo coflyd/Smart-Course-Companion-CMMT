@@ -54,14 +54,31 @@ function switchToggle(role) {
     }
   }
 
-
-function handleSubmit() {
+async function handleSubmit() {
+    const activeTab = document.querySelector('.tab.active');
+    const isLogin = activeTab.textContent.trim() === 'Login';
     const activeToggle = document.querySelector('.toggle.active');
-    const role = activeToggle ? activeToggle.textContent.trim() : 'Student';
-    if (role === 'Instructor') {
-        window.location.href = '../HTML/InstructorDashboard.html';
-    } else {
-        window.location.href = '../HTML/student-ui.html';
+    const role = activeToggle ? activeToggle.textContent.trim().toLowerCase() : 'student';
+    const email = document.getElementById('input-email').value;
+    const password = document.getElementById('input-password').value;
+
+    if (isLogin) {
+        const response = await fetch('http://localhost:3000/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        const data = await response.json();
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('role', data.role);
+            if (data.role === 'instructor') {
+                window.location.href = '../HTML/InstructorDashboard.html';
+            } else {
+                window.location.href = '../HTML/student-dashboard.html';
+            }
+        } else {
+            alert(data.error);
+        }
     }
 }
-

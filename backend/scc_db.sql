@@ -170,18 +170,18 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'Cat Catington', 'meow@test.com', '1234', 'instructor', '2026-04-03 01:48:00'),
-(2, 'Dog Dosky', 'woof@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(3, 'Chicken Chikinian', 'cluck@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(4, 'Emma Marshall', 'emma@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(5, 'Bruce Wayne', 'iambatman@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(6, 'Spider Man', 'peterwho@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(7, 'Bla Bla', 'blabla@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(8, 'Ranoutta Ideas', 'idkman@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(9, 'King Kong', 'gorrila@test.com', '1234', 'student', '2026-04-03 01:48:00'),
-(10, 'Snow White', 'poisonapple@test.com', '1234', 'student', '2026-04-03 01:48:00');
 
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
+(1, 'Cat Catington', 'meow@test.com', 'azerty456', 'instructor', '2026-04-03 01:48:00'),
+(2, 'Dog Dosky', 'woof@test.com', 'qwerty123', 'student', '2026-04-03 01:48:00'),
+(3, 'Chicken Chikinian', 'cluck@test.com', 'abc123', 'student', '2026-04-03 01:48:00'),
+(4, 'Emma Marshall', 'emma@test.com', 'xyz789', 'student', '2026-04-03 01:48:00'),
+(5, 'Bruce Wayne', 'iambatman@test.com', 'passcode456', 'student', '2026-04-03 01:48:00'),
+(6, 'Spider Man', 'peterwho@test.com', 'password123', 'student', '2026-04-03 01:48:00'),
+(7, 'Bla Bla', 'blabla@test.com', 'montreal123', 'student', '2026-04-03 01:48:00'),
+(8, 'Ranoutta Ideas', 'idkman@test.com', 'concordia456', 'student', '2026-04-03 01:48:00'),
+(9, 'King Kong', 'gorrila@test.com', 'simple321', 'student', '2026-04-03 01:48:00'),
+(10, 'Snow White', 'poisonapple@test.com', 'easylogin123', 'student', '2026-04-03 01:48:00');
 --
 -- Indexes for dumped tables
 --

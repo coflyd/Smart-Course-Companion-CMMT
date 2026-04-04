@@ -9,6 +9,9 @@ const app = express(); // application serveur
 const PORT = 3000; //port
 const db = require('./db');
 
+const cors = require('cors');
+app.use(cors());
+
 //When the server receives a request, it reads the JSON contained within it
 app.use(express.json());
 
@@ -16,9 +19,6 @@ const authRoutes = require('./routes/auth');
 const courseRoutes = require('./routes/courses');
 const assignmentRoutes = require('./routes/assignments');
 const gradesRoutes = require('./routes/grades');
-
-const cors = require('cors');
-app.use(cors());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);

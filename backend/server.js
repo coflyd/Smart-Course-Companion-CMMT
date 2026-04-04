@@ -11,7 +11,11 @@ const express = require('express'); // import the librairy Express
 const app = express(); // application serveur
 PORT = 3000; //port
 
+//When the server receives a request, it reads the JSON contained within it
+app.use(express.json());
+
 const authRoutes= require('./routes/auth'); 
+app.use('/api/auth', authRoutes);
 
 //Courses
 const courseRoutes = require('./routes/courses');
@@ -25,9 +29,6 @@ app.use('/api/assignments', assignmentRoutes);
 const gradesRoutes = require('./routes/grades');
 app.use('/api/grades', gradesRoutes);
 
-//When the server receives a request, it reads the JSON contained within it
-app.use(express.json());
-app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => { //route (request, response)
     res.json({ message: 'Server is awake' });

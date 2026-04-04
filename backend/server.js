@@ -13,6 +13,9 @@ PORT = 3000; //port
 
 const authRoutes= require('./routes/auth'); 
 
+const courseRoutes = require('./routes/courses');
+app.use('/api/courses', courseRoutes);
+
 //When the server receives a request, it reads the JSON contained within it
 app.use(express.json());
 app.use('/api/auth', authRoutes);

@@ -3,9 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2026 at 03:53 AM
+-- Generation Time: Apr 05, 2026 at 07:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
+
+-- Maelys Hounkponou(40323380) & Thushika Thavarajah (27516126) 
+-- Creation of DATABASE, tables: user, assessments, courses, enrollments, grades
+-- 10 mock users created with passwords hashed using bcrypt
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -170,18 +175,18 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'Cat Catington', 'meow@test.com', 'azerty456', 'instructor', '2026-04-03 01:48:00'),
-(2, 'Dog Dosky', 'woof@test.com', 'qwerty123', 'student', '2026-04-03 01:48:00'),
-(3, 'Chicken Chikinian', 'cluck@test.com', 'abc123', 'student', '2026-04-03 01:48:00'),
-(4, 'Emma Marshall', 'emma@test.com', 'xyz789', 'student', '2026-04-03 01:48:00'),
-(5, 'Bruce Wayne', 'iambatman@test.com', 'passcode456', 'student', '2026-04-03 01:48:00'),
-(6, 'Spider Man', 'peterwho@test.com', 'password123', 'student', '2026-04-03 01:48:00'),
-(7, 'Bla Bla', 'blabla@test.com', 'montreal123', 'student', '2026-04-03 01:48:00'),
-(8, 'Ranoutta Ideas', 'idkman@test.com', 'concordia456', 'student', '2026-04-03 01:48:00'),
-(9, 'King Kong', 'gorrila@test.com', 'simple321', 'student', '2026-04-03 01:48:00'),
-(10, 'Snow White', 'poisonapple@test.com', 'easylogin123', 'student', '2026-04-03 01:48:00');
+(1, 'Cat Catington', 'meow@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'instructor', '2026-04-03 01:48:00'),
+(2, 'Dog Dosky', 'woof@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(3, 'Chicken Chikinian', 'cluck@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(4, 'Emma Marshall', 'emma@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(5, 'Bruce Wayne', 'iambatman@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(6, 'Spider Man', 'peterwho@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(7, 'Bla Bla', 'blabla@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(8, 'Ranoutta Ideas', 'idkman@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(9, 'King Kong', 'gorrila@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00'),
+(10, 'Snow White', 'poisonapple@test.com', '$2b$10$hBsW.KDDqJcv5HTCP6Pt/uZ.2//OekYfh5Xq7zY1jXgIVa8O7Ytp6', 'student', '2026-04-03 01:48:00');
+
 --
 -- Indexes for dumped tables
 --

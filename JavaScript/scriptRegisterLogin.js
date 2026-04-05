@@ -12,9 +12,9 @@ function switchTab(tab) {
     });
 
   // fields Sign Up
-  const fieldName    = document.getElementById('field-name');
+  const fieldName = document.getElementById('field-name');
   const fieldConfirm = document.getElementById('field-confirm');
-  const submitBtn    = document.getElementById('submit-btn');
+  const submitBtn = document.getElementById('submit-btn');
 
   if (tab === 'login') {
     // Activate the Login tab button
@@ -69,7 +69,7 @@ async function handleSubmit() {
     }
 
     if (isLogin) {
-        const response = await fetch('http://localhost:3000/api/auth/login', {
+        const response = await fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -87,7 +87,7 @@ async function handleSubmit() {
             alert(data.error);
         }
     } else {
-        const response = await fetch('http://localhost:3000/api/auth/register', {
+        const response = await fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password, role })

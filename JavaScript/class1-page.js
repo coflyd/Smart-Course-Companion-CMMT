@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const name = params.get('name');
 
     if (code) document.querySelector('#course-title-row h2').textContent = code;
-    if (name) document.querySelector('#course-title-row p').textContent = decodeURIComponent(name);
-
+    const instructor = params.get('instructor');
+    if (instructor) document.querySelector('#course-title-row p:last-child').textContent = 'Instructor : ' + decodeURIComponent(instructor);
+    
     if (!code) return;
 
     await loadCourseData(token, code);

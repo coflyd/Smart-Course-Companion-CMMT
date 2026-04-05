@@ -1,15 +1,19 @@
 /*
 SMART COURSE COMPANION — server.js
 Auteur : Constance Fleury - 40348933
-Description : Creation of the server : Port 3000 → serveur Node.js
+Description : Creation of the server
 */
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const db = require('./db');
 
-app.use(cors());
+app.use(cors({
+    origin: ['https://smart-course-companion-cmmt.vercel.app', 'http://localhost:3000'],
+    credentials: true
+}));
+
 app.use(express.json());
 
 const authRoutes = require('./routes/auth');

@@ -1,3 +1,8 @@
+/*  ======================================
+SMART COURSE COMPANION — upcoming-assignment.js
+Auteur : Constance Fleury
+========================================  */
+
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('token');
 

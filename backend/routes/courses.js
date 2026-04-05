@@ -28,4 +28,23 @@ router.post('/', protect, async (req, res) => {
     res.status(201).json({ message: 'Course created' });
 });
 
+router.post('/enroll', protect, async (req, res) => {
+    const { course_code, title, instructor_name, term } = req.body;
+    const { id } = req.user;
+    
+    // Create the class if it doesn't exist
+    await db.query(
+        'INSERT IGNORE INTO courses (course_code, title, term, instructor_name) VALUES (?, ?, ?, ?)',
+        [course_code, title, term, instructor_name]
+    );
+    
+    // Enrollement of the student
+    await db.query(
+        'INSERT IGNORE INTO enrollment (course_code, student_id) VALUES (?, ?)',
+        [course_code, id]
+    );
+    
+    res.status(201).json({ message: 'Enrolled successfully' });
+});
+
 module.exports = router;

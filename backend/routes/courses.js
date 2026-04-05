@@ -47,4 +47,23 @@ router.post('/enroll', protect, async (req, res) => {
     res.status(201).json({ message: 'Enrolled successfully' });
 });
 
+// DELETE enrollment
+router.delete('/enroll/:course_code', protect, async (req, res) => {
+    const { course_code } = req.params;
+    const { id } = req.user;
+    await db.query('DELETE FROM enrollment WHERE course_code = ? AND student_id = ?', [course_code, id]);
+    res.status(200).json({ message: 'Course removed' });
+});
+
+// PUT edit course
+router.put('/:course_code', protect, async (req, res) => {
+    const { course_code } = req.params;
+    const { title, instructor_name, term } = req.body;
+    await db.query(
+        'UPDATE courses SET title = ?, instructor_name = ?, term = ? WHERE course_code = ?',
+        [title, instructor_name, term, course_code]
+    );
+    res.status(200).json({ message: 'Course updated' });
+});
+
 module.exports = router;

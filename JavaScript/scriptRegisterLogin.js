@@ -79,9 +79,9 @@ async function handleSubmit() {
             localStorage.setItem('token', data.token);
             localStorage.setItem('role', data.role);
             if (data.role === 'instructor') {
-                window.location.href = '../HTML/InstructorDashboard.html';
+                window.location.href = '/HTML/InstructorDashboard.html';
             } else {
-                window.location.href = '../HTML/student-dashboard.html';
+                window.location.href = '/HTML/student-dashboard.html';
             }
         } else {
             alert(data.error);

@@ -69,7 +69,7 @@ async function loadCourses() {
 
         courses.forEach(course => {
             coursesDiv.innerHTML += `
-                <a href="class1-page.html?code=${course.course_code}&name=${encodeURIComponent(course.title)}" class="link">
+                <a href="class1-page.html?code=${course.course_code}&name=${encodeURIComponent(course.title)}&instructor=${encodeURIComponent(course.instructor_name)}" class="link">
                 <section class="course-item">
                     <img src="../data/SCC Logo.PNG">
                     <h4>${course.course_code}</h4>

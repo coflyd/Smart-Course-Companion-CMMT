@@ -81,7 +81,7 @@ async function handleSubmit() {
             if (data.role === 'instructor') {
                 window.location.href = '/HTML/InstructorDashboard.html';
             } else {
-                window.location.href = '/HTML/student-dashboard.html';
+                window.location.href = '/HTML/student-ui.html';
             }
         } else {
             alert(data.error);

@@ -1,5 +1,5 @@
 /*  ======================================
-SMART COURSE COMPANION — upcoming-assignment.js
+SMART COURSE COMPANION — student-dashboard.js
 Auteur : Constance Fleury
 ========================================  */
 

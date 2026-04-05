@@ -3,6 +3,9 @@ SMART COURSE COMPANION — upcoming-assignment.js
 Auteur : Constance Fleury
 ========================================  */
 
+const API = 'https://smart-course-companion-cmmt-production.up.railway.app';
+let allAssignments = [];
+
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -14,33 +17,65 @@ document.addEventListener('DOMContentLoaded', async () => {
     const userNameEl = document.querySelector('.userinfo-text strong');
     if (userNameEl) userNameEl.textContent = payload.name;
 
+    await loadAssignments(token);
+
+    // Formulaire Add Grade & Status
+    const gradeForm = document.getElementById('grade-form');
+    if (gradeForm) {
+        gradeForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const select = document.getElementById('assignment-select');
+            const assessments_id = select.value;
+            const total_marks = select.options[select.selectedIndex]?.dataset.total;
+            const earned_marks = document.getElementById('earned').value;
+            const status = document.getElementById('status').value;
+
+            if (!assessments_id || !earned_marks) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            await saveGrade(token, assessments_id, status, earned_marks, total_marks);
+            alert('Grade saved!');
+            gradeForm.reset();
+            await loadAssignments(token);
+        });
+    }
+});
+
+async function loadAssignments(token) {
     try {
         const [assignmentsRes, gradesRes] = await Promise.all([
-            fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/assignments/upcoming', {
+            fetch(`${API}/api/assignments/upcoming`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             }),
-            fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/grades/me', {
+            fetch(`${API}/api/grades/me`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
         ]);
 
-        const assignments = await assignmentsRes.json();
+        allAssignments = await assignmentsRes.json();
         const grades = await gradesRes.json();
 
+        // Remplir le dropdown du formulaire
+        const select = document.getElementById('assignment-select');
+        if (select) {
+            select.innerHTML = '<option value="">Select an assignment...</option>';
+            allAssignments.forEach(a => {
+                select.innerHTML += `<option value="${a.id}" data-total="${a.total_points}">${a.course_code} — ${a.assessment_title}</option>`;
+            });
+        }
+
+        // Remplir le tableau
         const tbody = document.querySelector('tbody');
         tbody.innerHTML = '';
 
-        assignments.forEach(a => {
+        allAssignments.forEach(a => {
             const dueDate = a.due_date ? new Date(a.due_date).toLocaleDateString() : 'N/A';
             const existingGrade = grades.find(g => g.assessments_id === a.id);
             const currentStatus = existingGrade ? existingGrade.status : 'pending';
             const currentGrade = existingGrade ? existingGrade.earned_marks : 0;
-
-            const statusMap = {
-                'pending': '1',
-                'ongoing': '2',
-                'completed': '3'
-            };
 
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -54,42 +89,38 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <option value="completed" ${currentStatus === 'completed' ? 'selected' : ''}>COMPLETED!</option>
                     </select>
                 </td>
-                <td data-cell="grade"><input type="number" value="${currentGrade}" data-id="${a.id}" data-total="${a.total_points}" class="grade-input" min="0" max="${a.total_points}"></td>
+                <td data-cell="grade">
+                    <input type="number" value="${currentGrade}" data-id="${a.id}" data-total="${a.total_points}" class="grade-input" min="0" max="${a.total_points}">
+                </td>
                 <td data-cell="weight">${a.weight}%</td>
             `;
             tbody.appendChild(row);
         });
 
-        // Save on status change
-        document.querySelectorAll('.status-select').forEach(select => {
-            select.addEventListener('change', async () => {
-                const id = select.dataset.id;
-                const total = select.dataset.total;
-                const gradeInput = document.querySelector(`.grade-input[data-id="${id}"]`);
-                const earned = gradeInput ? gradeInput.value : 0;
-                await saveGrade(token, id, select.value, earned, total);
+        // Sauvegarder quand status change
+        document.querySelectorAll('.status-select').forEach(sel => {
+            sel.addEventListener('change', async () => {
+                const gradeInput = document.querySelector(`.grade-input[data-id="${sel.dataset.id}"]`);
+                await saveGrade(token, sel.dataset.id, sel.value, gradeInput?.value || 0, sel.dataset.total);
             });
         });
 
-        // Save on grade input
+        // Sauvegarder quand note change
         document.querySelectorAll('.grade-input').forEach(input => {
             input.addEventListener('change', async () => {
-                const id = input.dataset.id;
-                const total = input.dataset.total;
-                const statusSelect = document.querySelector(`.status-select[data-id="${id}"]`);
-                const status = statusSelect ? statusSelect.value : 'pending';
-                await saveGrade(token, id, status, input.value, total);
+                const statusSel = document.querySelector(`.status-select[data-id="${input.dataset.id}"]`);
+                await saveGrade(token, input.dataset.id, statusSel?.value || 'pending', input.value, input.dataset.total);
             });
         });
 
     } catch (err) {
         console.error('Error loading assignments:', err);
     }
-});
+}
 
 async function saveGrade(token, assessments_id, status, earned_marks, total_marks) {
     try {
-        await fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/grades', {
+        await fetch(`${API}/api/grades`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -106,4 +137,3 @@ async function saveGrade(token, assessments_id, status, earned_marks, total_mark
         console.error('Error saving grade:', err);
     }
 }
-

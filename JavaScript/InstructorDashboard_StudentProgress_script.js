@@ -75,6 +75,81 @@ async function loadAssignments(course_code) {
     }
 }
 
+async function loadCourseStats(course_code) {
+    if (!course_code) return;
+    try {
+        const response = await fetch(`https://smart-course-companion-cmmt-production.up.railway.app/api/grades/course-stats/${course_code}`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const stats = await response.json();
+
+        // Update Overview stats
+        const enrolledEl = document.querySelector('.stats-card strong');
+        if (enrolledEl) enrolledEl.textContent = stats.enrolled;
+
+        const avgEl = document.querySelectorAll('.stats-card strong')[1];
+        if (avgEl) avgEl.textContent = stats.class_average + '%';
+
+        // Update completion breakdown
+        const breakdownCard = document.querySelector('.breakdown-card');
+        if (breakdownCard && stats.assessments.length > 0) {
+            const totalStudents = stats.enrolled;
+            let breakdownHTML = '<h3>Completion Breakdown by Assignment</h3>';
+            stats.assessments.forEach(a => {
+                const pct = totalStudents > 0 ? Math.round((a.completed_count / totalStudents) * 100) : 0;
+                const color = pct === 100 ? '#10b981' : '#4a6fa5';
+                breakdownHTML += `
+                    <div class="assessment-item">
+                        <div class="assessment-label">
+                            <span>${a.assessment_title}</span>
+                            <span class="count">${a.completed_count} / ${totalStudents} students (${pct}%)</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width:${pct}%; background-color:${color};"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            breakdownCard.innerHTML = breakdownHTML;
+        }
+
+        // Update Student Progress section
+        const progressSection = document.getElementById('section-progress');
+        if (progressSection && stats.assessments.length > 0) {
+            const totalStudents = stats.enrolled;
+            let progressHTML = '<h3 style="margin-bottom:16px;">Completion by Assessment</h3>';
+            stats.assessments.forEach(a => {
+                const pct = totalStudents > 0 ? Math.round((a.completed_count / totalStudents) * 100) : 0;
+                const notCompleted = totalStudents - a.completed_count;
+                progressHTML += `
+                    <div class="assessment-card">
+                        <strong>${a.assessment_title}</strong>
+                        <div class="card-stats-grid">
+                            <div class="stat-item">
+                                <small>COMPLETED</small>
+                                <div><strong>${a.completed_count}</strong>/${totalStudents}</div>
+                                <small>${pct}% of class</small>
+                            </div>
+                            <div class="stat-item">
+                                <small>NOT SUBMITTED</small>
+                                <div><strong>${notCompleted}</strong>/${totalStudents}</div>
+                                <small>${100 - pct}% of class</small>
+                            </div>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width:${pct}%;"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            progressSection.innerHTML = progressHTML;
+        }
+
+    } catch (err) {
+        console.error('Error loading course stats:', err);
+    }
+}
+
 if (addCourseForm) {
     addCourseForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -119,7 +194,10 @@ window.addEventListener('load', () => {
     if (codeTitle && code) codeTitle.textContent = code.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
     if (nameTitle && name) nameTitle.textContent = decodeURIComponent(name);
 
-    if (code) loadAssignments(code);
+    if (code) {
+        loadAssignments(code);
+        loadCourseStats(code);
+    }
 
     const courseTabs = document.querySelectorAll('.course-tab');
     courseTabs.forEach(tab => {
@@ -184,6 +262,7 @@ window.addEventListener('load', () => {
                     document.getElementById('weight').value = '';
                     document.getElementById('points').value = '';
                     loadAssignments(course_code);
+                    loadCourseStats(course_code);
                 }
             } catch (err) {
                 console.error('Error adding assignment:', err);

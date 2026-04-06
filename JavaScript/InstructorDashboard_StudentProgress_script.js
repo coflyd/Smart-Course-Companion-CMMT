@@ -204,7 +204,8 @@ window.addEventListener('load', () => {
         tab.addEventListener('click', () => {
             const tabText = tab.innerText.trim();
             if (tabText === 'Course Settings') {
-                window.location.href = `../HTML/courseSettings.html?code=${code}&name=${name}`;
+                const p = new URLSearchParams(window.location.search);
+                window.location.href = `../HTML/courseSettings.html?code=${p.get('code')}&name=${p.get('name')}`;
                 return;
             }
             courseTabs.forEach(t => t.classList.remove('course-tab-active'));

@@ -2,12 +2,14 @@
 
 **Web site** : https://smart-course-companion-cmmt.vercel.app/HTML/registerLogin.html
 
+Team Discussion Sheet (First Deliverable): 
+https://docs.google.com/document/u/0/d/18D4_PVTL-zzVm3H-bYVKFqxfu_yG3l4zQ080MT83gdQ/mobilebasic
+
+Team Discussion Sheet (Second Deliverable): 
+https://docs.google.com/document/d/1xZl5TTcIz4-ZJ4tQpDopqS61ZcXXRXfgjyQwApDdv5g/edit?tab=t.hlv7f675hd8c
+
 Prototype: 
 https://docs.google.com/presentation/d/1831EBKL1sH7Lxst371tOx3bPFt3l9v5ap3rTSeYvCLo/mobilepresent?slide=id.p34
-
-
-Team Discussion Sheet: 
-https://docs.google.com/document/u/0/d/18D4_PVTL-zzVm3H-bYVKFqxfu_yG3l4zQ080MT83gdQ/mobilebasic
 
 
 Here's a synthesized English version of the project:
@@ -59,10 +61,3 @@ Technical/Implementation Notes
    7. The system must be web-based and responsive
    8. Clear project structure and modular design are expected
    9. You can use any library/framework you want.
-  
-       
-Bonus (with deliverable 2)
-1. GPA estimation across all courses.
-2. Export grades to PDF or CSV.
-3. Deadline reminders via email.
-4. Dark/light mode support.

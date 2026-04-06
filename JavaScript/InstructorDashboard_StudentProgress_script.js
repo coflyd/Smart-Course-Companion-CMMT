@@ -23,15 +23,12 @@ function closePopUp() {
 async function loadCourses() {
     const courseGrid = document.querySelector('.course-grid');
     if (!courseGrid) return;
-
     try {
         const response = await fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/courses', {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const courses = await response.json();
-
         courseGrid.innerHTML = '';
-
         courses.forEach(course => {
             courseGrid.innerHTML += `
                 <div class="course-card" onclick="location.href='../HTML/CourseOverview-templateA.html?code=${course.course_code}&name=${encodeURIComponent(course.title)}'">
@@ -48,6 +45,33 @@ async function loadCourses() {
         });
     } catch (err) {
         console.error('Error loading courses:', err);
+    }
+}
+
+async function loadAssignments(course_code) {
+    if (!course_code) return;
+    try {
+        const response = await fetch(`https://smart-course-companion-cmmt-production.up.railway.app/api/assignments/${course_code}`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const assignments = await response.json();
+        const tbody = document.getElementById('assignmentTable');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+        assignments.forEach(a => {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${a.assessment_title}</td>
+                    <td>${new Date(a.due_date).toLocaleDateString()}</td>
+                    <td>${a.weight}%</td>
+                    <td>${a.total_points}</td>
+                    <td>-</td>
+                    <td><button class="delete-btn" onclick="this.closest('tr').remove()">Delete</button></td>
+                </tr>
+            `;
+        });
+    } catch (err) {
+        console.error('Error loading assignments:', err);
     }
 }
 
@@ -86,15 +110,16 @@ if (addCourseForm) {
 window.addEventListener('load', () => {
     loadCourses();
 
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const name = params.get('name');
+
     const codeTitle = document.getElementById('course-code-title');
     const nameTitle = document.getElementById('course-name-title');
-    if (codeTitle) {
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get('code');
-        const name = params.get('name');
-        if (code) codeTitle.textContent = code.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
-        if (name) nameTitle.textContent = decodeURIComponent(name);
-    }
+    if (codeTitle && code) codeTitle.textContent = code.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
+    if (nameTitle && name) nameTitle.textContent = decodeURIComponent(name);
+
+    if (code) loadAssignments(code);
 
     const courseTabs = document.querySelectorAll('.course-tab');
     courseTabs.forEach(tab => {
@@ -123,30 +148,46 @@ window.addEventListener('load', () => {
 
     const addAssignmentBtn = document.getElementById('addAssignmentBtn');
     if (addAssignmentBtn) {
-        addAssignmentBtn.addEventListener('click', () => {
+        addAssignmentBtn.addEventListener('click', async () => {
+            const course_code = new URLSearchParams(window.location.search).get('code');
             const title = document.getElementById('title').value;
             const dueDate = document.getElementById('dueDate').value;
             const weight = document.getElementById('weight').value;
             const points = document.getElementById('points').value;
+
             if (!title || !dueDate || !weight || !points) {
                 alert("Please fill out all fields.");
                 return;
             }
-            const tableBody = document.getElementById('assignmentTable');
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${title}</td>
-                <td>${dueDate}</td>
-                <td>${weight}%</td>
-                <td>${points}</td>
-                <td>0/100</td>
-                <td><button class="delete-btn" onclick="this.closest('tr').remove()">Delete</button></td>
-            `;
-            tableBody.appendChild(row);
-            document.getElementById('title').value = '';
-            document.getElementById('dueDate').value = '';
-            document.getElementById('weight').value = '';
-            document.getElementById('points').value = '';
+
+            try {
+                const response = await fetch('https://smart-course-companion-cmmt-production.up.railway.app/api/assignments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        course_code,
+                        assessment_title: title,
+                        category: 'assignment',
+                        due_date: dueDate,
+                        weight: parseFloat(weight),
+                        total_points: parseFloat(points)
+                    })
+                });
+                const data = await response.json();
+                if (data.message) {
+                    alert('Assignment added!');
+                    document.getElementById('title').value = '';
+                    document.getElementById('dueDate').value = '';
+                    document.getElementById('weight').value = '';
+                    document.getElementById('points').value = '';
+                    loadAssignments(course_code);
+                }
+            } catch (err) {
+                console.error('Error adding assignment:', err);
+            }
         });
     }
 });

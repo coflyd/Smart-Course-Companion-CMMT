@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             barsContainer.innerHTML += `
                 <div class="bar-group">
                     <div class="bar-pair">
-                        <div style="height: ${pct}%;" role="img" aria-label="${code} student: ${pct}"></div>
+                        <div class="bar student" style="height: ${pct}%; background-color: #4a6fa5; width: 30px;" role="img" aria-label="${code} student: ${pct}"></div>
                     </div>
                 </div>
             `;

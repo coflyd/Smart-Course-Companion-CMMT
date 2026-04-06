@@ -5,7 +5,7 @@ const protect = require('../middleware/auth');
 
 router.get('/upcoming', protect, async (req, res) => {
     const { id } = req.user;
-    const sql = `SELECT assessments.*, courses.title as course_title
+    const sql = `SELECT assessments.*
                  FROM assessments
                  JOIN enrollment ON assessments.course_code = enrollment.course_code
                  WHERE enrollment.student_id = ?

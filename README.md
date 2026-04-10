@@ -27,8 +27,7 @@ The system should also provide instructors/administrators with basic tools to ma
 
 **Core Challenge**: Bridge the gap between generic LMS functionality and personalized student academic planning needs.
 
-
-**REQUIRED FEATURES**
+**FEATURES**
 
 //StudentHomePage
 1. Create and manage a personal account
@@ -49,7 +48,6 @@ The system should also provide instructors/administrators with basic tools to ma
 5. assessments, which could be useful for monitoring progress and considering deadline
 extensions.)
 6. Enable or disable courses.
-
 
 Technical/Implementation Notes
    1. Authentication is required for all users
